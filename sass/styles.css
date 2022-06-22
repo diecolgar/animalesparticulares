@@ -1,0 +1,347 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap");
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6b6b6b;
+}
+
+body {
+  overflow-y: hidden;
+}
+
+nav {
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 100vw;
+  height: 7vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 500;
+}
+
+nav .logo {
+  cursor: pointer;
+}
+
+nav .navigation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  cursor: pointer;
+}
+
+nav .navigation div {
+  margin-left: 1vw;
+}
+
+.landing {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(123deg, rgba(60, 141, 226, 0.2) 12%, rgba(0, 176, 94, 0.2) 100%), url(../images/pradera.webp);
+  background-size: cover;
+}
+
+.landing .title {
+  font-size: 7vh;
+  color: white;
+  margin-top: 35vh;
+}
+
+.landing .description {
+  font-size: 2.3vh;
+  color: rgba(255, 255, 255, 0.575);
+  margin-bottom: 4vh;
+}
+
+.landing .searcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  opacity: 0.8;
+}
+
+.landing .searcher .selectable {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin: 0 0.5rem;
+  width: 14rem;
+  height: 3.2rem;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.landing .searcher .selectable p {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: black;
+}
+
+.landing .searcher .selectable .chosen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 1rem;
+}
+
+.landing .searcher .selectable .flechaseleccion {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.landing .searcher .selectable .flechaseleccion .bar {
+  background-color: black;
+  width: 10px;
+  height: 2px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.landing .searcher .selectable .flechaseleccion .bar.a {
+  -webkit-transform: translateX(4px) rotate(45deg);
+          transform: translateX(4px) rotate(45deg);
+}
+
+.landing .searcher .selectable .flechaseleccion .bar.b {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.landing .searcher .selectable.displayed .flechaseleccion .bar.a {
+  -webkit-transform: translateX(4px) rotate(-45deg);
+          transform: translateX(4px) rotate(-45deg);
+}
+
+.landing .searcher .selectable.displayed .flechaseleccion .bar.b {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.landing .searcher .selectable.especie:hover {
+  cursor: pointer;
+}
+
+.landing .searcher .selectable.raza {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.landing .searcher .selectable.raza.clickable {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.landing .searcher .selectable.raza.clickable:hover {
+  cursor: pointer;
+}
+
+.landing .searcher .gosearch {
+  width: 3.2rem;
+  height: 3.2rem;
+  background-color: white;
+  margin: 0 0.5rem;
+  border-radius: 10px;
+  opacity: 0.4;
+}
+
+.landing .searcher .gosearch svg {
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.landing .searcher .gosearch:hover svg {
+  -webkit-transform: rotateZ(-10deg);
+          transform: rotateZ(-10deg);
+}
+
+.landing .options {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.landing .options .options-especie {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 12.7rem;
+  width: 16rem;
+  visibility: hidden;
+  margin: 1rem 0.5rem;
+  opacity: 0.8;
+}
+
+.landing .options .options-especie.displayed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.landing .options .options-especie.displayed div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 2rem;
+}
+
+.landing .options .options-especie.displayed div div {
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 0.5rem;
+}
+
+.landing .options .options-especie.displayed div:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.landing .options .options-raza {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 12.7rem;
+  width: 16rem;
+  margin: 1rem 0.5rem;
+  visibility: hidden;
+  background-color: white;
+  border-radius: 10px;
+  opacity: 0.8;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.landing .options .options-raza.displayed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.landing .options .options-raza .option {
+  width: 100%;
+  height: 8rem !important;
+  padding: 1rem 1rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.landing .options .options-raza .option:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
+.landing .options .search-analog-blankspace {
+  margin: 1rem 0.5rem;
+  width: 3.2rem;
+  height: 3.2rem;
+}
+
+.perroicono {
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+  background-image: url("/images/dog.png");
+}
+
+.gatosicono {
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+  background-image: url("/images/cat.png");
+}
+
+.caballosicono {
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+  background-image: url("/images/horse.png");
+}
+
+.gallinasicono {
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+  background-image: url("/images/gallina.png");
+}
+
+body {
+  background-color: black;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+}
+/*# sourceMappingURL=styles.css.map */

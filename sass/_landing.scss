@@ -1,0 +1,210 @@
+.landing {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+	width: 100vw;
+	height: 100vh;
+    background: linear-gradient(123deg, rgba(60,141,226,0.2) 12%, rgba(0,176,94,0.2) 100%),url(../images/pradera.webp);
+	background-size: cover;
+    .title {
+        font-size: 7vh;
+        color: white;
+        margin-top: 35vh;
+    }
+    .description {
+        font-size: 2.3vh;
+        color: rgba(255, 255, 255, 0.575);  
+        margin-bottom: 4vh;
+    }
+    .searcher {
+        display: flex;
+        opacity: 0.8;        
+        .selectable {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin: 0 0.5rem;
+            width: 14rem;
+            height: 3.2rem;
+            background-color: white;
+            border-radius: 10px;
+            p {
+                display: flex;
+                align-items: center;
+                color: rgb(0, 0, 0);
+            }
+            .chosen {
+                display: flex;
+                margin-left: 1rem;
+            }
+            .flechaseleccion {
+                display: flex;
+                .bar {
+                    background-color: black;
+                    width: 10px;
+                    height: 2px;
+                    transition: 0.2s;
+                    &.a {
+                        transform: translateX(4px) rotate(45deg);
+                    }
+                    &.b {
+                        transform: rotate(-45deg);
+                    }
+                }
+            }
+            &.displayed {
+                .flechaseleccion {
+                    .bar {
+                        &.a {
+                            transform: translateX(4px) rotate(-45deg);
+                        }
+                        &.b {
+                            transform: rotate(45deg);
+                        }
+                    } 
+                }
+            }
+            &.especie {
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            &.raza {
+                opacity: 0.4;
+                pointer-events: none;
+                &.clickable {
+                    opacity: 1;
+                    pointer-events: auto;
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+        .gosearch {
+            width: 3.2rem;
+            height: 3.2rem;
+            background-color: white;
+            margin: 0 0.5rem;
+            border-radius: 10px;
+            opacity: 0.4;
+            svg {
+                transition: 0.2s;
+            }
+            &:hover {
+                svg {
+                    transform: rotateZ(-10deg);
+                }
+            }
+        }
+    }
+    .options {
+        display: flex;
+        .options-especie {
+            display: flex;
+            flex-direction: column;
+            height: 12.7rem;
+            width: 16rem;
+            visibility: hidden;
+            margin: 1rem 0.5rem;
+            opacity: 0.8;        
+            &.displayed {
+                display: flex;
+                visibility: visible;
+                background-color: white;
+                border-radius: 10px;
+                div {
+                    display: flex;
+                    padding-left: 2rem;
+                    div {
+                        width: 2rem;
+                        height: 2rem;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        margin-top: 0.5rem;
+                    }
+                    &:hover {
+                        cursor: pointer;
+                        background-color: rgb(240, 240, 240);
+                        border-radius: 10px;
+                    }
+                }
+            }
+        }
+        .options-raza {
+            display: flex;
+            flex-direction: column;
+            height: 12.7rem;
+            width: 16rem;
+            margin: 1rem 0.5rem;
+            visibility: hidden;
+            background-color: white;
+            border-radius: 10px;
+            opacity: 0.8;
+            overflow-y: auto;
+            overflow-x: hidden;        
+            &.displayed {
+                display: flex;
+                visibility: visible;
+                background-color: white;
+                border-radius: 10px;
+            }
+            .option {
+                width: 100%;
+                height: 8rem !important;
+                padding: 1rem 1rem;
+                background-size: contain;
+                background-repeat: no-repeat;
+                &:hover {
+                    cursor: pointer;
+                    background-color: rgb(240, 240, 240);
+                }
+            }
+        }
+        .search-analog-blankspace {
+            margin: 1rem 0.5rem;
+            width: 3.2rem;
+            height: 3.2rem;
+        }
+    }
+}
+
+.perroicono {
+    width: 2rem;
+    height: 2rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 0.5rem;
+    padding-left: 2rem;
+    background-image: url("/images/dog.png");
+}
+.gatosicono {
+    width: 2rem;
+    height: 2rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 0.5rem;
+    padding-left: 2rem;
+    background-image: url("/images/cat.png");
+}
+.caballosicono {
+    width: 2rem;
+    height: 2rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 0.5rem;
+    padding-left: 2rem;
+    background-image: url("/images/horse.png");
+}
+.gallinasicono {
+    width: 2rem;
+    height: 2rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-top: 0.5rem;
+    padding-left: 2rem;
+    background-image: url("/images/gallina.png");
+}

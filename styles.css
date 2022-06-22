@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&family=Ubuntu:wght@300;400&display=swap");
+/* scrollbar */
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #131313;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: white;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #6b6b6b;
+}
+
+body {
+  background-color: black;
+}
+/*# sourceMappingURL=styles.css.map */
