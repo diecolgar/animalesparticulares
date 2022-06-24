@@ -2,9 +2,12 @@ const landingSelectableEspecie = document.querySelector(".selectable.especie")
 const landingSelectableRaza = document.querySelector(".selectable.raza")
 const landingOptionsEspecie = document.querySelector(".options-especie")
 const specificOptionEspecie = document.querySelectorAll(".options-especie .option")
-const chosenEspecieText = document.querySelector(".selectable .chosen p")
+// const specificOptionRaza = document.querySelectorAll(".options-raza .option")
+const chosenEspecieText = document.querySelector(".selectable.especie .chosen p")
+const chosenRazaText = document.querySelector(".selectable.raza p")
 const chosenEspecieImg = document.querySelector(".selectable .chosen .icon")
 const landingOptionsRaza = document.querySelector(".options-raza")
+const searchButton = document.querySelector(".gosearch")
 
 window.addEventListener('click', function(e){   
     if (landingSelectableEspecie.contains(e.target)){
@@ -35,8 +38,48 @@ specificOptionEspecie.forEach((especie, id) => {
         chosenEspecieImg.removeAttribute("class")
         chosenEspecieImg.classList.add(especie.children[0].className)
         chosenEspecieText.innerHTML = especie.children[1].innerHTML;
+        chosenRazaText.innerHTML = 'Selecciona una raza';
         landingSelectableRaza.classList.add("clickable")
-        landingSelectableEspecie.classList.toggle('displayed');
-        landingOptionsEspecie.classList.toggle('displayed');
+        fetchAnimals(chosenEspecieText.innerHTML)
     })
 })
+
+
+
+// Fetch and display razas-animales list from local txt...
+function fetchAnimals(especie) {
+  if (especie === 'Perros') {
+    var fetchData = 'perros_razas.txt'
+  } else if (especie === 'Gatos') {
+    var fetchData = 'gatos_razas.txt'
+  } else if (especie === 'Caballos') {
+    var fetchData = 'gatos_razas.txt'
+  } else {
+    var fetchData = 'cualquiera_razas.txt'
+  }
+  fetch(fetchData)
+  .then(response => response.text())
+  .then((response) => {
+
+      // First remove previous divs
+      while (document.querySelector(".options-raza").firstChild) {
+        document.querySelector(".options-raza").removeChild(document.querySelector(".options-raza").firstChild);
+      }
+      // Now create the rest
+      reducedWords = response.split('\n')
+      reducedWords.forEach(word => {
+        var newDiv = document.createElement("div");
+        newDiv.classList.add('option')
+        newDiv.textContent = word
+        document.querySelector(".options-raza").appendChild(newDiv)
+      })
+      var specificOptionRaza = document.querySelectorAll(".options-raza .option")
+      specificOptionRaza.forEach((raza, id) => {
+        raza.addEventListener('click', function() {
+            chosenRazaText.innerHTML = raza.innerHTML;
+            searchButton.classList.add("clickable")
+        })
+      })
+  })
+  .catch(err => console.log(err))
+}

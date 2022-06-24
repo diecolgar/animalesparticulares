@@ -4,21 +4,38 @@ body {
 
 nav {
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.1);
+    background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.5) 100%);
     width: 100vw;
     height: 7vh;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 500;
+    color: white;
+    font-weight: 500;
     .logo {
+        display: flex;
         cursor: pointer;
+        margin-top: 1rem;
+        .logoimage {
+            height: 5vh;
+            width: 5vh;
+            background-image: url(/images/logowhite.png);
+            background-size: cover;
+            margin-right: 0.5rem;
+        }
+        p {
+            font-size: 2.4rem;
+            margin: 0;
+        }
     }
     .navigation {
         display: flex;
         cursor: pointer;
+        margin-top: 1rem;
         div {
-            margin-left: 1vw;
+            margin-left: 2vw;
+            font-size: 1.2rem;
         }
     }
 }
