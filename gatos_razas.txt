@@ -1,61 +1,61 @@
 Cualquiera
 Mestizo
 Abisinio
-Americanshorthair
-Americanwirehair
-Angoraturco
-Azulruso
+American shorthair
+American wirehair
+Angora turco
+Azul ruso
 Balinés
 Bengalí
 Birmano
-Bobtailamericano
-Bobtailjaponés
+Bobtail americano
+Bobtail japonés
 Bombay
-BosquedeNoruega
-Britishlonghair
-Britishshorthair
+Bosque de Noruega
+British longhair
+British shorthair
 Burmilla
-Californiaspangled
-Californianrex
+California spangled
+Californian rex
 Cartujo
 Ceilán
 Chausie
-Comúneuropeo
-Cornishrex
-Curlamericano
+Común europeo
+Cornish rex
+Curl americano
 Cymric
-Devonrex
-DonSphynx
+Devon rex
+Don Sphynx
 Esfinge
-Exótico
-Germanrex
-Habanabrown
-Highlandfold
-Highlandstraight
+Exótico 
+German rex
+Habana brown
+Highland fold
+Highland straight
 Himalayo
 Javanés
-KhaoManee
+Khao Manee
 Korat
-MaineCoon
+Maine Coon
 Manx
-Mauegipcio
+Mau egipcio 
 Munchkin
 Nebelung
 Ocicat
 Oriental
 Persa
-Persachinchilla
+Persa chinchilla
 Peterbald
-Pixiebob
+Pixie bob
 Ragamuffin
 Ragdoll
 Safari
-SagradodeBirmania
+Sagrado de Birmania
 Savannah
-Scottishfold
-Selkirkrex
-Siamés
-Siamésthai
+Scottish fold
+Selkirk rex
+Siamés 
+Siamés thai
 Siberiano
 Singapura
 Snowshoe
@@ -64,6 +64,6 @@ Somalí
 Tiffany
 Tonkinés
 Toyger
-Vanturco
-Yorkchocolate
-Otra(espacioparadospalabras)
+Van turco
+York chocolate
+Otra (espacio para dos palabras) 

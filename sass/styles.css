@@ -74,7 +74,7 @@ nav .navigation {
 
 nav .navigation div {
   margin-left: 2vw;
-  font-size: 1.2rem;
+  font-size: 1rem;
 }
 
 .landing {
@@ -98,9 +98,9 @@ nav .navigation div {
 }
 
 .landing .title {
-  font-size: 7vh;
+  font-size: 10.2vh;
   color: white;
-  margin-top: 35vh;
+  margin-top: 40vh;
   text-shadow: 0 0 3rem #000000;
 }
 
@@ -187,6 +187,10 @@ nav .navigation div {
           transform: rotate(45deg);
 }
 
+.landing .searcher .selectable.zona:hover {
+  cursor: pointer;
+}
+
 .landing .searcher .selectable.especie:hover {
   cursor: pointer;
 }
@@ -235,6 +239,66 @@ nav .navigation div {
   display: flex;
 }
 
+.landing .options .options-zona {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-height: 12.7rem;
+  width: 16rem;
+  visibility: hidden;
+  margin: 1rem 0.5rem;
+  opacity: 0.8;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.landing .options .options-zona.displayed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  visibility: visible;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.landing .options .options-zona.displayed div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-left: 2rem;
+}
+
+.landing .options .options-zona.displayed div div {
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 0.5rem;
+}
+
+.landing .options .options-zona.displayed div:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+.landing .options .options-zona .option {
+  width: 100%;
+  height: 1.2rem !important;
+  padding: 0.5rem 1rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.landing .options .options-zona .option:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+}
+
 .landing .options .options-especie {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -243,11 +307,13 @@ nav .navigation div {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 12.7rem;
+  max-height: 12.7rem;
   width: 16rem;
   visibility: hidden;
   margin: 1rem 0.5rem;
   opacity: 0.8;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .landing .options .options-especie.displayed {
@@ -355,6 +421,26 @@ nav .navigation div {
   margin-top: 0.5rem;
   padding-left: 2rem;
   background-image: url("/images/horse.png");
+}
+
+.avesicono {
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+  background-image: url("/images/pato.png");
+}
+
+.roedoresicono {
+  width: 2rem;
+  height: 2rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: 0.5rem;
+  padding-left: 2rem;
+  background-image: url("/images/rata.png");
 }
 
 .gallinasicono {

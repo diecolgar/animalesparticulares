@@ -1,13 +1,29 @@
+const landingSelectableZona = document.querySelector(".selectable.zona")
 const landingSelectableEspecie = document.querySelector(".selectable.especie")
 const landingSelectableRaza = document.querySelector(".selectable.raza")
+const landingOptionsZona = document.querySelector(".options-zona")
 const landingOptionsEspecie = document.querySelector(".options-especie")
+const specificOptionZona = document.querySelectorAll(".options-zona .option")
 const specificOptionEspecie = document.querySelectorAll(".options-especie .option")
 // const specificOptionRaza = document.querySelectorAll(".options-raza .option")
+const chosenZonaText = document.querySelector(".selectable.zona p")
 const chosenEspecieText = document.querySelector(".selectable.especie .chosen p")
 const chosenRazaText = document.querySelector(".selectable.raza p")
 const chosenEspecieImg = document.querySelector(".selectable .chosen .icon")
 const landingOptionsRaza = document.querySelector(".options-raza")
 const searchButton = document.querySelector(".gosearch")
+
+window.addEventListener('click', function(e){   
+  if (landingSelectableZona.contains(e.target)){
+    // Clicked in box
+    landingSelectableZona.classList.toggle('displayed');
+    landingOptionsZona.classList.toggle('displayed');
+  } else{
+    // Clicked outside the box
+    landingSelectableZona.classList.remove('displayed');
+    landingOptionsZona.classList.remove('displayed');
+  }
+})
 
 window.addEventListener('click', function(e){   
     if (landingSelectableEspecie.contains(e.target)){
@@ -33,6 +49,12 @@ window.addEventListener('click', function(e){
     }
 })
 
+specificOptionZona.forEach((zona, id) => {
+  zona.addEventListener('click', function() {
+    chosenZonaText.innerHTML = zona.innerHTML;
+  })
+})
+
 specificOptionEspecie.forEach((especie, id) => {
     especie.addEventListener('click', function() {
         chosenEspecieImg.removeAttribute("class")
@@ -53,7 +75,7 @@ function fetchAnimals(especie) {
   } else if (especie === 'Gatos') {
     var fetchData = 'gatos_razas.txt'
   } else if (especie === 'Caballos') {
-    var fetchData = 'gatos_razas.txt'
+    var fetchData = 'caballos_razas.txt'
   } else {
     var fetchData = 'cualquiera_razas.txt'
   }
@@ -68,6 +90,7 @@ function fetchAnimals(especie) {
       // Now create the rest
       reducedWords = response.split('\n')
       reducedWords.forEach(word => {
+        word = (word.length > 25)? word.substring(0, 22) + "...": word;
         var newDiv = document.createElement("div");
         newDiv.classList.add('option')
         newDiv.textContent = word
