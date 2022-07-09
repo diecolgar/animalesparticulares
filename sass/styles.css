@@ -24,9 +24,11 @@
 }
 
 nav {
-  position: absolute;
+  position: fixed;
+  z-index: 100;
   width: 70vw;
-  height: 10vh;
+  padding: 0 15vw;
+  height: 8vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -38,6 +40,8 @@ nav {
           align-items: center;
   font-size: 500;
   color: black;
+  background-color: white;
+  border: 1px solid #e6e6e6;
   font-weight: 500;
 }
 
@@ -46,7 +50,6 @@ nav .logo {
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
-  margin-top: 1rem;
 }
 
 nav .logo .logoimage {
@@ -67,7 +70,6 @@ nav .navigation {
   display: -ms-flexbox;
   display: flex;
   cursor: pointer;
-  margin-top: 1rem;
 }
 
 nav .navigation div {
@@ -86,7 +88,7 @@ nav .navigation div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 14vh;
+  padding-top: 10vh;
   width: 70vw;
   height: 100vh;
   background-color: white;
@@ -95,13 +97,13 @@ nav .navigation div {
 
 .landing .searcher {
   z-index: 20;
+  margin-top: 0vh;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  opacity: 0.8;
   width: 70vw;
 }
 
@@ -112,7 +114,7 @@ nav .navigation div {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 2.4vh;
+  font-size: 1.15rem;
   font-weight: 500;
   min-width: 15vw;
 }
@@ -202,16 +204,19 @@ nav .navigation div {
 }
 
 .landing .searcher .gosearch {
+  position: relative;
   width: 3.2rem;
+  min-width: 3.2rem;
   height: 3.2rem;
   background-color: white;
-  margin: 0 0.5rem;
+  margin-left: 5rem;
   -webkit-box-shadow: 0 0 0.2rem #9b9b9b;
           box-shadow: 0 0 0.2rem #9b9b9b;
   border-radius: 10px;
 }
 
 .landing .searcher .gosearch svg {
+  position: absolute;
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -225,6 +230,17 @@ nav .navigation div {
           transform: rotateZ(-10deg);
 }
 
+.landing .searcher .gosearch .searchbrush {
+  position: absolute;
+  z-index: -10;
+  width: 7rem;
+  height: 7rem;
+  -webkit-transform: translateX(-30%) translateY(-30%);
+          transform: translateX(-30%) translateY(-30%);
+  background-image: url(/images/searchbrush.png);
+  background-size: cover;
+}
+
 .landing .options {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -235,8 +251,10 @@ nav .navigation div {
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: absolute;
-  top: 20vh;
+  top: 80vh;
   width: 70vw;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
 
 .landing .options .options-zona {
@@ -404,22 +422,22 @@ nav .navigation div {
 }
 
 .landing .options .analog-blankspace-searcher {
-  margin: 1rem 0.5rem;
+  margin-left: 5rem;
   width: 3.2rem;
   height: 3.2rem;
 }
 
 .landing .publishnowcontainer {
   width: 70vw;
-  height: 50vh;
+  height: 60vh;
 }
 
 .landing .publishnowcontainer .playingdogs {
   position: relative;
-  top: 6vh;
+  top: 5vh;
   left: 5vw;
-  width: 33vw;
-  height: 40vh;
+  width: 38vw;
+  height: 47vh;
   background-image: url(/images/perrosjugando.jpeg);
   background-size: cover;
   background-position: center;
@@ -428,11 +446,14 @@ nav .navigation div {
 
 .landing .publishnowcontainer .description {
   position: relative;
-  width: 25vw;
-  top: -23vh;
+  width: 20vw;
+  top: -28vh;
   left: 40vw;
-  font-size: 2.4vh;
-  color: black;
+  font-size: 1vw;
+  color: rgba(0, 0, 0, 0.4);
+  background-color: white;
+  padding: 1rem;
+  border-radius: 1rem;
   font-weight: 500;
   margin-bottom: 4vh;
 }
@@ -449,9 +470,9 @@ nav .navigation div {
       -ms-flex-align: center;
           align-items: center;
   font-weight: 500;
-  top: -24vh;
-  left: 52vw;
-  width: 15rem;
+  top: -30vh;
+  left: 48vw;
+  width: 12vw;
   height: 3.5rem;
   border-radius: 1rem;
   background-color: #f8f8f8;
@@ -462,6 +483,10 @@ nav .navigation div {
 .landing .publishnowcontainer .publishbutton:hover {
   cursor: pointer;
   background-color: #f0f0f0;
+}
+
+.landing .toppublicaciones {
+  margin-top: 5vh;
 }
 
 .landing .toppublicaciones p {
@@ -504,6 +529,38 @@ nav .navigation div {
 
 .landing .toppublicaciones .gridpublicaciones .publicacion:nth-child(4) {
   background-image: url(/images/publicacion4.jpg);
+}
+
+.landing .explora {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.landing .explora p {
+  color: black;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-top: 10vh;
+}
+
+.landing .explora .explorebrush {
+  position: absolute;
+  top: 5.4vh;
+  width: 12rem;
+  height: 8rem;
+  background-image: url(/images/explorebrush.png);
+  background-size: cover;
+  -webkit-transform: rotate(30deg);
+          transform: rotate(30deg);
 }
 
 .perroicono {

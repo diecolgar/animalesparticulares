@@ -1,17 +1,20 @@
 nav {
-    position: absolute;
+    position: fixed;
+    z-index: 100;
     width: 70vw;
-    height: 10vh;
+    padding: 0 15vw;
+    height: 8vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 500;
     color: rgb(0, 0, 0);
+    background-color: white;
+    border: 1px solid rgb(230, 230, 230);
     font-weight: 500;
     .logo {
         display: flex;
         cursor: pointer;
-        margin-top: 1rem;
         .logoimage {
             height: 5vh;
             width: 5vh;
@@ -27,7 +30,6 @@ nav {
     .navigation {
         display: flex;
         cursor: pointer;
-        margin-top: 1rem;
         div {
             margin-left: 2vw;
             font-size: 1rem;
