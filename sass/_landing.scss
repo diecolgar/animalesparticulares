@@ -2,25 +2,24 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-	width: 100vw;
+    padding-top: 14vh;
+	width: 70vw;
 	height: 100vh;
-    background: linear-gradient(123deg, rgba(60,141,226,0.2) 12%, rgba(0,176,94,0.2) 100%),url(../images/pradera.webp);
+    background-color: rgb(255, 255, 255);
 	background-size: cover;
-    .title {
-        font-size: 10.2vh;
-        color: white;
-        margin-top: 40vh;
-        text-shadow: 0 0 3rem #000000;
-    }
-    .description {
-        font-size: 2.3vh;
-        color: rgba(255, 255, 255, 0.575);  
-        margin-bottom: 4vh;
-    }
     .searcher {
+        z-index: 20;
         display: flex;
-        opacity: 0.8;        
+        justify-content: space-between;
+        opacity: 0.8;
+        width: 70vw;
+        .busquedarapida {
+            display: flex;
+            align-items: center;
+            font-size: 2.4vh;
+            font-weight: 500;
+            min-width: 15vw;
+        }        
         .selectable {
             display: flex;
             align-items: center;
@@ -30,6 +29,7 @@
             margin: 0 0.5rem;
             width: 14rem;
             height: 3.2rem;
+            box-shadow: 0 0 0.2rem rgb(155, 155, 155);
             background-color: white;
             border-radius: 10px;
             p {
@@ -79,14 +79,8 @@
                 }
             }
             &.raza {
-                opacity: 0.4;
-                pointer-events: none;
-                &.clickable {
-                    opacity: 1;
-                    pointer-events: auto;
-                    &:hover {
-                        cursor: pointer;
-                    }
+                &:hover {
+                    cursor: pointer;
                 }
             }
         }
@@ -95,25 +89,27 @@
             height: 3.2rem;
             background-color: white;
             margin: 0 0.5rem;
+            box-shadow: 0 0 0.2rem rgb(155, 155, 155);
             border-radius: 10px;
-            opacity: 0.4;
             svg {
                 transition: 0.2s;
             }
-            &.clickable {
+            &:hover {
                 cursor: pointer;
-                opacity: 1;
-                &:hover {
-                    svg {
-                        transform: rotateZ(-10deg);
-                    }
+                svg {
+                    transform: rotateZ(-10deg);
                 }
             }
-
         }
     }
     .options {
         display: flex;
+        z-index: 10;
+        width: 80rem;
+        justify-content: space-between;
+        position: absolute;
+        top: 20vh;
+        width: 70vw;
         .options-zona {
             display: flex;
             flex-direction: column;
@@ -121,9 +117,9 @@
             width: 16rem;
             visibility: hidden;
             margin: 1rem 0.5rem;
-            opacity: 0.8;        
             overflow-y: auto;
             overflow-x: hidden; 
+            box-shadow: 0 0 0.2rem rgb(155, 155, 155);
             &.displayed {
                 display: flex;
                 visibility: visible;
@@ -149,7 +145,7 @@
             .option {
                 width: 100%;
                 height: 1.2rem !important;
-                padding: 0.5rem 1rem;
+                padding: 0.55rem 1rem;
                 background-size: contain;
                 background-repeat: no-repeat;
                 &:hover {
@@ -165,9 +161,9 @@
             width: 16rem;
             visibility: hidden;
             margin: 1rem 0.5rem;
-            opacity: 0.8;        
             overflow-y: auto;
-            overflow-x: hidden;     
+            overflow-x: hidden;   
+            box-shadow: 0 0 0.2rem rgb(155, 155, 155);
             &.displayed {
                 display: flex;
                 visibility: visible;
@@ -200,9 +196,9 @@
             visibility: hidden;
             background-color: white;
             border-radius: 10px;
-            opacity: 0.8;
             overflow-y: auto;
-            overflow-x: hidden;        
+            overflow-x: hidden;  
+            box-shadow: 0 0 0.2rem rgb(155, 155, 155);
             &.displayed {
                 display: flex;
                 visibility: visible;
@@ -221,10 +217,94 @@
                 }
             }
         }
-        .search-analog-blankspace {
+        .analog-blankspace-busquedarapida {
+            display: flex;
+            visibility: hidden;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 500;
+            min-width: 15vw;
+        }
+        .analog-blankspace-searcher {
             margin: 1rem 0.5rem;
             width: 3.2rem;
             height: 3.2rem;
+        }
+    }
+    .publishnowcontainer {
+        width: 70vw;
+        height: 50vh;
+        .playingdogs {
+            position: relative;
+            top: 6vh;
+            left: 5vw;
+            width: 33vw;
+            height: 40vh;
+            background-image: url(/images/perrosjugando.jpeg);
+            background-size: cover;
+            background-position: center;
+            border-radius: 2.5rem;
+        }
+        .description {
+            position: relative;
+            width: 25vw;
+            top: -23vh;
+            left: 40vw;
+            font-size: 2.4vh;
+            color: rgba(0, 0, 0, 1);  
+            font-weight: 500;
+            margin-bottom: 4vh;
+        }
+        .publishbutton {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 500;
+            top: -24vh;
+            left: 52vw;
+            width: 15rem;
+            height: 3.5rem;
+            border-radius: 1rem;
+            background-color: rgb(248, 248, 248);
+            box-shadow: 0 0 0.2rem rgb(155, 155, 155);
+            &:hover {
+                cursor: pointer;
+                background-color: rgb(240, 240, 240);
+            }
+        }
+    }
+    .toppublicaciones {
+        p {
+            color: black;
+            font-size: 2.4vh;
+            font-weight: 500;
+        }
+        .gridpublicaciones {
+            display: flex;
+            margin-top: 2rem;
+            justify-content: space-between;
+            width: 70vw;
+            height: 15rem;
+            .publicacion {
+                width: 15vw;
+                height: 12rem;
+                border-radius: 1.5rem;
+                background-color: rgb(233, 233, 233);
+                background-size: cover;
+                &:nth-child(1) {
+                    background-image: url(/images/publicacion1.jpg);
+                }
+                &:nth-child(2) {
+                    background-image: url(/images/publiacion2.jpg);
+                }
+                &:nth-child(3) {
+                    background-image: url(/images/publicacion3.jpg.crdownload);
+                }
+                &:nth-child(4) {
+                    background-image: url(/images/publicacion4.jpg);
+                }
+            }
         }
     }
 }

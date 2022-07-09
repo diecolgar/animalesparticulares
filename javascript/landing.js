@@ -60,8 +60,7 @@ specificOptionEspecie.forEach((especie, id) => {
         chosenEspecieImg.removeAttribute("class")
         chosenEspecieImg.classList.add(especie.children[0].className)
         chosenEspecieText.innerHTML = especie.children[1].innerHTML;
-        chosenRazaText.innerHTML = 'Selecciona una raza';
-        landingSelectableRaza.classList.add("clickable")
+        chosenRazaText.innerHTML = 'Cualquier raza';
         fetchAnimals(chosenEspecieText.innerHTML)
     })
 })
@@ -100,7 +99,6 @@ function fetchAnimals(especie) {
       specificOptionRaza.forEach((raza, id) => {
         raza.addEventListener('click', function() {
             chosenRazaText.innerHTML = raza.innerHTML;
-            searchButton.classList.add("clickable")
         })
       })
   })
