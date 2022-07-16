@@ -2,7 +2,8 @@
 /* scrollbar */
 /* width */
 ::-webkit-scrollbar {
-  display: none;
+  display: -webkit-box;
+  display: flex;
   width: 10px;
 }
 
@@ -77,6 +78,10 @@ nav .navigation div {
   font-size: 1rem;
 }
 
+nav .navigation div:hover {
+  color: #68d368;
+}
+
 .landing {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -90,7 +95,6 @@ nav .navigation div {
           align-items: center;
   padding-top: 10vh;
   width: 70vw;
-  height: 100vh;
   background-color: white;
   background-size: cover;
 }
@@ -251,13 +255,11 @@ nav .navigation div {
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: absolute;
-  top: 80vh;
+  top: 76vh;
   width: 70vw;
-  -webkit-transform: translateY(-100%);
-          transform: translateY(-100%);
 }
 
-.landing .options .options-zona {
+.landing .options .options-type {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -265,7 +267,7 @@ nav .navigation div {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-height: 12.7rem;
+  max-height: 19vh;
   width: 16rem;
   visibility: hidden;
   margin: 1rem 0.5rem;
@@ -275,7 +277,7 @@ nav .navigation div {
           box-shadow: 0 0 0.2rem #9b9b9b;
 }
 
-.landing .options .options-zona.displayed {
+.landing .options .options-type.displayed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -288,7 +290,6 @@ nav .navigation div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-left: 2rem;
 }
 
 .landing .options .options-zona.displayed div div {
@@ -318,33 +319,6 @@ nav .navigation div {
   background-color: #f0f0f0;
 }
 
-.landing .options .options-especie {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  max-height: 12.7rem;
-  width: 16rem;
-  visibility: hidden;
-  margin: 1rem 0.5rem;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-box-shadow: 0 0 0.2rem #9b9b9b;
-          box-shadow: 0 0 0.2rem #9b9b9b;
-}
-
-.landing .options .options-especie.displayed {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  visibility: visible;
-  background-color: white;
-  border-radius: 10px;
-}
-
 .landing .options .options-especie.displayed div {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -354,10 +328,10 @@ nav .navigation div {
 
 .landing .options .options-especie.displayed div div {
   width: 2rem;
-  height: 2rem;
+  height: 1.8rem;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 0.5rem;
+  margin-top: 0.3rem;
 }
 
 .landing .options .options-especie.displayed div:hover {
@@ -366,39 +340,10 @@ nav .navigation div {
   border-radius: 10px;
 }
 
-.landing .options .options-raza {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  max-height: 12.7rem;
-  width: 16rem;
-  margin: 1rem 0.5rem;
-  visibility: hidden;
-  background-color: white;
-  border-radius: 10px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-box-shadow: 0 0 0.2rem #9b9b9b;
-          box-shadow: 0 0 0.2rem #9b9b9b;
-}
-
-.landing .options .options-raza.displayed {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  visibility: visible;
-  background-color: white;
-  border-radius: 10px;
-}
-
 .landing .options .options-raza .option {
   width: 100%;
   height: 1.2rem !important;
-  padding: 1rem 1rem;
+  padding: 0.55rem 1rem;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -435,7 +380,7 @@ nav .navigation div {
 .landing .publishnowcontainer .playingdogs {
   position: relative;
   top: 5vh;
-  left: 5vw;
+  left: 7vw;
   width: 38vw;
   height: 47vh;
   background-image: url(/images/perrosjugando.jpeg);
@@ -448,8 +393,8 @@ nav .navigation div {
   position: relative;
   width: 20vw;
   top: -28vh;
-  left: 40vw;
-  font-size: 1vw;
+  left: 42vw;
+  font-size: 1rem;
   color: rgba(0, 0, 0, 0.4);
   background-color: white;
   padding: 1rem;
@@ -471,18 +416,18 @@ nav .navigation div {
           align-items: center;
   font-weight: 500;
   top: -30vh;
-  left: 48vw;
+  left: 50vw;
   width: 12vw;
   height: 3.5rem;
   border-radius: 1rem;
-  background-color: #f8f8f8;
+  background: linear-gradient(121deg, white 0%, #bfebbd 88%, #91dd8e 100%);
   -webkit-box-shadow: 0 0 0.2rem #9b9b9b;
           box-shadow: 0 0 0.2rem #9b9b9b;
 }
 
 .landing .publishnowcontainer .publishbutton:hover {
   cursor: pointer;
-  background-color: #f0f0f0;
+  background: linear-gradient(121deg, white 30%, #bfebbd 100%);
 }
 
 .landing .toppublicaciones {
@@ -561,6 +506,66 @@ nav .navigation div {
   background-size: cover;
   -webkit-transform: rotate(30deg);
           transform: rotate(30deg);
+}
+
+.landing .explora:hover {
+  cursor: pointer;
+}
+
+.landing .exploragrid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 80vw;
+  margin-top: 8vh;
+}
+
+.landing .exploragrid .explorarow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 75vw;
+  margin: auto;
+}
+
+.landing .exploragrid .explorarow .exploraitem {
+  width: 25%;
+  margin: 1rem 2rem;
+}
+
+.landing .exploragrid .explorarow .exploraitem .exploraimage {
+  width: 100%;
+  padding-bottom: 100%;
+  background-color: #e6e6e6;
+  border-radius: 0.3rem;
+}
+
+.landing .exploragrid .explorarow .exploraitem .exploraimage.test {
+  background-image: url(/images/exploraimages/perros_rober.jpeg);
+  background-size: cover;
+}
+
+.landing .exploragrid .explorarow .exploraitem .explorainfo {
+  margin-top: 0.5rem;
+}
+
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploratitulo {
+  width: 7rem;
+  height: 1rem;
+  background-color: #e6e6e6;
+  border-radius: 0.3rem;
+}
+
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploralugar {
+  width: 10rem;
+  height: 1rem;
+  background-color: #e6e6e6;
+  border-radius: 0.3rem;
+  margin-top: 2px;
 }
 
 .perroicono {
