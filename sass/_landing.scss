@@ -1,3 +1,8 @@
+// Main colors
+$soft: #c0ecc4;
+$hard: #5dd666;
+$hardfont: #4ca852;
+
 .landing {
     display: flex;
     flex-direction: column;
@@ -324,24 +329,23 @@
     .exploragrid {
         display: flex;
         flex-direction: column;
-        width: 80vw;
+        width: 70vw;
         margin-top: 8vh;
         .explorarow {
             display: flex;
-            width: 75vw;
+            // width: 75vw;
             margin: auto;
             .exploraitem {
-                width: 25%;
-                margin: 1rem 2rem;
+                width: 15vw;
+                max-width: 18rem;
+                margin: 1rem 1.5rem;
                 .exploraimage {
                     width: 100%;
                     padding-bottom: 100%;  
                     background-color: rgb(230, 230, 230);
                     border-radius: 0.3rem;
-                    &.test {
-                        background-image: url(/images/exploraimages/perros_rober.jpeg);
-                        background-size: cover;
-                    }
+                    background-size: cover;
+                    background-position: center;
                 }
                 .explorainfo {
                     margin-top: 0.5rem;
@@ -358,6 +362,24 @@
                         border-radius: 0.3rem;
                         margin-top: 2px;
                     }
+                }
+                &.relleno {
+                    .explorainfo {
+                        .exploratitulo {
+                            background-color: rgb(255, 255, 255);
+                            color: $hardfont;
+                            font-weight: bold;
+                            width: 10rem;
+                        }
+                        .exploralugar {
+                            background-color: rgb(255, 255, 255);
+                            color: rgb(148, 148, 148);
+                            width: 10rem;
+                        }
+                    }
+                }
+                &:hover {
+                    cursor: pointer;
                 }
             }
         }

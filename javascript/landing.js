@@ -1,17 +1,23 @@
+// Selectable buttons to open displayable
 const landingSelectableZona = document.querySelector(".selectable.zona")
 const landingSelectableEspecie = document.querySelector(".selectable.especie")
 const landingSelectableRaza = document.querySelector(".selectable.raza")
+// Displayed options box
 const landingOptionsZona = document.querySelector(".options-zona")
 const landingOptionsEspecie = document.querySelector(".options-especie")
+const landingOptionsRaza = document.querySelector(".options-raza")
+// Displayed options individually
 const specificOptionZona = document.querySelectorAll(".options-zona .option")
 const specificOptionEspecie = document.querySelectorAll(".options-especie .option")
-// const specificOptionRaza = document.querySelectorAll(".options-raza .option")
+// Selectable buttons texts
 const chosenZonaText = document.querySelector(".selectable.zona p")
 const chosenEspecieText = document.querySelector(".selectable.especie .chosen p")
 const chosenRazaText = document.querySelector(".selectable.raza p")
+// Selectable buttons images
 const chosenEspecieImg = document.querySelector(".selectable .chosen .icon")
-const landingOptionsRaza = document.querySelector(".options-raza")
+// Search button
 const searchButton = document.querySelector(".gosearch")
+// 
 
 window.addEventListener('click', function(e){   
   if (landingSelectableZona.contains(e.target)){
@@ -104,3 +110,5 @@ function fetchAnimals(especie) {
   })
   .catch(err => console.log(err))
 }
+
+// Fetch and display explore section...

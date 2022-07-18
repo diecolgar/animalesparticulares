@@ -520,7 +520,7 @@ nav .navigation div:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 80vw;
+  width: 70vw;
   margin-top: 8vh;
 }
 
@@ -528,13 +528,13 @@ nav .navigation div:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 75vw;
   margin: auto;
 }
 
 .landing .exploragrid .explorarow .exploraitem {
-  width: 25%;
-  margin: 1rem 2rem;
+  width: 15vw;
+  max-width: 18rem;
+  margin: 1rem 1.5rem;
 }
 
 .landing .exploragrid .explorarow .exploraitem .exploraimage {
@@ -542,11 +542,8 @@ nav .navigation div:hover {
   padding-bottom: 100%;
   background-color: #e6e6e6;
   border-radius: 0.3rem;
-}
-
-.landing .exploragrid .explorarow .exploraitem .exploraimage.test {
-  background-image: url(/images/exploraimages/perros_rober.jpeg);
   background-size: cover;
+  background-position: center;
 }
 
 .landing .exploragrid .explorarow .exploraitem .explorainfo {
@@ -566,6 +563,23 @@ nav .navigation div:hover {
   background-color: #e6e6e6;
   border-radius: 0.3rem;
   margin-top: 2px;
+}
+
+.landing .exploragrid .explorarow .exploraitem.relleno .explorainfo .exploratitulo {
+  background-color: white;
+  color: #4ca852;
+  font-weight: bold;
+  width: 10rem;
+}
+
+.landing .exploragrid .explorarow .exploraitem.relleno .explorainfo .exploralugar {
+  background-color: white;
+  color: #949494;
+  width: 10rem;
+}
+
+.landing .exploragrid .explorarow .exploraitem:hover {
+  cursor: pointer;
 }
 
 .perroicono {
