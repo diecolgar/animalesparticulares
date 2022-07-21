@@ -2,6 +2,8 @@
 $soft: #c0ecc4;
 $hard: #5dd666;
 $hardfont: #4ca852;
+$harderfont: #357439;
+
 
 .landing {
     display: flex;
@@ -35,7 +37,7 @@ $hardfont: #4ca852;
             height: 3.2rem;
             box-shadow: 0 0 0.2rem rgb(155, 155, 155);
             background-color: white;
-            border-radius: 10px;
+            border-radius: 20px;
             p {
                 display: flex;
                 align-items: center;
@@ -96,7 +98,7 @@ $hardfont: #4ca852;
             background-color: white;
             margin-left: 5rem;
             box-shadow: 0 0 0.2rem rgb(155, 155, 155);
-            border-radius: 10px;
+            border-radius: 20px;
             svg {
                 position: absolute;
                 transition: 0.2s;
@@ -140,7 +142,7 @@ $hardfont: #4ca852;
                 display: flex;
                 visibility: visible;
                 background-color: white;
-                border-radius: 10px;
+                border-radius: 20px;
             }
         }
         .options-zona {
@@ -157,7 +159,6 @@ $hardfont: #4ca852;
                     &:hover {
                         cursor: pointer;
                         background-color: rgb(240, 240, 240);
-                        border-radius: 10px;
                     }
                 }
             }
@@ -188,7 +189,6 @@ $hardfont: #4ca852;
                     &:hover {
                         cursor: pointer;
                         background-color: rgb(240, 240, 240);
-                        border-radius: 10px;
                     }
                 }
             }
@@ -243,7 +243,7 @@ $hardfont: #4ca852;
             color: rgba(0, 0, 0, 0.4);
             background-color: white;
             padding: 1rem;
-            border-radius: 1rem;
+            border-radius: 20px;
             // box-shadow: 0 0 0.2rem rgb(155, 155, 155);
             font-weight: 500;
             margin-bottom: 4vh;
@@ -253,51 +253,21 @@ $hardfont: #4ca852;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-weight: 500;
+            text-decoration: none;
+            color: $harderfont;
+            font-weight: 600;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
             top: -30vh;
             left: 50vw;
             width: 12vw;
             height: 3.5rem;
-            border-radius: 1rem;
+            border-radius: 20px;
             background: linear-gradient(121deg, rgba(255,255,255,1) 0%, rgba(191,235,189,1) 88%, rgba(145,221,142,1) 100%);
             box-shadow: 0 0 0.2rem rgb(155, 155, 155);
             &:hover {
                 cursor: pointer;
                 background: linear-gradient(121deg, rgba(255,255,255,1) 30%, rgba(191,235,189,1) 100%);
-            }
-        }
-    }
-    .toppublicaciones {
-        margin-top: 5vh;
-        p {
-            color: black;
-            font-size: 2.4vh;
-            font-weight: 500;
-        }
-        .gridpublicaciones {
-            display: flex;
-            margin-top: 2rem;
-            justify-content: space-between;
-            width: 70vw;
-            height: 15rem;
-            .publicacion {
-                width: 15vw;
-                height: 12rem;
-                border-radius: 1.5rem;
-                background-color: rgb(233, 233, 233);
-                background-size: cover;
-                &:nth-child(1) {
-                    background-image: url(/images/publicacion1.jpg);
-                }
-                &:nth-child(2) {
-                    background-image: url(/images/publiacion2.jpg);
-                }
-                &:nth-child(3) {
-                    background-image: url(/images/publicacion3.jpg.crdownload);
-                }
-                &:nth-child(4) {
-                    background-image: url(/images/publicacion4.jpg);
-                }
             }
         }
     }
@@ -343,7 +313,7 @@ $hardfont: #4ca852;
                     width: 100%;
                     padding-bottom: 100%;  
                     background-color: rgb(230, 230, 230);
-                    border-radius: 0.3rem;
+                    border-radius: 20px;
                     background-size: cover;
                     background-position: center;
                 }
@@ -353,13 +323,13 @@ $hardfont: #4ca852;
                         width: 7rem;
                         height: 1rem;
                         background-color: rgb(230, 230, 230);
-                        border-radius: 0.3rem;
+                        border-radius: 20px;
                     }
                     .exploralugar {
                         width: 10rem;
                         height: 1rem;
                         background-color: rgb(230, 230, 230);
-                        border-radius: 0.3rem;
+                        border-radius: 20px;
                         margin-top: 2px;
                     }
                 }

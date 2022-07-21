@@ -84,7 +84,7 @@ function fetchAnimals(especie) {
   } else {
     var fetchData = 'cualquiera_razas.txt'
   }
-  fetch(fetchData)
+  fetch(`/razas_db/${fetchData}`)
   .then(response => response.text())
   .then((response) => {
 

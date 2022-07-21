@@ -10,10 +10,10 @@
 </head>
 <body>
     <nav>
-        <div class="logo">
+        <a href='index.html' class="logo">
             <div class="logoimage"></div>
             <p>AP</p>
-        </div>
+        </a>
         <div class="navigation">
             <div class="search">Búsqueda Avanzada</div>
             <div class="search">Publica</div>
@@ -22,9 +22,108 @@
         </div>
     </nav>
 
-    <script type="module" src="/javascript/firebase.js"></script>
+    <div class="publica">
+        <div class="title">Publica</div>
+        <div class="maincontainers">
+            <div class="datacontainer">
+                <div class="datarow especie">
+                    <div class="datatitle">Especie</div>
+                    <div class="datainput">
+                        <div class="inputbox"></div>
+                        <div class="inputbox"></div>
+                        <div class="inputbox"></div>
+                        <div class="inputbox"></div>
+                        <div class="inputbox"></div>
+                    </div>
+                </div>
+                <div class="datarow raza">
+                    <div class="datatitle">Raza</div>
+                    <div class="datainput">
+                        <div class="inputbox raza">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="datarow numero">
+                    <div class="datatitle">Camada/Grupo</div>
+                    <div class="datainput">
+                        <input type="checkbox" class="inputbox multiples"></input>
+                        <p class="cuantos">¿Cuántos?</p>
+                        <div class="inputbox numero">
+                            <div class="innertext">0</div>
+                            <div class="selectable">
+                                <div class="option">1</div>
+                                <div class="option">2</div>
+                                <div class="option">3</div>
+                                <div class="option">4</div>
+                                <div class="option">5</div>
+                                <div class="option">6</div>
+                                <div class="option">7</div>
+                                <div class="option">8</div>
+                                <div class="option">9</div>
+                                <div class="option">10+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="datarow edad">
+                    <div class="datatitle">Edad</div>
+                    <div class="datainput">
+                        <div class="inputbox edadnum">
+                            <div class="innertext">0</div>
+                            <div class="selectable">
+                                <div class="option">1</div>
+                                <div class="option">2</div>
+                                <div class="option">3</div>
+                                <div class="option">4</div>
+                                <div class="option">5</div>
+                                <div class="option">6</div>
+                                <div class="option">7</div>
+                                <div class="option">8</div>
+                                <div class="option">9</div>
+                                <div class="option">10</div>
+                                <div class="option">11</div>
+                                <div class="option">12</div>
+                                <div class="option">13</div>
+                                <div class="option">14</div>
+                                <div class="option">15</div>
+                                <div class="option">16</div>
+                                <div class="option">17</div>
+                                <div class="option">18</div>
+                                <div class="option">19</div>
+                                <div class="option">20</div>
+                            </div>
+                        </div>
+                        <div class="inputbox edaduom">
+                            <div class="innertext">meses</div>
+                            <div class="selectable">
+                                <div class="option">meses</div>
+                                <div class="option">años</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="datarow provincia">
+                    <div class="datatitle">Provincia</div>
+                    <div class="datainput">
+                        <div class="inputbox provincia"></div>
+                    </div>
+                </div>
+                <div class="datarow ciudad">
+                    <div class="datatitle">Ciudad</div>
+                    <div class="datainput">
+                        <div class="inputbox ciudad"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="imagescontainer"></div>
+        </div>
+        <div class="publishbutton">listo!</div>
+    </div>
+
+    <!-- <script type="module" src="/javascript/firebase.js"></script> -->
     <script src="/javascript/resizer.js"></script>
-    <script src="/javascript/landing.js"></script>
+    <script src="/javascript/publish.js"></script>
 
 
 </body>
