@@ -33,7 +33,7 @@ $harderfont: #357439;
             padding-left: 1rem;
             padding-right: 1rem;
             margin: 0 0.5rem;
-            width: 14rem;
+            width: 20rem;
             height: 3.2rem;
             box-shadow: 0 0 0.2rem rgb(155, 155, 155);
             background-color: white;
@@ -45,7 +45,8 @@ $harderfont: #357439;
             }
             .chosen {
                 display: flex;
-                margin-left: 1rem;
+                align-items: center;
+                margin-right: 1rem;
             }
             .flechaseleccion {
                 display: flex;
@@ -176,9 +177,10 @@ $harderfont: #357439;
         }
         .options-especie {
             &.displayed {
-                div {
+                .option {
                     display: flex;
-                    padding-left: 2rem;
+                    justify-content: left;
+                    align-items: center;
                     div {
                         width: 2rem;
                         height: 1.8rem;
@@ -210,7 +212,7 @@ $harderfont: #357439;
             display: flex;
             visibility: hidden;
             align-items: center;
-            font-size: 1.5rem;
+            font-size: 1.15rem;
             font-weight: 500;
             min-width: 15vw;
         }
@@ -239,7 +241,7 @@ $harderfont: #357439;
             width: 20vw;
             top: -28vh;
             left: 42vw;
-            font-size: 1rem;
+            font-size: 1.15rem;
             color: rgba(0, 0, 0, 0.4);
             background-color: white;
             padding: 1rem;
@@ -255,15 +257,17 @@ $harderfont: #357439;
             align-items: center;
             text-decoration: none;
             color: $harderfont;
-            font-weight: 600;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            font-weight: 500;
+            font-size: 1.15rem;
+            letter-spacing: 2px;
             top: -30vh;
             left: 50vw;
-            width: 12vw;
+            width: 12rem;
             height: 3.5rem;
-            border-radius: 20px;
-            background: linear-gradient(121deg, rgba(255,255,255,1) 0%, rgba(191,235,189,1) 88%, rgba(145,221,142,1) 100%);
+            border: 2px solid $hardfont;
+            border-radius: 30px;
+            background-image: url(/images/titlebrushback.png);
+            background-size: cover;
             box-shadow: 0 0 0.2rem rgb(155, 155, 155);
             &:hover {
                 cursor: pointer;
@@ -284,11 +288,12 @@ $harderfont: #357439;
         }
         .explorebrush {
             position: absolute;
-            top: 5.4vh;
+            top: 5.7vh;
             width: 12rem;
             height: 8rem;
             background-image: url(/images/explorebrush.png);
             background-size: cover;
+            opacity: 0.8;
             transform: rotate(30deg);
         }
         &:hover {
@@ -357,56 +362,56 @@ $harderfont: #357439;
 }
 
 .perroicono {
-    width: 2rem;
-    height: 2rem;
-    background-size: contain;
+    width: 2rem !important;
+    height: 2rem !important;
+    margin: 0 1rem !important;
+    background-image: url("/images/dog.svg");
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 0.5rem;
-    padding-left: 2rem;
-    background-image: url("/images/dog.png");
 }
 .gatosicono {
     width: 2rem;
     height: 2rem;
-    background-size: contain;
+    margin: 0 1rem !important;
+    background-image: url("/images/cat.svg");
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 0.5rem;
-    padding-left: 2rem;
-    background-image: url("/images/cat.png");
 }
 .caballosicono {
     width: 2rem;
     height: 2rem;
-    background-size: contain;
+    margin: 0 1rem !important;
+    background-image: url("/images/horse.svg");
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 0.5rem;
-    padding-left: 2rem;
-    background-image: url("/images/horse.png");
 }
 .avesicono {
     width: 2rem;
     height: 2rem;
-    background-size: contain;
+    margin: 0 1rem !important;
+    background-image: url("/images/bird.svg");
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 0.5rem;
-    padding-left: 2rem;
-    background-image: url("/images/pato.png");
 }
 .roedoresicono {
     width: 2rem;
     height: 2rem;
-    background-size: contain;
+    margin: 0 1rem !important;
+    background-image: url("/images/rabbit.svg");
+    background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
-    margin-top: 0.5rem;
-    padding-left: 2rem;
-    background-image: url("/images/rata.png");
 }
 .gallinasicono {
     width: 2rem;
     height: 2rem;
-    background-size: contain;
-    background-repeat: no-repeat;
-    margin-top: 0.5rem;
-    padding-left: 2rem;
+    margin: 0 1rem !important;
     background-image: url("/images/gallina.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
