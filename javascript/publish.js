@@ -1,3 +1,20 @@
+// INITIATE RANDOM ID FOR CURRENT PUBLISH PROCESS
+function makeid(length) {
+  var result           = '';
+  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var charactersLength = characters.length;
+  for ( var i = 0; i < length; i++ ) {
+    result += characters.charAt(Math.floor(Math.random() * 
+charactersLength));
+ }
+ return result;
+}
+const randomId = (makeid(5));
+
+// Images
+const uploadedimages = document.querySelectorAll(".imagescontainer .uploadedimage")
+
+// Especie
 const dataEspecieInput = document.querySelectorAll(".especie .datainput .especie")
 
 // Raza
@@ -111,6 +128,7 @@ dataRazaDisplayableOptions.forEach(option => {
 dataMultiplesInput.addEventListener('click', function(e){   
     dataCuantosInput.classList.toggle('writteable')
     dataCuantosTitle.classList.toggle('writteable')
+    dataCuantosText.innerHTML = '2'
     if (!dataCuantosTitle.classList.contains('writteable')) {
         dataCuantosText.innerHTML = ''
     }
@@ -179,8 +197,62 @@ window.addEventListener('click', function(e){
     }
     })
     
+// ---------------------------------------------------------------------------  PROVINCIA
+
     dataProvinciaDisplayableOptions.forEach(option => {
         option.addEventListener('click', () => {
             dataProvinciaText.innerHTML = option.innerHTML
         })
     })
+
+
+// ---------------------------------------------------------------------------  IMAGE ONCLICK HANDLER
+
+uploadedimages.forEach(image => {
+  image.addEventListener('click', () => {
+    if (image.classList.contains('imaged')) {
+      uploadedimages.forEach(image2 => {
+        image2.classList.remove('extended')
+        image2.classList.remove('displayed')
+      })
+      image.classList.add('extended')
+      image.classList.add('displayed')
+    }
+  })
+  image.addEventListener('mouseout', () => {
+    uploadedimages.forEach(image => {
+      image.classList.add('displayed')
+      image.classList.remove('extended')
+    })
+  })
+})
+
+    //////////////////// ------------------- IMAGE UPLOAD ------------------- ////////////////////
+
+    document.querySelector("#files").addEventListener("change", (e) => {
+      if (window.File && window.FileReader && window.FileList && window.Blob) {
+        const files = e.target.files;
+        const maxImages = 4;
+        for (let i = 0; i < files.length; i++) {
+            if ((!files[i].type.match("image")) && (i < maxImages)) continue;
+            const picReader = new FileReader();
+            picReader.addEventListener("load", function (event) {
+              const picFile = event.target;
+              
+              if ( i < maxImages ) {
+                uploadedimages[i].style.backgroundImage = `url('${picFile.result}')`;
+                uploadedimages[i].classList.add('imaged');
+              
+                base64string = picFile.result.split(',')[1];
+  
+                // Publish in firebase
+                // firebasePublishPicture(base64string, `id=${randomId}img=${i}.${picFile.result.substring(11,14)}`);
+              }
+
+            });
+            picReader.readAsDataURL(files[i]); //READ THE IMAGE
+        }
+      } else {
+        alert("Your browser does not support File API");
+      }
+    });

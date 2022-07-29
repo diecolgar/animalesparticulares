@@ -434,13 +434,15 @@ nav .navigation div:hover {
   border-radius: 30px;
   background-image: url(/images/titlebrushback.png);
   background-size: cover;
-  -webkit-box-shadow: 0 0 0.2rem #9b9b9b;
-          box-shadow: 0 0 0.2rem #9b9b9b;
+  -webkit-box-shadow: 2px 2px 0.2rem #9b9b9b;
+          box-shadow: 2px 2px 0.2rem #9b9b9b;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
 }
 
 .landing .publishnowcontainer .publishbutton:hover {
   cursor: pointer;
-  background: linear-gradient(121deg, white 30%, #bfebbd 100%);
+  border-radius: 20px 30px 20px 30px;
 }
 
 .landing .explora {
@@ -621,7 +623,7 @@ nav .navigation div:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 15vh;
+  margin-top: 10vh;
   width: 70vw;
 }
 
@@ -671,12 +673,12 @@ nav .navigation div:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-align: right;
+      -ms-flex-align: right;
+          align-items: right;
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
   width: 35vw;
   height: 60vh;
 }
@@ -704,7 +706,8 @@ nav .navigation div:hover {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 2rem;
-  font-size: 1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   width: 6rem;
   height: 3rem;
 }
@@ -739,8 +742,8 @@ nav .navigation div:hover {
   width: 100%;
   height: 2.5rem;
   color: #4ca852;
-  -webkit-box-shadow: 0 0 0.1rem #9b9b9b;
-          box-shadow: 0 0 0.1rem #9b9b9b;
+  -webkit-box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
+          box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
   border-radius: 15px;
 }
 
@@ -776,8 +779,9 @@ nav .navigation div:hover {
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie.active {
-  -webkit-box-shadow: 0 0 1px 2px #5dd666;
-          box-shadow: 0 0 1px 2px #5dd666;
+  -webkit-box-shadow: 0 0 2px 1px #5dd666;
+          box-shadow: 0 0 2px 1px #5dd666;
+  background-color: #c0ecc4;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.raza {
@@ -854,6 +858,43 @@ nav .navigation div:hover {
   cursor: auto;
 }
 
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  font-family: 'Montserrat Alternates', sans-serif;
+  min-height: 6rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: none;
+  resize: none;
+  padding: 1rem;
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion:hover {
+  cursor: auto;
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion:focus {
+  outline: none;
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion::-webkit-input-placeholder {
+  color: #dfdfdf;
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion:-ms-input-placeholder {
+  color: #dfdfdf;
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion::-ms-input-placeholder {
+  color: #dfdfdf;
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion::placeholder {
+  color: #dfdfdf;
+}
+
 .publica .maincontainers .datacontainer .datarow .datainput .cuantos {
   margin-right: 7%;
   color: #dfdfdf;
@@ -880,8 +921,8 @@ nav .navigation div:hover {
   width: 100%;
   background-color: white;
   border-radius: 15px;
-  -webkit-box-shadow: 0 0 0.2rem #9b9b9b;
-          box-shadow: 0 0 0.2rem #9b9b9b;
+  -webkit-box-shadow: 0 0 0.2rem #c4c4c4;
+          box-shadow: 0 0 0.2rem #c4c4c4;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .selectable.displayed {
@@ -900,6 +941,13 @@ nav .navigation div:hover {
   background-color: #c0ecc4;
 }
 
+.publica .maincontainers .datacontainer .datarow.descripcion .datainput {
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  width: 18rem;
+}
+
 .publica .maincontainers .datacontainer .datarow.especie .datainput {
   width: 18rem;
 }
@@ -909,9 +957,110 @@ nav .navigation div:hover {
 }
 
 .publica .maincontainers .imagescontainer {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 35vw;
   height: 60vh;
-  background-color: whitesmoke;
+}
+
+.publica .maincontainers .imagescontainer .uploadedimage {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 8rem;
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  border: 0.2rem solid #e9e9e9;
+  border-radius: 40px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  opacity: 0;
+}
+
+.publica .maincontainers .imagescontainer .uploadedimage.extended {
+  padding: 10rem 15rem;
+  -webkit-transform: translateX(0) translateY(-3rem) !important;
+          transform: translateX(0) translateY(-3rem) !important;
+}
+
+.publica .maincontainers .imagescontainer .uploadedimage.displayed {
+  opacity: 1;
+}
+
+.publica .maincontainers .imagescontainer .uploadedimage:hover.imaged {
+  cursor: pointer;
+}
+
+.publica .maincontainers .imagescontainer .uploadedimage:nth-child(1) {
+  -webkit-transform: translateX(-6rem) translateY(-2rem);
+          transform: translateX(-6rem) translateY(-2rem);
+  z-index: 4;
+}
+
+.publica .maincontainers .imagescontainer .uploadedimage:nth-child(2) {
+  -webkit-transform: translateX(-2rem) translateY(-3rem);
+          transform: translateX(-2rem) translateY(-3rem);
+  z-index: 3;
+}
+
+.publica .maincontainers .imagescontainer .uploadedimage:nth-child(3) {
+  -webkit-transform: translateX(2rem) translateY(-1rem);
+          transform: translateX(2rem) translateY(-1rem);
+  z-index: 2;
+}
+
+.publica .maincontainers .imagescontainer .uploadedimage:nth-child(4) {
+  -webkit-transform: translateX(6rem) translateY(-2rem);
+          transform: translateX(6rem) translateY(-2rem);
+  z-index: 1;
+}
+
+.publica .maincontainers .imagescontainer #files::-webkit-file-upload-button {
+  visibility: hidden;
+}
+
+.publica .maincontainers .imagescontainer #files {
+  position: absolute;
+  bottom: 5vh;
+  content: 'Select some files';
+  display: inline-block;
+  background-image: url("/images/plus.png");
+  background-size: cover;
+  background-position: center;
+  -webkit-box-shadow: 0px 0px 0.2rem 1px #c4c4c4;
+          box-shadow: 0px 0px 0.2rem 1px #c4c4c4;
+  border-radius: 20px;
+  width: 3rem;
+  height: 3rem;
+  outline: none;
+  white-space: nowrap;
+  cursor: pointer;
+  text-shadow: 1px 1px #fff;
+  font-weight: 700;
+  font-size: 10pt;
+}
+
+.publica .maincontainers .imagescontainer #result {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 0;
+}
+
+.publica .maincontainers .imagescontainer .thumbnail {
+  height: 192px;
 }
 
 .publica .publishbutton {
@@ -924,11 +1073,28 @@ nav .navigation div:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 6rem;
+  width: 8rem;
   height: 5vh;
   margin: 3vh auto;
-  border: 2px solid black;
-  border-radius: 20px;
+  border: 2px solid #4ca852;
+  color: #357439;
+  font-weight: 500;
+  letter-spacing: 2px;
+  border-radius: 40px;
+  background-image: url(/images/titlebrushback.png);
+  background-size: cover;
+  -webkit-box-shadow: 2px 2px 0.2rem #9b9b9b;
+          box-shadow: 2px 2px 0.2rem #9b9b9b;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.publica .publishbutton:hover {
+  cursor: pointer;
+  width: 8.3rem;
+  height: 5.2vh;
+  -webkit-transform: translateY(-0.1vh);
+          transform: translateY(-0.1vh);
 }
 
 body {

@@ -25,7 +25,7 @@
     <div class="publica">
         <div class="title">
             <div class="brush"></div>
-            <p>publica</p>
+            <p>Publica</p>
         </div>
         <div class="maincontainers">
             <div class="datacontainer">
@@ -181,13 +181,26 @@
                         </div>
                     </div>
                 </div>
+                <div class="datarow descripcion">
+                    <div class="datatitle">Descripción</div>
+                    <div class="datainput">
+                        <textarea maxlength="164" placeholder="Pastores alemanes nacidos en Toledo..." class="inputbox descripcion"></textarea>
+                    </div>
+                </div>
             </div>
-            <div class="imagescontainer"></div>
+            <div class="imagescontainer">
+                <div class="uploadedimage displayed"></div>
+                <div class="uploadedimage displayed"></div>
+                <div class="uploadedimage displayed"></div>
+                <div class="uploadedimage displayed"></div>
+                <input id="files" type="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
+                <output id="result">
+            </div>
         </div>
         <div class="publishbutton">listo!</div>
     </div>
 
-    <!-- <script type="module" src="/javascript/firebase.js"></script> -->
+    <script type="module" src="/javascript/firebase.js"></script>
     <script src="/javascript/resizer.js"></script>
     <script src="/javascript/publish.js"></script>
 

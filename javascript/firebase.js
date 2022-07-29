@@ -2,6 +2,8 @@ const animalId = 'perro1239201'
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js';
 import { getFirestore, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js'
+import { getStorage, ref, uploadString} from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js'
+
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -13,12 +15,14 @@ const firebaseConfig = {
     appId: "1:454246576552:web:8d18941ef96f18eb76ad9d"
   };
 
+export {firebaseConfig}
+
 // Initialize Firebase
 const firebase = initializeApp(firebaseConfig);
   
 const db = getFirestore(firebase)
 
-// Fill explore section item
+// FILL EXPLORE SECTION
 async function fillExploreItem() {
     const querySnapshot = await getDocs(collection(db, "animales"));
         let i = 0;
@@ -37,9 +41,9 @@ async function fillExploreItem() {
         i++;
     });
 }
-fillExploreItem()
+// fillExploreItem()
 
-// Publish a new animal
+// PUBLISH NEW ANIMAL
 function publishNewAnimal(quantity,region,city,age,images,race) {
     try {
         const docRef = addDoc(collection(db, "animales"), {
@@ -56,5 +60,19 @@ function publishNewAnimal(quantity,region,city,age,images,race) {
       }
 }
 
+// PUBLISH IMAGE
+// Create a root reference
+const storage = getStorage(firebase);
 
+function firebasePublishPicture(file, name) {
+
+  const reference = ref(storage, name);
+
+  uploadString(reference, file, 'base64').then((snapshot) => {
+    console.log('Uploaded a blob or file!');
+  });
+}
+
+export {firebasePublishPicture}
+window.firebasePublishPicture = firebasePublishPicture;
 
