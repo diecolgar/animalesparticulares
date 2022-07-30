@@ -1,7 +1,7 @@
 // INITIATE RANDOM ID FOR CURRENT PUBLISH PROCESS
 function makeid(length) {
   var result           = '';
-  var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  var characters       = '0123456789';
   var charactersLength = characters.length;
   for ( var i = 0; i < length; i++ ) {
     result += characters.charAt(Math.floor(Math.random() * 
@@ -9,7 +9,14 @@ charactersLength));
  }
  return result;
 }
-const randomId = (makeid(5));
+const randomId = (makeid(10));
+
+// All inputs!
+const allInputs = document.querySelectorAll('.datainput')
+
+// Validation button listo!
+const validationButtuon = document.querySelector('.publishbutton')
+const validationErrorMessage = document.querySelector('.publisherrormessage')
 
 // Images
 const uploadedimages = document.querySelectorAll(".imagescontainer .uploadedimage")
@@ -51,6 +58,9 @@ const dataProvinciaText = document.querySelector(".provincia .datainput .provinc
 const dataProvinciaDisplayable = document.querySelector(".provincia .datainput .provincia  .selectable")
 const dataProvinciaDisplayableOptions = document.querySelectorAll(".provincia .datainput .provincia  .selectable .option")
 
+// Description
+const dataDescripcionInput = document.querySelector(".descripcion .datainput .descripcion" )
+
 
 // ---------------------------------------------------------------------------  ESPECIE
 dataEspecieInput.forEach(especie => {
@@ -61,7 +71,8 @@ dataEspecieInput.forEach(especie => {
             }
         })
         especie.classList.toggle('active')
-        dataRazaText.innerHTML = 'Cualquiera';
+        dataRazaText.innerHTML = 'Seleccionar...';
+        dataRazaText.classList.remove('selected')
         fetchAnimalsPublish(especie.className.split(" ")[2])
     })
 })
@@ -99,6 +110,7 @@ function fetchAnimalsPublish(especie) {
         specificOptionRaza.forEach((raza, id) => {
           raza.addEventListener('click', function() {
             dataRazaText.innerHTML = raza.innerHTML;
+            dataRazaText.classList.add('selected');
           })
         })
     })
@@ -117,20 +129,16 @@ window.addEventListener('click', function(e){
     }
   })
 
-dataRazaDisplayableOptions.forEach(option => {
-    option.addEventListener('click', () => {
-        dataRazaText.innerHTML = option.innerHTML
-    })
-})
-
 
 // ---------------------------------------------------------------------------  MULTIPLES
 dataMultiplesInput.addEventListener('click', function(e){   
     dataCuantosInput.classList.toggle('writteable')
     dataCuantosTitle.classList.toggle('writteable')
     dataCuantosText.innerHTML = '2'
+    dataCuantosText.classList.add('selected');
     if (!dataCuantosTitle.classList.contains('writteable')) {
         dataCuantosText.innerHTML = ''
+        dataCuantosText.classList.remove('selected');
     }
   })
 
@@ -149,6 +157,7 @@ window.addEventListener('click', function(e){
 dataCuantosDisplayableOptions.forEach(option => {
 option.addEventListener('click', () => {
     dataCuantosText.innerHTML = option.innerHTML
+    dataCuantosText.classList.add('selected');
 })
 })
 
@@ -167,6 +176,7 @@ if (dataEdadInput.contains(e.target)){
 dataEdadDisplayableOptions.forEach(option => {
     option.addEventListener('click', () => {
         dataEdadText.innerHTML = option.innerHTML
+        dataEdadText.classList.add('selected');
     })
 })
 
@@ -184,6 +194,7 @@ window.addEventListener('click', function(e){
     dataEdadUomDisplayableOptions.forEach(option => {
         option.addEventListener('click', () => {
             dataEdadUomText.innerHTML = option.innerHTML
+            dataEdadUomText.classList.add('selected');
         })
     })
 
@@ -202,6 +213,7 @@ window.addEventListener('click', function(e){
     dataProvinciaDisplayableOptions.forEach(option => {
         option.addEventListener('click', () => {
             dataProvinciaText.innerHTML = option.innerHTML
+            dataProvinciaText.classList.add('selected');
         })
     })
 
@@ -211,48 +223,118 @@ window.addEventListener('click', function(e){
 uploadedimages.forEach(image => {
   image.addEventListener('click', () => {
     if (image.classList.contains('imaged')) {
-      uploadedimages.forEach(image2 => {
-        image2.classList.remove('extended')
-        image2.classList.remove('displayed')
-      })
-      image.classList.add('extended')
-      image.classList.add('displayed')
+      
+      if (image.classList.contains('extended')) {
+        image.classList.remove('extended')
+        uploadedimages.forEach(image2 => {
+          image2.classList.add('displayed')
+        })
+      } else {
+        uploadedimages.forEach(image2 => {
+          image2.classList.remove('displayed')
+        })
+        image.classList.add('extended')
+        image.classList.add('displayed')
+      }
+
     }
-  })
-  image.addEventListener('mouseout', () => {
-    uploadedimages.forEach(image => {
-      image.classList.add('displayed')
-      image.classList.remove('extended')
-    })
   })
 })
 
-    //////////////////// ------------------- IMAGE UPLOAD ------------------- ////////////////////
+//////////////////// ------------------- IMAGE UPLOAD ------------------- ////////////////////
 
-    document.querySelector("#files").addEventListener("change", (e) => {
-      if (window.File && window.FileReader && window.FileList && window.Blob) {
-        const files = e.target.files;
-        const maxImages = 4;
-        for (let i = 0; i < files.length; i++) {
-            if ((!files[i].type.match("image")) && (i < maxImages)) continue;
-            const picReader = new FileReader();
-            picReader.addEventListener("load", function (event) {
-              const picFile = event.target;
-              
-              if ( i < maxImages ) {
-                uploadedimages[i].style.backgroundImage = `url('${picFile.result}')`;
-                uploadedimages[i].classList.add('imaged');
-              
-                base64string = picFile.result.split(',')[1];
-  
-                // Publish in firebase
-                // firebasePublishPicture(base64string, `id=${randomId}img=${i}.${picFile.result.substring(11,14)}`);
-              }
+document.querySelector("#files").addEventListener("change", (e) => {
+  if (window.File && window.FileReader && window.FileList && window.Blob) {
+    const files = e.target.files;
+    const maxImages = 4;
+    for (let i = 0; i < files.length; i++) {
+        if ((!files[i].type.match("image")) && (i < maxImages)) continue;
+        const picReader = new FileReader();
+        picReader.addEventListener("load", function (event) {
+          const picFile = event.target;
+          
+          if ( i < maxImages ) {
+            uploadedimages[i].style.backgroundImage = `url('${picFile.result}')`;
+            uploadedimages[i].classList.add('imaged');
+          
+            base64string = picFile.result.split(',')[1];
 
-            });
-            picReader.readAsDataURL(files[i]); //READ THE IMAGE
-        }
-      } else {
-        alert("Your browser does not support File API");
-      }
-    });
+            // Publish in firebase
+            // firebasePublishPicture(base64string, `id=${randomId}img=${i}.${picFile.result.substring(11,14)}`);
+          }
+
+        });
+        picReader.readAsDataURL(files[i]); //READ THE IMAGE
+    }
+  } else {
+    alert("Your browser does not support File API");
+  }
+});
+
+    //////////////////// ------------------- VALIDATION!  ------------------- ////////////////////
+
+validationButtuon.addEventListener('click', () => {
+
+  let publish = true;
+  const publishData = {
+    publishEspecie: '',
+    publishRaza: '',
+    publishNumber: '1',
+    publishAge: '',
+    publishAgeUom: '',
+    publishProvincia: '',
+    publishDescription: '',
+    publishId: randomId
+  }
+
+  // Check and get especie
+  dataEspecieInput.forEach(especie => {
+    if(especie.classList.contains('active')) {
+      publishData.publishEspecie = especie.className.split(' ')[2];
+    }
+  })
+
+  // Check and get raza
+  if (dataRazaText.classList.contains('selected')) {
+      publishData.publishRaza = dataRazaText.innerHTML;
+  }
+
+  // Get numero
+  if (!(dataCuantosText.innerHTML === '')) {
+     publishData.publishNumber = dataCuantosText.innerHTML;
+  }
+
+  // Get edad
+  if (!(dataEdadText.innerHTML  === '?')) {
+    publishData.publishAge = dataEdadText.innerHTML;
+  }
+
+  // Get edaduom
+  if (!(dataEdadUomText.innerHTML  === 'Seleccionar...')) {
+    publishData.publishAgeUom = dataEdadUomText.innerHTML;
+  }
+
+  // Check and get provincia
+  if (dataProvinciaText.classList.contains('selected')) {
+    publishData.publishProvincia = dataProvinciaText.innerHTML;
+  }
+
+  // Check and get descripcion
+  if (!(dataDescripcionInput.value === '')) {
+    publishData.publishDescription = dataDescripcionInput.value;
+  }
+
+  for (let i = 0; i < Object.entries(publishData).length; i++)
+   {
+    console.log(Object.entries(publishData)[i][1])
+    if (Object.entries(publishData)[i][1] === '') {
+      publish = false;
+    }
+   }
+   if (publish === true) {
+    validationErrorMessage.innerHTML = ''
+    // PUBLISH CODE
+   } else {
+    validationErrorMessage.innerHTML = 'Aún faltan campos por rellenar!'
+   }
+})
