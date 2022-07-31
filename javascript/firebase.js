@@ -2,7 +2,7 @@ const animalId = 'perro1239201'
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js';
 import { getFirestore, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js'
-import { getStorage, ref, uploadString} from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js'
+import { getStorage, ref, uploadString, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js'
 
 
 // Your web app's Firebase configuration
@@ -17,42 +17,47 @@ const firebaseConfig = {
 
 export {firebaseConfig}
 
-// Initialize Firebase
+// INITIALIZE FIREBASE
 const firebase = initializeApp(firebaseConfig);
-  
 const db = getFirestore(firebase)
 
 // FILL EXPLORE SECTION
-async function fillExploreItem() {
+async function firebaseFillExploreItem() {
     const querySnapshot = await getDocs(collection(db, "animales"));
         let i = 0;
         querySnapshot.forEach((doc) => {
-        const imagen0 = doc.data().imagenes[0];
-        const imagen1 = doc.data().imagenes[1];
-        const imagen2= doc.data().imagenes[2];
-        const imagen3 = doc.data().imagenes[3];
-        const raza = doc.data().raza;
-        const provincia = doc.data().provincia;
-        document.querySelectorAll(".exploraitem")[i].classList.add('relleno');
-        document.querySelectorAll(".exploraimage")[i].style.backgroundImage = `url(${imagen0})`;
-        document.querySelectorAll(".exploratitulo")[i].innerHTML = raza;
-        document.querySelectorAll(".exploralugar")[i].innerHTML = provincia;
+          console.log(doc.data().Id);
+          firebaseGetPicture(doc.data().Id, i).then(([url, index]) => {
+            document.querySelectorAll(".exploraimage")[index].style.backgroundImage = `url(${url})`;
+            }
+          );
+          const raza = doc.data().Raza;
+          const provincia = doc.data().Provincia;
 
-        i++;
-    });
+          document.querySelectorAll(".exploraitem")[i].classList.add('relleno');
+          document.querySelectorAll(".exploratitulo")[i].innerHTML = raza;
+          document.querySelectorAll(".exploralugar")[i].innerHTML = provincia;
+
+          i++;
+        });
 }
-// fillExploreItem()
+  // Making fuction global
+  export {firebaseFillExploreItem}
+  window.firebaseFillExploreItem = firebaseFillExploreItem;
 
 // PUBLISH NEW ANIMAL
-function publishNewAnimal(quantity,region,city,age,images,race) {
+function firebasePublishNewAnimal(publishData) {
     try {
         const docRef = addDoc(collection(db, "animales"), {
-          cantidad: quantity,
-          provincia: region,
-          ciudad: city,
-          edad: age,
-          imagenes: images,
-          raza: race
+          Id: publishData.publishId,
+          Especie: publishData.publishEspecie,
+          Raza: publishData.publishRaza,
+          Number: publishData.publishNumber,
+          Age: publishData.publishAge,
+          AgeUom: publishData.publishAgeUom,
+          Provincia: publishData.publishProvincia,
+          Description: publishData.publishDescription,
+          Fecha: publishData.publishDate
         });
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {
@@ -60,19 +65,41 @@ function publishNewAnimal(quantity,region,city,age,images,race) {
       }
 }
 
+  // Making fuction global
+  export {firebasePublishNewAnimal}
+  window.firebasePublishNewAnimal = firebasePublishNewAnimal;
+
 // PUBLISH IMAGE
-// Create a root reference
-const storage = getStorage(firebase);
+  // Create a root reference
+  const storage = getStorage(firebase);
 
-function firebasePublishPicture(file, name) {
+  function firebasePublishPicture(file, name) {
 
-  const reference = ref(storage, name);
+    const reference = ref(storage, name);
 
-  uploadString(reference, file, 'base64').then((snapshot) => {
-    console.log('Uploaded a blob or file!');
-  });
+    uploadString(reference, file, 'base64').then((snapshot) => {
+      console.log('Uploaded a blob or file!');
+    });
+  }
+
+  // Making fuction global
+  export {firebasePublishPicture}
+  window.firebasePublishPicture = firebasePublishPicture;
+
+// GET IMAGE
+function firebaseGetPicture(imageId, index) {
+  return new Promise(function(resolve, reject) {
+    getDownloadURL(ref(storage, `id=${imageId}img=0.jpeg`))
+    .then((url) => {
+      console.log(url)
+      console.log(index)
+      // Index is used for displaying several,
+      resolve([url, index]);
+    })
+  })
+
 }
 
-export {firebasePublishPicture}
-window.firebasePublishPicture = firebasePublishPicture;
-
+  // Making fuction global
+  export {firebaseGetPicture}
+  window.firebaseGetPicture = firebaseGetPicture;

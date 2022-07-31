@@ -242,30 +242,32 @@ uploadedimages.forEach(image => {
 })
 
 //////////////////// ------------------- IMAGE UPLOAD ------------------- ////////////////////
+const maxImages = 4;
+
+let base64imagesString = Array(maxImages);
+let imageEncoding = Array(maxImages);
 
 document.querySelector("#files").addEventListener("change", (e) => {
   if (window.File && window.FileReader && window.FileList && window.Blob) {
     const files = e.target.files;
-    const maxImages = 4;
     for (let i = 0; i < files.length; i++) {
         if ((!files[i].type.match("image")) && (i < maxImages)) continue;
         const picReader = new FileReader();
         picReader.addEventListener("load", function (event) {
-          const picFile = event.target;
+          picFile = event.target;
           
           if ( i < maxImages ) {
             uploadedimages[i].style.backgroundImage = `url('${picFile.result}')`;
             uploadedimages[i].classList.add('imaged');
           
-            base64string = picFile.result.split(',')[1];
-
-            // Publish in firebase
-            // firebasePublishPicture(base64string, `id=${randomId}img=${i}.${picFile.result.substring(11,14)}`);
+            base64imagesString[i] = picFile.result.split(',')[1];
+            imageEncoding[i] = `id=${randomId}img=${i}.${picFile.result.substring(11,15)}`
           }
 
         });
         picReader.readAsDataURL(files[i]); //READ THE IMAGE
     }
+
   } else {
     alert("Your browser does not support File API");
   }
@@ -284,7 +286,8 @@ validationButtuon.addEventListener('click', () => {
     publishAgeUom: '',
     publishProvincia: '',
     publishDescription: '',
-    publishId: randomId
+    publishId: randomId,
+    publishDate: new Date().toLocaleDateString("es-ES")
   }
 
   // Check and get especie
@@ -334,7 +337,21 @@ validationButtuon.addEventListener('click', () => {
    if (publish === true) {
     validationErrorMessage.innerHTML = ''
     // PUBLISH CODE
+
+    // Publish data in firebase firestore
+    firebasePublishNewAnimal(publishData);
+
+    // Publish images in firebase storage
+    for (let i = 0; i < maxImages; i++) {
+      if ((base64imagesString[i] === undefined) || (imageEncoding[i] === undefined)) {
+        console.log(`Image number ${i} does not exist`);
+      } else {
+        firebasePublishPicture(base64imagesString[i], imageEncoding[i]);
+      }
+    }
+
    } else {
     validationErrorMessage.innerHTML = 'Aún faltan campos por rellenar!'
    }
 })
+

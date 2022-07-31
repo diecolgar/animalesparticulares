@@ -38,7 +38,6 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 500;
   color: black;
   background-color: white;
   border: 1px solid #e6e6e6;
@@ -63,7 +62,7 @@ nav .logo .logoimage {
 }
 
 nav .logo p {
-  font-size: 2.4rem;
+  font-size: 2.25rem;
   margin: 0;
 }
 
@@ -119,7 +118,7 @@ nav .navigation div:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1.15rem;
+  font-size: 1.125rem;
   font-weight: 500;
   min-width: 15vw;
 }
@@ -368,7 +367,7 @@ nav .navigation div:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1.15rem;
+  font-size: 1rem;
   font-weight: 500;
   min-width: 15vw;
 }
@@ -401,7 +400,7 @@ nav .navigation div:hover {
   width: 20vw;
   top: -28vh;
   left: 42vw;
-  font-size: 1.15rem;
+  font-size: 1.125rem;
   color: rgba(0, 0, 0, 0.4);
   background-color: white;
   padding: 1rem;
@@ -424,20 +423,19 @@ nav .navigation div:hover {
   text-decoration: none;
   color: #357439;
   font-weight: 500;
-  font-size: 1.15rem;
-  letter-spacing: 2px;
+  font-size: 1.125rem;
+  letter-spacing: 0.125rem;
   top: -30vh;
   left: 50vw;
   width: 12rem;
   height: 3.5rem;
-  border: 2px solid #4ca852;
   border-radius: 30px;
   background-image: url(/images/titlebrushback.png);
   background-size: cover;
   -webkit-box-shadow: 2px 2px 0.2rem #9b9b9b;
           box-shadow: 2px 2px 0.2rem #9b9b9b;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  -webkit-transition: border-radius 0.2s;
+  transition: border-radius 0.2s;
 }
 
 .landing .publishnowcontainer .publishbutton:hover {
@@ -461,7 +459,7 @@ nav .navigation div:hover {
 
 .landing .explora p {
   color: black;
-  font-size: 1.15rem;
+  font-size: 1.125rem;
   font-weight: 500;
   margin-top: 10vh;
 }
@@ -623,6 +621,9 @@ nav .navigation div:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-top: 10vh;
   width: 70vw;
 }
@@ -637,13 +638,13 @@ nav .navigation div:hover {
   position: relative;
   color: #357439;
   width: 20rem;
-  font-size: 2rem;
+  font-size: 2.25rem;
   margin: auto;
 }
 
 .publica .title p {
   z-index: 10;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.25rem;
 }
 
 .publica .title .brush {
@@ -660,8 +661,7 @@ nav .navigation div:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-top: 2vh;
-  width: 70vw;
+  width: 70rem;
   height: 60vh;
 }
 
@@ -676,9 +676,9 @@ nav .navigation div:hover {
   -webkit-box-align: right;
       -ms-flex-align: right;
           align-items: right;
-  -webkit-box-pack: right;
-      -ms-flex-pack: right;
-          justify-content: right;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 35vw;
   height: 60vh;
 }
@@ -706,7 +706,7 @@ nav .navigation div:hover {
       -ms-flex-align: center;
           align-items: center;
   margin-right: 2rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   width: 6rem;
   height: 3rem;
@@ -730,7 +730,7 @@ nav .navigation div:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -864,7 +864,7 @@ nav .navigation div:hover {
           align-items: start;
   font-family: 'Montserrat Alternates', sans-serif;
   min-height: 4rem;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: 500;
   border: none;
   resize: none;
@@ -897,10 +897,12 @@ nav .navigation div:hover {
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox .innertext {
   color: #dfdfdf;
+  font-weight: 400;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox .innertext.selected {
   color: #4ca852;
+  font-weight: 500;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .cuantos {
@@ -929,8 +931,8 @@ nav .navigation div:hover {
   width: 100%;
   background-color: white;
   border-radius: 15px;
-  -webkit-box-shadow: 0 0 0.2rem #c4c4c4;
-          box-shadow: 0 0 0.2rem #c4c4c4;
+  -webkit-box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
+          box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .selectable.displayed {
@@ -947,6 +949,10 @@ nav .navigation div:hover {
 .publica .maincontainers .datacontainer .datarow .datainput .selectable .option:hover {
   cursor: pointer;
   background-color: #c0ecc4;
+}
+
+.publica .maincontainers .datacontainer .datarow.descripcion {
+  height: 6rem;
 }
 
 .publica .maincontainers .datacontainer .datarow.descripcion .datainput {
@@ -1039,15 +1045,13 @@ nav .navigation div:hover {
 }
 
 .publica .maincontainers .imagescontainer #files {
-  position: absolute;
-  bottom: 5vh;
   content: 'Select some files';
   display: inline-block;
   background-image: url("/images/plus.png");
   background-size: cover;
   background-position: center;
-  -webkit-box-shadow: 0px 0px 0.2rem 1px #c4c4c4;
-          box-shadow: 0px 0px 0.2rem 1px #c4c4c4;
+  -webkit-box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
+          box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
   border-radius: 20px;
   width: 3rem;
   height: 3rem;
@@ -1056,7 +1060,8 @@ nav .navigation div:hover {
   cursor: pointer;
   text-shadow: 1px 1px #fff;
   font-weight: 700;
-  font-size: 10pt;
+  -webkit-transform: translateY(10rem);
+          transform: translateY(10rem);
 }
 
 .publica .maincontainers .imagescontainer #result {
@@ -1074,7 +1079,7 @@ nav .navigation div:hover {
 }
 
 .publica .publisherrormessage {
-  font-size: 0.9rem;
+  font-size: 1rem;
   height: 0;
   text-align: center;
   margin-bottom: 0.5rem;
@@ -1095,10 +1100,10 @@ nav .navigation div:hover {
   width: 8rem;
   height: 5vh;
   margin: 2vh auto;
-  border: 2px solid #4ca852;
   color: #357439;
   font-weight: 500;
-  letter-spacing: 2px;
+  font-size: 1.125rem;
+  letter-spacing: 0.125rem;
   border-radius: 40px;
   background-image: url(/images/titlebrushback.png);
   background-size: cover;
@@ -1110,10 +1115,7 @@ nav .navigation div:hover {
 
 .publica .publishbutton:hover {
   cursor: pointer;
-  width: 8.3rem;
-  height: 5.2vh;
-  -webkit-transform: translateY(-0.1vh);
-          transform: translateY(-0.1vh);
+  border-radius: 20px 30px 20px 30px;
 }
 
 body {

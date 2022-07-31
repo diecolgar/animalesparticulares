@@ -9,6 +9,7 @@ $greybox: #c4c4c4;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	align-items: center;
 	margin-top: 10vh;
 	width: 70vw;
 	.title {
@@ -17,11 +18,11 @@ $greybox: #c4c4c4;
 		position: relative;
 		color: $harderfont;
 		width: 20rem;
-		font-size: 2rem;
+		font-size: 2.25rem;
 		margin: auto;
 		p {
 			z-index: 10;
-			letter-spacing: 0.1rem;
+			letter-spacing: 0.25rem;
 		}
 		.brush {
 			position: absolute;
@@ -35,34 +36,30 @@ $greybox: #c4c4c4;
 	}
 	.maincontainers {
 		display: flex;
-		margin-top: 2vh;
-		width: 70vw;
+		width: 70rem;
 		height: 60vh;
 		.datacontainer {
 			display: flex;
 			flex-direction: column;
 			align-items: right;
-			justify-content: right;
+			justify-content: center;
 			width: 35vw;
 			height: 60vh;
-			// background-color: rgb(231, 231, 231);
 			.datarow {
 				display: flex;
 				justify-content: center;
 				margin: 0.4rem;
 				width: 100%;
 				height: 3rem;
-				// background-color: rgb(170, 170, 170);
 				.datatitle {
 					display: flex;
 					justify-content: right;
 					align-items: center;
 					margin-right: 2rem;
-					font-size: 0.9rem;
+					font-size: 1rem;
 					font-weight: 500;
 					width: 6rem;
 					height: 3rem;
-					// background-color: rgb(194, 66, 66);
 				}
 				.datainput {
 					display: flex;
@@ -70,10 +67,9 @@ $greybox: #c4c4c4;
 					align-items: center;
 					width: 12rem;
 					height: 3rem;
-					// background-color: rgb(143, 21, 21);
 					.inputbox {
 						display: flex;
-						font-size: 0.9rem;
+						font-size: 1rem;
 						font-weight: 500;
 						align-items: center;
 						justify-content: center;
@@ -171,7 +167,7 @@ $greybox: #c4c4c4;
 							align-items: start;
 							font-family: 'Montserrat Alternates', sans-serif;
 							min-height: 4rem;
-							font-size: 0.9rem;
+							font-size: 1rem;
 							font-weight: 500;
 							border: none;
 							resize: none;
@@ -188,8 +184,10 @@ $greybox: #c4c4c4;
 						}
 						.innertext {
 							color: rgb(223, 223, 223);
+							font-weight: 400;
 							&.selected {
 								color: $hardfont;
+								font-weight: 500;
 							}
 						}
 					}
@@ -214,7 +212,7 @@ $greybox: #c4c4c4;
 						width: 100%;
 						background-color: rgb(255, 255, 255);
 						border-radius: 15px;
-						box-shadow: 0 0 0.2rem $greybox;
+						box-shadow: 0px 0px 0.1rem 1px $greybox;
 						&.displayed {
 							display: flex;
 						}
@@ -229,6 +227,7 @@ $greybox: #c4c4c4;
 					}
 				}
 				&.descripcion {
+					height: 6rem;
 					.datainput {
 						align-items: start;
 						width: 18rem;
@@ -302,14 +301,14 @@ $greybox: #c4c4c4;
 				visibility: hidden;	
 			}
 			#files {
-				position: absolute;
-				bottom: 5vh;
+				// position: absolute;
+				// bottom: 1rem;
 				content: 'Select some files';
 				display: inline-block;
 				background-image: url('/images/plus.png');
 				background-size: cover;
 				background-position: center;
-				box-shadow: 0px 0px 0.2rem 1px $greybox;
+				box-shadow: 0px 0px 0.1rem 1px $greybox;
 				border-radius: 20px;
 				width: 3rem;
 				height: 3rem;
@@ -318,7 +317,7 @@ $greybox: #c4c4c4;
 				cursor: pointer;
 				text-shadow: 1px 1px #fff;
 				font-weight: 700;
-				font-size: 10pt;
+				transform: translateY(10rem);
 			}
 			#result{
 				display: flex;
@@ -332,7 +331,7 @@ $greybox: #c4c4c4;
 		}
 	}
 	.publisherrormessage {
-		font-size: 0.9rem;
+		font-size: 1rem;
 		height: 0;
 		text-align: center;
 		margin-bottom: 0.5rem;
@@ -346,10 +345,10 @@ $greybox: #c4c4c4;
 		width: 8rem;
 		height: 5vh;
 		margin: 2vh auto;
-		border: 2px solid $hardfont;
 		color: $harderfont;
 		font-weight: 500;
-		letter-spacing: 2px;
+		font-size: 1.125rem;
+		letter-spacing: 0.125rem;
 		border-radius: 40px;
 		background-image: url(/images/titlebrushback.png);
 		background-size: cover;
@@ -357,9 +356,7 @@ $greybox: #c4c4c4;
 		transition: 0.2s;
 		&:hover {
 			cursor: pointer;
-			width: 8.3rem;
-			height: 5.2vh;
-			transform: translateY(-0.1vh);
+			border-radius: 20px 30px 20px 30px;
 		}
 	}
 }

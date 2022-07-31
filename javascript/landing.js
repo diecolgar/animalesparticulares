@@ -1,3 +1,5 @@
+// import {firebaseFillExploreItem} from '/firebase.js';
+
 // Selectable buttons to open displayable
 const landingSelectableZona = document.querySelector(".selectable.zona")
 const landingSelectableEspecie = document.querySelector(".selectable.especie")
@@ -17,7 +19,8 @@ const chosenRazaText = document.querySelector(".selectable.raza p")
 const chosenEspecieImg = document.querySelector(".selectable .chosen .icon")
 // Search button
 const searchButton = document.querySelector(".gosearch")
-// 
+// Explora items
+const exploraRow = document.querySelectorAll(".explorarow")
 
 window.addEventListener('click', function(e){   
   if (landingSelectableZona.contains(e.target)){
@@ -112,3 +115,13 @@ function fetchAnimals(especie) {
 }
 
 // Fetch and display explore section...
+let exploreOnlyOnceVariable = true;
+window.addEventListener('scroll', () => {
+  exploraRow.forEach(exploraRow => {
+    if ((exploraRow.getBoundingClientRect().top > window.innerHeight) && (exploreOnlyOnceVariable)) {
+      firebaseFillExploreItem();
+      exploreOnlyOnceVariable = false;
+    }
+  })
+})
+
