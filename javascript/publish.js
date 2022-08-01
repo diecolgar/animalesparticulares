@@ -278,6 +278,7 @@ document.querySelector("#files").addEventListener("change", (e) => {
 validationButtuon.addEventListener('click', () => {
 
   let publish = true;
+
   const publishData = {
     publishEspecie: '',
     publishRaza: '',
@@ -327,31 +328,40 @@ validationButtuon.addEventListener('click', () => {
     publishData.publishDescription = dataDescripcionInput.value;
   }
 
-  for (let i = 0; i < Object.entries(publishData).length; i++)
-   {
+  // Checking at least 1 image filled...
+  publish = false;
+  uploadedimages.forEach(image => {
+    if (image.classList.contains('imaged')) {
+      publish = true;
+    }
+  });
+  // Checking all data items filled
+  for (let i = 0; i < Object.entries(publishData).length; i++) {
     console.log(Object.entries(publishData)[i][1])
     if (Object.entries(publishData)[i][1] === '') {
       publish = false;
     }
-   }
-   if (publish === true) {
-    validationErrorMessage.innerHTML = ''
-    // PUBLISH CODE
+  }
+  if (publish === true) {
+  validationErrorMessage.innerHTML = ''
+  
+  // PUBLISH SECTION
+  // Publish data in firebase firestore
+  firebasePublishNewAnimal(publishData);
 
-    // Publish data in firebase firestore
-    firebasePublishNewAnimal(publishData);
-
-    // Publish images in firebase storage
-    for (let i = 0; i < maxImages; i++) {
-      if ((base64imagesString[i] === undefined) || (imageEncoding[i] === undefined)) {
-        console.log(`Image number ${i} does not exist`);
-      } else {
-        firebasePublishPicture(base64imagesString[i], imageEncoding[i]);
-      }
+  // Publish images in firebase storage
+  for (let i = 0; i < maxImages; i++) {
+    if ((base64imagesString[i] === undefined) || (imageEncoding[i] === undefined)) {
+      // Nothing
+    } else {
+      firebasePublishPicture(base64imagesString[i], imageEncoding[i]);
     }
+  }
+  document.querySelector('.validationscreen').style.opacity = '1';
+  document.querySelector('.validationscreen').style.visibility = 'visible';
 
-   } else {
-    validationErrorMessage.innerHTML = 'Aún faltan campos por rellenar!'
-   }
+  } else {
+  validationErrorMessage.innerHTML = 'Aún faltan campos por rellenar!'
+  }
 })
 
