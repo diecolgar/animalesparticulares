@@ -61,6 +61,9 @@ const dataProvinciaDisplayableOptions = document.querySelectorAll(".provincia .d
 // Description
 const dataDescripcionInput = document.querySelector(".descripcion .datainput .descripcion" )
 
+// Ver button
+const verButton = document.querySelector('.ver')
+
 
 // ---------------------------------------------------------------------------  ESPECIE
 dataEspecieInput.forEach(especie => {
@@ -361,7 +364,12 @@ validationButtuon.addEventListener('click', () => {
   document.querySelector('.validationscreen').style.visibility = 'visible';
 
   } else {
-  validationErrorMessage.innerHTML = 'Aún faltan campos por rellenar!'
+  validationErrorMessage.innerHTML = 'Aún faltan campos por rellenar!';
+  document.querySelector('.validationscreen').style.opacity = '1';
+  document.querySelector('.validationscreen').style.visibility = 'visible';
   }
 })
 
+verButton.addEventListener('click', () => {
+    verButton.href = `inventory.html/asdasdsa`
+});

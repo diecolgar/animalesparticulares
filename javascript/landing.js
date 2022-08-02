@@ -20,7 +20,7 @@ const chosenEspecieImg = document.querySelector(".selectable .chosen .icon")
 // Search button
 const searchButton = document.querySelector(".gosearch")
 // Explora items
-const exploraRow = document.querySelectorAll(".explorarow")
+const exploraItem = document.querySelectorAll(".exploraitem")
 
 window.addEventListener('click', function(e){   
   if (landingSelectableZona.contains(e.target)){
@@ -115,13 +115,23 @@ function fetchAnimals(especie) {
 }
 
 // Fetch and display explore section...
-let exploreOnlyOnceVariable = true;
-window.addEventListener('scroll', () => {
-  exploraRow.forEach(exploraRow => {
-    if ((exploraRow.getBoundingClientRect().top > window.innerHeight) && (exploreOnlyOnceVariable)) {
-      firebaseFillExploreItem();
-      exploreOnlyOnceVariable = false;
+    displayExploreItem = function(Id, desiredItem) {
+        firebaseFetchAnimal(Id).then((result) => {
+            document.querySelectorAll(".exploraitem")[desiredItem].classList.add('relleno');
+            document.querySelectorAll(".exploratitulo")[desiredItem].innerHTML = result.raza;
+            document.querySelectorAll(".exploralugar")[desiredItem].innerHTML = result.provincia;
+        });
+        firebaseGetPicture(Id, 0).then((result) => {
+            document.querySelectorAll(".exploraimage")[desiredItem].style.backgroundImage = `url(${result}`;
+        });
     }
-  })
-})
+
+    window.addEventListener('load', function() {
+        displayExploreItem("5287588273", 0);
+        displayExploreItem("5287588273", 1);
+        displayExploreItem("5287588273", 2);
+        displayExploreItem("5287588273", 3);
+        displayExploreItem("5287588273", 4);
+        displayExploreItem("5287588273", 5);
+    });
 

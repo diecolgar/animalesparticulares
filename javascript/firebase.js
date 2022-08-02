@@ -1,7 +1,7 @@
 const animalId = 'perro1239201'
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js';
-import { getFirestore, collection, addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js'
+import { getFirestore, collection, addDoc, getDocs, where, query, limit } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js'
 import { getStorage, ref, uploadString, getDownloadURL } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js'
 
 
@@ -21,29 +21,40 @@ export {firebaseConfig}
 const firebase = initializeApp(firebaseConfig);
 const db = getFirestore(firebase)
 
-// FILL EXPLORE SECTION
-async function firebaseFillExploreItem() {
-    const querySnapshot = await getDocs(collection(db, "animales"));
-        let i = 0;
-        querySnapshot.forEach((doc) => {
-          console.log(doc.data().Id);
-          firebaseGetPicture(doc.data().Id, i).then(([url, index]) => {
-            document.querySelectorAll(".exploraimage")[index].style.backgroundImage = `url(${url})`;
-            }
-          );
-          const raza = doc.data().Raza;
-          const provincia = doc.data().Provincia;
 
-          document.querySelectorAll(".exploraitem")[i].classList.add('relleno');
-          document.querySelectorAll(".exploratitulo")[i].innerHTML = raza;
-          document.querySelectorAll(".exploralugar")[i].innerHTML = provincia;
+// FIREBASE GENERAL FETCH
+// --------------------------------------------------------------- FETCH ANIMAL
+async function firebaseFetchAnimal(Id) {
+    return new Promise(function(resolve, reject) {
+        let outputData = {};
 
-          i++;
-        });
+        const q = query(collection(db, "animales"), where("Id", "==", Id), limit(1));
+
+        getDocs(q).then((querySnapshot) => {
+            querySnapshot.forEach((doc) => {
+
+                outputData = {
+                age: doc.data().Age,
+                ageUom: doc.data().AgeUom,
+                description: doc.data().Description,
+                especie: doc.data().Especie,
+                fecha: doc.data().Fecha,
+                number: doc.data().Number,
+                provincia: doc.data().Provincia,
+                raza: doc.data().Raza,
+                }
+                
+                resolve(outputData);
+        
+            }); 
+        })
+    });
 }
-  // Making fuction global
-  export {firebaseFillExploreItem}
-  window.firebaseFillExploreItem = firebaseFillExploreItem;
+// Making fuction global
+export {firebaseFetchAnimal}
+window.firebaseFetchAnimal = firebaseFetchAnimal;
+
+
 
 // PUBLISH NEW ANIMAL
 function firebasePublishNewAnimal(publishData) {
@@ -69,7 +80,9 @@ function firebasePublishNewAnimal(publishData) {
   export {firebasePublishNewAnimal}
   window.firebasePublishNewAnimal = firebasePublishNewAnimal;
 
-// PUBLISH IMAGE
+
+
+// --------------------------------------------------------------- PUBLISH IMAGE
   // Create a root reference
   const storage = getStorage(firebase);
 
@@ -86,18 +99,21 @@ function firebasePublishNewAnimal(publishData) {
   export {firebasePublishPicture}
   window.firebasePublishPicture = firebasePublishPicture;
 
-// GET IMAGE
+
+
+// --------------------------------------------------------------- GET IMAGE
 function firebaseGetPicture(imageId, index) {
   return new Promise(function(resolve, reject) {
-    getDownloadURL(ref(storage, `id=${imageId}img=0.jpeg`))
+    getDownloadURL(ref(storage, `id=${imageId}img=${index}.jpeg`))
     .then((url) => {
-      console.log(url)
-      console.log(index)
-      // Index is used for displaying several,
-      resolve([url, index]);
+        console.log(url)
+      resolve(url);
     })
+    .catch((error) => {
+        console.log("Image reference not found, not a critical error")
+    }
+    )
   })
-
 }
 
   // Making fuction global

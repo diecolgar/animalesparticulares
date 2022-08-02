@@ -1179,6 +1179,7 @@ nav .navigation div:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-decoration: none;
   width: 4rem;
   height: 5vh;
   margin: 2vh auto;
@@ -1199,6 +1200,139 @@ nav .navigation div:hover {
 
 .validationscreen .ver:hover {
   cursor: pointer;
+}
+
+.inventory {
+  width: 70vw;
+  margin-top: 15vh;
+  letter-spacing: 0.125rem;
+}
+
+.inventory .title {
+  height: 10vh;
+}
+
+.inventory .title .maintitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 2.25rem;
+}
+
+.inventory .title .maintitle .icon {
+  width: 44px;
+  height: 44px;
+  background-image: url("/images/dog.svg");
+  background-position: center;
+  background-size: cover;
+  -webkit-transform: translateY(0.3rem);
+          transform: translateY(0.3rem);
+}
+
+.inventory .title .maintitle .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-left: 2rem;
+}
+
+.inventory .title .maintitle .text .especie {
+  color: #357439;
+}
+
+.inventory .title .maintitle .text .number {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-left: 2rem;
+  color: #35743981;
+}
+
+.inventory .title .subtitle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 4.9rem;
+  margin-top: 0.125rem;
+  font-size: 1.125rem;
+  font-weight: 500;
+}
+
+.inventory .title .subtitle .separator {
+  width: 0.4rem;
+  height: 0.4rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #35743981;
+  border-radius: 50%;
+  margin-left: 1rem;
+}
+
+.inventory .title .subtitle .location {
+  margin-left: 1rem;
+}
+
+.inventory .imagescontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+}
+
+.inventory .imagescontainer .image {
+  height: 17rem;
+  width: 100%;
+  max-width: 20vw;
+  background-color: #e4e4e4;
+  background-size: cover;
+  background-position: center;
+  border: 4px solid white;
+}
+
+.inventory .imagescontainer .image:nth-child(1) {
+  border-radius: 40px 0 0 40px;
+}
+
+.inventory .imagescontainer .image:nth-child(4) {
+  border-radius: 0 40px 40px 0;
+}
+
+.inventory .information {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 70vw;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.inventory .information .description {
+  width: 30vw;
+}
+
+.inventory .information .contactinfo {
+  -webkit-box-pack: right;
+      -ms-flex-pack: right;
+          justify-content: right;
+  text-align: right;
+}
+
+.inventory .information .contactinfo .contactlabel {
+  font-weight: 600;
 }
 
 body {

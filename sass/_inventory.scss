@@ -1,0 +1,102 @@
+$soft: #c0ecc4;
+$hard: #5dd666;
+$hardfont: #4ca852;
+$harderfont: #357439;
+$harderfontlight: #35743981;
+$greybox: #c4c4c4;
+
+
+.inventory {
+    width: 70vw;
+    margin-top: 15vh;
+    letter-spacing: 0.125rem;
+    .title {
+        height: 10vh;
+        .maintitle {
+            display: flex;
+            font-size: 2.25rem;
+            .icon {
+                width: 44px;
+                height: 44px;
+                background-image: url('/images/dog.svg');
+                background-position: center;
+                background-size: cover;
+                transform: translateY(0.3rem);
+            }
+            .text {
+                display: flex;
+                margin-left: 2rem;
+                .especie {
+                    color: $harderfont;
+                }
+                .number {
+                    display: flex;
+                    text-align: center;
+                    align-items: center;
+                    font-size: 1.5rem;
+                    font-weight: 500;
+                    margin-left: 2rem;
+                    color: $harderfontlight;
+                }
+            }
+        }
+        .subtitle {
+            display: flex;
+            align-items: center;
+            margin-left: 4.9rem;
+            margin-top: 0.125rem;
+            font-size: 1.125rem;
+            font-weight: 500;
+            .age {
+
+            }
+            .separator {
+                width: 0.4rem;
+                height: 0.4rem;
+                align-items: center;
+                background-color: $harderfontlight;
+                border-radius: 50%;
+                margin-left: 1rem;
+            }
+            .location {
+                margin-left: 1rem;
+            }
+        }
+    }
+    .imagescontainer {
+        display: flex;
+        justify-content: left;
+        .image {
+            height: 17rem;
+            width: 100%;
+            max-width: 20vw;
+            background-color: rgb(228, 228, 228);
+            background-size: cover;
+            background-position: center;
+            border: 4px solid white;
+            &:nth-child(1) {
+                border-radius: 40px 0 0 40px;
+            }
+            &:nth-child(4) {
+                border-radius: 0 40px 40px 0;
+            }
+        }
+    }
+    .information {
+        display: flex;
+        width: 70vw;
+        justify-content: space-between;
+        margin-top: 2rem;
+        .description {
+            width: 30vw;
+        }
+        .contactinfo {
+            justify-content: right;
+            text-align: right;
+            .contactlabel {
+                font-weight: 600;
+            }
+        }
+    }
+
+}
