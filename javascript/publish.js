@@ -19,7 +19,11 @@ const validationButtuon = document.querySelector('.publishbutton')
 const validationErrorMessage = document.querySelector('.publisherrormessage')
 
 // Images
-const uploadedimages = document.querySelectorAll(".imagescontainer .uploadedimage")
+const uploadedimages = document.querySelectorAll(".imagescontainer .imagesdisplay .uploadedimage")
+const arrowleft = document.querySelector(".imagescontainer .arrowleft")
+const arrowright = document.querySelector(".imagescontainer .arrowright")
+const imagecloser = document.querySelector(".imagescontainer .imagesdisplay .closer")
+const imagecounter = document.querySelector(".imagescontainer .imagesdisplay .numerodeimagenes")
 
 // Especie
 const dataEspecieInput = document.querySelectorAll(".especie .datainput .especie")
@@ -221,36 +225,60 @@ window.addEventListener('click', function(e){
     })
 
 
-// ---------------------------------------------------------------------------  IMAGE ONCLICK HANDLER
-
-uploadedimages.forEach(image => {
-  image.addEventListener('click', () => {
-    if (image.classList.contains('imaged')) {
-      
-      if (image.classList.contains('extended')) {
-        image.classList.remove('extended')
-        uploadedimages.forEach(image2 => {
-          image2.classList.add('displayed')
-        })
-      } else {
-        uploadedimages.forEach(image2 => {
-          image2.classList.remove('displayed')
-        })
-        image.classList.add('extended')
-        image.classList.add('displayed')
-      }
-
-    }
-  })
+// ---------------------------------------------------------------------------  IMAGE SLIDE ONCLICK HANDLER
+arrowleft.addEventListener('click', () => {
+    let continueArrow = true;
+    uploadedimages.forEach((image, id) => {
+        if((image.classList.contains('displayed')) && (id !== 0) && continueArrow && (uploadedimages[id-1].classList.contains('imaged'))) {
+            uploadedimages[id-1].classList.add('displayed');
+            uploadedimages[id].classList.remove('displayed');
+            imagecounter.innerHTML = `${id}/${numberOfUploadedImages}`;
+            continueArrow = false;
+            if ((id-1) === 0) {
+                arrowleft.classList.remove('displayed')
+            }
+        }
+        arrowright.classList.add('displayed')
+    })
+})
+arrowright.addEventListener('click', () => {
+    let continueArrow = true;
+    uploadedimages.forEach((image, id) => {
+        if((image.classList.contains('displayed')) && (id !== (numberOfUploadedImages+1)) && continueArrow && (uploadedimages[id+1].classList.contains('imaged'))) {
+            uploadedimages[id+1].classList.add('displayed');
+            uploadedimages[id].classList.remove('displayed');
+            imagecounter.innerHTML = `${id+2}/${numberOfUploadedImages}`;
+            continueArrow = false;
+            console.log(id);
+            console.log(numberOfUploadedImages);
+            if ((id+2) === numberOfUploadedImages) {
+                arrowright.classList.remove('displayed')
+            }
+        }
+        arrowleft.classList.add('displayed')
+    })
+})
+//////////////////// ------------------- CLOSER EVENT ------------------- ////////////////////
+imagecloser.addEventListener('click', () => {
+    uploadedimages.forEach(image => {
+        image.classList.remove('displayed')
+    })
+    arrowleft.classList.remove('displayed');
+    arrowright.classList.remove('displayed');
+    imagecloser.classList.remove('displayed');
+    imagecounter.classList.remove('displayed');
 })
 
+
 //////////////////// ------------------- IMAGE UPLOAD ------------------- ////////////////////
-const maxImages = 4;
+const maxImages = 5;
+let numberOfUploadedImages = 0;
 
 let base64imagesString = Array(maxImages);
 let imageEncoding = Array(maxImages);
 
 document.querySelector("#files").addEventListener("change", (e) => {
+    numberOfUploadedImages = 0;
   if (window.File && window.FileReader && window.FileList && window.Blob) {
     const files = e.target.files;
     for (let i = 0; i < files.length; i++) {
@@ -262,6 +290,13 @@ document.querySelector("#files").addEventListener("change", (e) => {
           if ( i < maxImages ) {
             uploadedimages[i].style.backgroundImage = `url('${picFile.result}')`;
             uploadedimages[i].classList.add('imaged');
+            uploadedimages[0].classList.add('displayed');
+            arrowleft.classList.add('displayed');
+            arrowright.classList.add('displayed');
+            imagecloser.classList.add('displayed');
+            imagecounter.classList.add('displayed');
+            numberOfUploadedImages++;
+            imagecounter.innerHTML = `1/${numberOfUploadedImages}`;
           
             base64imagesString[i] = picFile.result.split(',')[1];
             imageEncoding[i] = `id=${randomId}img=${i}.${picFile.result.substring(11,15)}`
@@ -291,7 +326,8 @@ validationButtuon.addEventListener('click', () => {
     publishProvincia: '',
     publishDescription: '',
     publishId: randomId,
-    publishDate: new Date().toLocaleDateString("es-ES")
+    publishDate: new Date().toLocaleDateString("es-ES"),
+    publishImageNumber: numberOfUploadedImages
   }
 
   // Check and get especie
@@ -371,5 +407,17 @@ validationButtuon.addEventListener('click', () => {
 })
 
 verButton.addEventListener('click', () => {
-    verButton.href = `inventory.html/asdasdsa`
+    // const url = new URL(`${randomId}`, 'http://127.0.0.1:5500/inventory.html');
+
+
+    let url1 = new URL('https://javascript.info/profile/admin');
+    let url2 = new URL(`/${randomId}`, 'https://javascript.info');
+    // let url3 = new URL(`/${randomId}.html`, 'https://127.0.0.1:5500/inventory/');
+    
+    
+    alert(url1); // https://javascript.info/profile/admin
+    alert(url2); // https://javascript.info/profile/admin
+    // alert(url3); // https://javascript.info/profile/admin
+
+    // verButton.href = url;
 });

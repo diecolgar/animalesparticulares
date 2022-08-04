@@ -42,6 +42,7 @@ async function firebaseFetchAnimal(Id) {
                 number: doc.data().Number,
                 provincia: doc.data().Provincia,
                 raza: doc.data().Raza,
+                numberOfImages: doc.data().NumeroImagenes
                 }
                 
                 resolve(outputData);
@@ -68,7 +69,8 @@ function firebasePublishNewAnimal(publishData) {
           AgeUom: publishData.publishAgeUom,
           Provincia: publishData.publishProvincia,
           Description: publishData.publishDescription,
-          Fecha: publishData.publishDate
+          Fecha: publishData.publishDate,
+          NumeroImagenes: publishData.publishImageNumber
         });
         console.log("Document written with ID: ", docRef.id);
       } catch (e) {
