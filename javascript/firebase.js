@@ -34,6 +34,7 @@ async function firebaseFetchAnimal(Id) {
             querySnapshot.forEach((doc) => {
 
                 outputData = {
+                id: doc.data().Id,
                 age: doc.data().Age,
                 ageUom: doc.data().AgeUom,
                 description: doc.data().Description,
@@ -106,15 +107,22 @@ function firebasePublishNewAnimal(publishData) {
 // --------------------------------------------------------------- GET IMAGE
 function firebaseGetPicture(imageId, index) {
   return new Promise(function(resolve, reject) {
-    getDownloadURL(ref(storage, `id=${imageId}img=${index}.jpeg`))
+    getDownloadURL(ref(storage, `id=${imageId}img=${index}`))
     .then((url) => {
         console.log(url)
       resolve(url);
     })
     .catch((error) => {
         console.log("Image reference not found, not a critical error")
-    }
-    )
+    })
+    // getDownloadURL(ref(storage, `id=${imageId}img=${index}.png;`))
+    // .then((url) => {
+    //     console.log(url)
+    //   resolve(url);
+    // })
+    // .catch((error) => {
+    //     console.log("Image reference not found, not a critical error")
+    // })
   })
 }
 

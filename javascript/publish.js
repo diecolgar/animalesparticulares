@@ -299,7 +299,7 @@ document.querySelector("#files").addEventListener("change", (e) => {
             imagecounter.innerHTML = `1/${numberOfUploadedImages}`;
           
             base64imagesString[i] = picFile.result.split(',')[1];
-            imageEncoding[i] = `id=${randomId}img=${i}.${picFile.result.substring(11,15)}`
+            imageEncoding[i] = `id=${randomId}img=${i}`
           }
 
         });
@@ -407,17 +407,6 @@ validationButtuon.addEventListener('click', () => {
 })
 
 verButton.addEventListener('click', () => {
-    // const url = new URL(`${randomId}`, 'http://127.0.0.1:5500/inventory.html');
-
-
-    let url1 = new URL('https://javascript.info/profile/admin');
-    let url2 = new URL(`/${randomId}`, 'https://javascript.info');
-    // let url3 = new URL(`/${randomId}.html`, 'https://127.0.0.1:5500/inventory/');
-    
-    
-    alert(url1); // https://javascript.info/profile/admin
-    alert(url2); // https://javascript.info/profile/admin
-    // alert(url3); // https://javascript.info/profile/admin
-
-    // verButton.href = url;
+    const url = `http://127.0.0.1:5500/inventory.html?${randomId}`
+    verButton.href = url;
 });

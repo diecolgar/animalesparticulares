@@ -3,6 +3,7 @@ $soft: #c0ecc4;
 $hard: #5dd666;
 $hardfont: #4ca852;
 $harderfont: #357439;
+$harderfontlight: #35743981;
 
 
 .landing {
@@ -311,7 +312,6 @@ $harderfont: #357439;
         margin-top: 8vh;
         .explorarow {
             display: flex;
-            // width: 75vw;
             margin: auto;
             .exploraitem {
                 width: 15vw;
@@ -326,38 +326,53 @@ $harderfont: #357439;
                     background-position: center;
                 }
                 .explorainfo {
+                    display: flex;
                     margin-top: 0.5rem;
-                    .exploratitulo {
-                        width: 7rem;
-                        height: 1rem;
-                        background-color: rgb(230, 230, 230);
-                        border-radius: 20px;
-                    }
-                    .exploralugar {
-                        width: 10rem;
-                        height: 1rem;
-                        background-color: rgb(230, 230, 230);
-                        border-radius: 20px;
-                        margin-top: 2px;
-                    }
-                }
-                &.relleno {
-                    .explorainfo {
-                        .exploratitulo {
-                            background-color: rgb(255, 255, 255);
-                            color: $hardfont;
-                            font-weight: bold;
-                            width: 10rem;
+                    .exploracontainer {
+                        display: flex;
+                        flex-direction: column;
+                        &.one {
+                            width: 0%;
+                            background-size: contain;
+                            background-repeat: no-repeat;
+                            margin-right: 1rem;
                         }
-                        .exploralugar {
-                            background-color: rgb(255, 255, 255);
-                            color: rgb(148, 148, 148);
-                            width: 10rem;
+                        &.two {
+                            width: 80%;
+                        }
+                        .subcontainer {
+                            display: flex;
+                            align-items: center;
+                            .exploratitulo {
+                                margin-right: 0.5rem;
+                                color: $harderfont;
+                                font-weight: 500;
+                            }
+                            .exploranumber {
+                                margin-right: 1rem;
+                                color: $harderfontlight;
+                                font-weight: 500;
+                            }
+                            .exploraedad {
+                                margin-right: 0.5rem;
+                            }
+                            .separator {
+                                width: 0.2rem;
+                                height: 0.2rem;
+                                align-items: center;
+                                background-color: $harderfontlight;
+                                border-radius: 50%;
+                            }
+                            .exploralugar {
+                                margin-left: 0.5rem;
+                            }
                         }
                     }
                 }
                 &:hover {
-                    cursor: pointer;
+                    &.filled {
+                        cursor: pointer;
+                    }
                 }
             }
         }
@@ -417,4 +432,13 @@ $harderfont: #357439;
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.loadingStyle {
+    background-color: rgb(223, 223, 223);
+    border-radius: 20px;
+    color: rgb(223, 223, 223) !important;
+    &.separator {
+        display: none;
+    }
 }

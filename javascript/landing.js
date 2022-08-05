@@ -115,23 +115,66 @@ function fetchAnimals(especie) {
 }
 
 // Fetch and display explore section...
-    displayExploreItem = function(Id, desiredItem) {
-        firebaseFetchAnimal(Id).then((result) => {
-            document.querySelectorAll(".exploraitem")[desiredItem].classList.add('relleno');
-            document.querySelectorAll(".exploratitulo")[desiredItem].innerHTML = result.raza;
-            document.querySelectorAll(".exploralugar")[desiredItem].innerHTML = result.provincia;
-        });
-        firebaseGetPicture(Id, 0).then((result) => {
-            document.querySelectorAll(".exploraimage")[desiredItem].style.backgroundImage = `url(${result}`;
-        });
-    }
+displayExploreItem = function(Id, desiredItem) {
+    firebaseFetchAnimal(Id).then((result) => {
 
-    window.addEventListener('load', function() {
-        displayExploreItem("5287588273", 0);
-        displayExploreItem("5287588273", 1);
-        displayExploreItem("5287588273", 2);
-        displayExploreItem("5287588273", 3);
-        displayExploreItem("5287588273", 4);
-        displayExploreItem("5287588273", 5);
+        //Set id and class as filled
+        document.querySelectorAll(".exploraitem")[desiredItem].dataset.identifier = result.id;
+        document.querySelectorAll(".exploraitem")[desiredItem].classList.add('filled');
+        
+        // Set icon
+        const especieIcon = document.querySelectorAll(".exploraicon")[desiredItem];
+        especieIcon.style.width = '20%'
+        if (result.especie === "perros") {
+            especieIcon.style.backgroundImage = `url('/images/dog.svg')`;
+        } else if (result.especie === "gatos") {
+            especieIcon.style.backgroundImage = `url('/images/cat.svg')`;
+        } else if (result.especie === "caballos") {
+            especieIcon.style.backgroundImage = `url('/images/horse.svg')`;
+        }
+
+        // Set title
+        document.querySelectorAll(".exploratitulo")[desiredItem].innerHTML = result.raza;
+        document.querySelectorAll(".exploratitulo")[desiredItem].classList.remove('loadingStyle')
+
+        // Set number
+        if (!(result.number === '1')) {
+            document.querySelectorAll(".exploranumber")[desiredItem].innerHTML = `(${result.number})`;
+        } else {
+            document.querySelectorAll(".exploranumber")[desiredItem].innerHTML = '';
+        }
+        document.querySelectorAll(".exploranumber")[desiredItem].classList.remove('loadingStyle')
+        
+        // Set separator
+        document.querySelectorAll(".separator")[desiredItem].classList.remove('loadingStyle')
+
+        // Set age
+        document.querySelectorAll(".exploraedad")[desiredItem].innerHTML = `${result.age} ${result.ageUom}`;
+        document.querySelectorAll(".exploraedad")[desiredItem].classList.remove('loadingStyle')
+
+        // Set place
+        document.querySelectorAll(".exploralugar")[desiredItem].innerHTML = result.provincia;
+        document.querySelectorAll(".exploralugar")[desiredItem].classList.remove('loadingStyle')
+
     });
+    firebaseGetPicture(Id, 0).then((result) => {
+        document.querySelectorAll(".exploraimage")[desiredItem].style.backgroundImage = `url(${result}`;
+    });
+}
+
+window.addEventListener('load', function() {
+    displayExploreItem("2315221133", 0);
+    displayExploreItem("2262447875", 1);
+    displayExploreItem("0294537884", 2);
+});
+
+// Explore onclick event handler
+exploraItem.forEach(item => {
+    item.addEventListener('click', () => {
+        if (item.classList.contains('filled')) {
+            const redirectId = item.dataset.identifier;
+            item.href = `http://127.0.0.1:5500/inventory.html?${redirectId}`
+        }
+    })
+})
 

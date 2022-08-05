@@ -515,38 +515,73 @@ nav .navigation div:hover {
 }
 
 .landing .exploragrid .explorarow .exploraitem .explorainfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   margin-top: 0.5rem;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploratitulo {
-  width: 7rem;
-  height: 1rem;
-  background-color: #e6e6e6;
-  border-radius: 20px;
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploralugar {
-  width: 10rem;
-  height: 1rem;
-  background-color: #e6e6e6;
-  border-radius: 20px;
-  margin-top: 2px;
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer.one {
+  width: 0%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-right: 1rem;
 }
 
-.landing .exploragrid .explorarow .exploraitem.relleno .explorainfo .exploratitulo {
-  background-color: white;
-  color: #4ca852;
-  font-weight: bold;
-  width: 10rem;
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer.two {
+  width: 80%;
 }
 
-.landing .exploragrid .explorarow .exploraitem.relleno .explorainfo .exploralugar {
-  background-color: white;
-  color: #949494;
-  width: 10rem;
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-.landing .exploragrid .explorarow .exploraitem:hover {
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer .exploratitulo {
+  margin-right: 0.5rem;
+  color: #357439;
+  font-weight: 500;
+}
+
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer .exploranumber {
+  margin-right: 1rem;
+  color: #35743981;
+  font-weight: 500;
+}
+
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer .exploraedad {
+  margin-right: 0.5rem;
+}
+
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer .separator {
+  width: 0.2rem;
+  height: 0.2rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #35743981;
+  border-radius: 50%;
+}
+
+.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer .exploralugar {
+  margin-left: 0.5rem;
+}
+
+.landing .exploragrid .explorarow .exploraitem:hover.filled {
   cursor: pointer;
 }
 
@@ -608,6 +643,16 @@ nav .navigation div:hover {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.loadingStyle {
+  background-color: #dfdfdf;
+  border-radius: 20px;
+  color: #dfdfdf !important;
+}
+
+.loadingStyle.separator {
+  display: none;
 }
 
 .publica {
@@ -1297,7 +1342,6 @@ nav .navigation div:hover {
 .inventory .title .maintitle .icon {
   width: 44px;
   height: 44px;
-  background-image: url("/images/dog.svg");
   background-position: center;
   background-size: cover;
   -webkit-transform: translateY(0.3rem);
@@ -1421,6 +1465,12 @@ nav .navigation div:hover {
 
 .inventory .information .contactinfo .contactlabel {
   font-weight: 600;
+}
+
+.loading {
+  background-color: #dfdfdf;
+  color: #dfdfdf !important;
+  border-radius: 20px;
 }
 
 body {

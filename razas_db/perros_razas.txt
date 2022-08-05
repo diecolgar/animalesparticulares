@@ -68,11 +68,15 @@ Chow chow
 Cirneco del Etna
 Clumber spaniel
 Cobrador
-Cocker spaniel (americano/inglés) 
-Collie (barbudo/de pelo corto/de pelo largo) 
+Cocker spaniel americano
+Cocker spaniel inglés
+Collie barbudo
+Collie de pelo corto
+Collie de pelo largo
 Corgi galés de Pembroke
 Cotón de Tulear
-Crestado (chino/rodesiano) 
+Crestado chino
+Crestado rodesiano
 Cursino
 Dálmata
 Dandie Dinmont
@@ -85,7 +89,8 @@ Field spaniel
 Fila brasileiro
 Fila de San Miguel
 Fox terrier
-Foxhound (americano/inglés) 
+Foxhound americano
+Foxhound inglés
 Galgo afgano
 Galgo español
 Galgo inglés 
@@ -120,7 +125,8 @@ Kromfohrlander
 Kuvasz
 Labrador retriever
 Lagotto romagnolo
-Laika de Siberia (oriental/occidental) 
+Laika de Siberia oriental
+Laika de Siberia occidental
 Laika ruso-europeo
 Lakeland terrier 
 Landseer
@@ -144,7 +150,7 @@ Münsterlander pequeño
 Otterhound
 Papillón
 Parson rusell terrier
-Pastor alemán (....... ) 
+Pastor alemán
 Pastor belga
 Pastor blanco suizo
 Pastor catalán 
@@ -220,7 +226,7 @@ Retriever de Chesapeake
 Retriever de Nueva Escocia
 Ridgeback tailandés
 Rottweiler
-Sabueso (....) 
+Sabueso
 Saluki
 Samoyedo
 San Bernardo
@@ -252,7 +258,7 @@ Staffordshire bull terrier
 Sussex spaniel
 Teckel
 Terranova
-Terrier (.........) 
+Terrier
 Tosa inu
 Vallhund sueco
 Vizsla
@@ -261,4 +267,3 @@ Westie
 Whippet
 Xoloitzcuintle
 Yorkshire terrier
-Otra (espacio para dos palabras) 

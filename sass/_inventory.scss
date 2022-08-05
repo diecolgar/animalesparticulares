@@ -18,7 +18,7 @@ $greybox: #c4c4c4;
             .icon {
                 width: 44px;
                 height: 44px;
-                background-image: url('/images/dog.svg');
+                // background-image: url('/images/dog.svg');
                 background-position: center;
                 background-size: cover;
                 transform: translateY(0.3rem);
@@ -107,4 +107,10 @@ $greybox: #c4c4c4;
         }
     }
 
+}
+
+.loading {
+    background-color: rgb(223, 223, 223);
+    color: rgb(223, 223, 223) !important;
+    border-radius: 20px;
 }
