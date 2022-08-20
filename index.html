@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Animales Particulares</title>
+    <title>Animales  Particulares</title>
     <link rel="stylesheet" href="sass/styles.css">
     <!-- <link rel="icon" href="/img/fav.png?v=1" type="image/x-icon"> -->
 </head>
@@ -12,97 +12,80 @@
     <nav>
         <a href='index.html' class="logo">
             <div class="logoimage"></div>
-            <p>AP</p>
+            <p>Animales<br>Particulares</p>
         </a>
         <div class="navigation">
-            <div class="search">Búsqueda Avanzada</div>
-            <div class="search">Publica</div>
-            <div class="log in">Inicia Sesión</div>
-            <div class="sign in">Regístrate</div>
+            <a class="navelement searchnav displayed">Busca</a>
+            <a class="navelement publicanav displayed" href="/publish.html">Publica</a>
+            <a class="navelement loginnav displayed">Accede</a>
+            <a class="navelement signinnav displayed">Únete</a>
+            <a class="navelement usernav">usuario</a>
+            <a class="navelement signout">
+                <div>log out</div>
+                <div class="svg"></div>
+            </a>
         </div>
     </nav>
     <div class="landing">
-        <div class="publishnowcontainer">
-            <div class="playingdogs"></div>
-            <div class="description">
+        <div class="firstpagecontainer">
+
+            <div class="landingtitle">
+                Descubre, aprende,<br> comparte.
+            </div>
+            <div class="landingdescription">
                 Tu punto de encuentro con cuidadores de tu zona para el intercambio de consejos y experiencias.
             </div>
-            <a href='publish.html' class="publishbutton">Publica ya!</a>
+            <div class="landingimages">
+                <div class="landingdogs"></div>
+                <div class="landingcats">
+                    <div class="searcher">
+                        <div class="searchelement especie">
+                            <div class="buttonbox especie">
+                                <div class="text">Perros</div>
+                                <div class="icon"></div>
+                            </div>
+                            <div class="options">
+                                <div class="searchoption dog">
+                                    <div class="icon"></div>
+                                </div>
+                                <div class="searchoption cats">
+                                    <div class="icon"></div>
+                                </div>
+                                <div class="searchoption horse">
+                                    <div class="icon"></div>
+                                </div>
+                                <div class="searchoption conejos">
+                                    <div class="icon"></div>
+                                </div>
+                                <div class="searchoption ">
+                                    <div class="icon"></div>
+                                </div>
+                                <div class="searchoption white">
+                                    <div class="icon"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="searchelement provincia">
+                            <input class="inputbox provincia" type="text" placeholder="Cualquier provincia"></input>
+                            <div class="options provincia displayed">
+                            </div>
+                        </div>
+                        <div class="searchelement busqueda">
+                            <div class="buttonbox search">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="44" height="44" viewBox="0 0 24 24" stroke-width="2.5" stroke="#F0E6D1" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <circle cx="10" cy="10" r="7" />
+                                    <line x1="21" y1="21" x2="15" y2="15" />
+                                  </svg>
+                            </div>
+                        </div>
+                </div>
+            </div>
+
+
+            </div>
         </div>
-        <div class="searcher">
-            <div class="busquedarapida">Búsqueda rápida</div>
-            <div class="selectable zona">
-                <p>Cualquier zona</p>
-                <div class="flechaseleccion">
-                    <div class="bar a"></div>
-                    <div class="bar b"></div>
-                </div>
-            </div>
-            <div class="selectable especie">
-                <div class="especie chosen">
-                    <div class="icon"></div>
-                    <p>Cualquier especie</p>
-                </div>
-                <div class="flechaseleccion">
-                    <div class="bar a"></div>
-                    <div class="bar b"></div>
-                </div>
-            </div>
-            <div class="selectable raza">
-                <p>Cualquier raza</p>
-                <div class="flechaseleccion">
-                    <div class="bar a"></div>
-                    <div class="bar b"></div>
-                </div>
-            </div>
-            <div class="gosearch">
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="50" height="50" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <circle cx="11" cy="11" r="4" />
-                    <line x1="17" y1="17" x2="15" y2="15" />
-                </svg>
-                <div class="searchbrush"></div>
-            </div>
-        </div>
-        <div class="options">
-            <div class="analog-blankspace-busquedarapida"></div>
-            <div class="options-zona options-type">
-                <div class="option">Cualquier zona</div>
-                <div class="option">Albacete</div>
-                <div class="option">Toledo</div>
-                <div class="option">Madrid</div>
-                <div class="option">Sevilla</div>
-                <div class="option">Cáceres</div>
-                <div class="option">Badajoz</div>
-                <div class="option">Ceuta</div>
-            </div>
-            <div class="options-especie options-type">
-                <div class="option perros">
-                    <div class="perroicono"></div>
-                    <p>Perros</p>
-                </div>
-                <div class="option gatos">
-                    <div class="gatosicono"></div>
-                    <p>Gatos</p>
-                </div>
-                <div class="option caballos">
-                    <div class="caballosicono"></div>
-                    <p>Caballos</p>
-                </div>
-                <div class="option aves">
-                    <div class="avesicono"></div>
-                    <p>Aves</p>
-                </div>
-                <div class="option roedores">
-                    <div class="roedoresicono"></div>
-                    <p>Roedores</p>
-                </div>
-            </div>
-            <div class="options-raza options-type">
-                <div class="option">Cualquier raza</div>
-            </div>
-            <div class="analog-blankspace-searcher"></div>
-        </div>
+ 
         <div class="explora">
             <p>e x p l o r a</p>
             <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-arrow-narrow-down" width="30" height="30" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -186,9 +169,65 @@
             </div>
         </div>
 
+        <div class="authenticationwindow">
+            <div class="loginwindow authsubwindow">
+                <div class="firstline">
+                    <div class="title">Inicia Sesión</div>
+                    <div class="closer">X</div>
+                </div>
+                <div class="user input">
+                    <div class="errormesage"></div>
+                    <input class="inputbox" placeholder="email"></input>
+                </div>
+                <div class="password input">
+                    <div class="errormesage"></div>
+                    <input class="inputbox" type="password" placeholder="contraseña"></input>
+                </div>
+                <div class="loginvalidator validator">continúa</div>
+            </div>
+            <div class="signinwindow authsubwindow">
+                <div class="firstline">
+                    <div class="title">Regístrate</div>
+                    <div class="closer">X</div>
+                </div>
+                <div class="username input">
+                    <div class="errormesage"></div>
+                    <input class="inputbox" placeholder="nombre"></input>
+                </div>
+                <div class="user input">
+                    <div class="errormesage"></div>
+                    <input class="inputbox" placeholder="email"></input>
+                </div>
+                <div class="password input">
+                    <div class="errormesage"></div>
+                    <input class="inputbox" type="password" placeholder="contraseña"></input>
+                </div>
+                <div class="password validation input">
+                    <div class="errormesage"></div>
+                    <input class="inputbox" type="password" placeholder="confirma contraseña"></input>
+                </div>
+                <div class="signinerrorlog"></div>
+                <div class="signinvalidator validator">continúa</div>
+            </div>
+            <div class="validatedwindow authsubwindow">
+                <div class="firstline">
+                    <div class="title"> </div>
+                    <div class="closer">X</div>
+                </div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#357439" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <circle cx="9" cy="7" r="4" />
+                    <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                    <path d="M16 11l2 2l4 -4" />
+                </svg>
+                <div class="exitotext">¡Listo!</div>
+            </div>
+        </div>
+
     <script type="module" src="/javascript/firebase.js"></script>
     <script src="/javascript/resizer.js"></script>
     <script src="/javascript/landing.js"></script>
+    <script src="/javascript/navlogic.js"></script>
 
 </body>
 </html>

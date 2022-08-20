@@ -5,285 +5,256 @@ $hardfont: #4ca852;
 $harderfont: #357439;
 $harderfontlight: #35743981;
 
+// New colors
+$newgreenhard: #52694F;
+$newgreensoft: #839886;
+$newgreenlight: #F0E6D1;
+
 
 .landing {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 10vh;
-	width: 70vw;
-    background-color: rgb(255, 255, 255);
+    padding-top: 8vh;
+	width: 90vw;
+    // background-color: rgb(240, 151, 151);
 	background-size: cover;
-    .searcher {
-        z-index: 20;
-        margin-top: 0vh;
-        display: flex;
-        justify-content: space-between;
-        width: 70vw;
-        .busquedarapida {
-            display: flex;
-            align-items: center;
-            font-size: 1.125rem;
+    .firstpagecontainer {
+        position: relative;
+        // background-color: rgb(179, 240, 151);
+        width: 90vw;
+        max-width: 1200px;
+        @media (max-width: 1600px) {
+            max-width: 1000px;
+          }   
+        height: 92vh;
+        .landingtitle {
+            margin-top: 4rem;
+            width: 100%;
             font-weight: 500;
-            min-width: 15vw;
-        }        
-        .selectable {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding-left: 1rem;
-            padding-right: 1rem;
-            margin: 0 0.5rem;
-            width: 20rem;
-            height: 3.2rem;
-            box-shadow: 0 0 0.2rem rgb(155, 155, 155);
-            background-color: white;
-            border-radius: 20px;
-            p {
-                display: flex;
-                align-items: center;
-                color: rgb(0, 0, 0);
-            }
-            .chosen {
-                display: flex;
-                align-items: center;
-                margin-right: 1rem;
-            }
-            .flechaseleccion {
-                display: flex;
-                .bar {
-                    background-color: black;
-                    width: 10px;
-                    height: 2px;
-                    transition: 0.2s;
-                    &.a {
-                        transform: translateX(4px) rotate(45deg);
-                    }
-                    &.b {
-                        transform: rotate(-45deg);
-                    }
-                }
-            }
-            &.displayed {
-                .flechaseleccion {
-                    .bar {
-                        &.a {
-                            transform: translateX(4px) rotate(-45deg);
-                        }
-                        &.b {
-                            transform: rotate(45deg);
-                        }
-                    } 
-                }
-            }
-            &.zona {
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-            &.especie {
-                &:hover {
-                    cursor: pointer;
-                }
-            }
-            &.raza {
-                &:hover {
-                    cursor: pointer;
-                }
+            font-size: 5.4rem;
+            line-height: 100%;
+            color: $newgreenhard;
+            @media (max-width: 1400px) {
+                font-size: 5.4rem;
             }
         }
-        .gosearch {
-            position: relative;
-            width: 3.2rem;
-            min-width: 3.2rem;
-            height: 3.2rem;
-            background-color: white;
-            margin-left: 5rem;
-            box-shadow: 0 0 0.2rem rgb(155, 155, 155);
-            border-radius: 20px;
-            svg {
-                position: absolute;
-                transition: 0.2s;
-            }
-            &:hover {
-                cursor: pointer;
-                svg {
-                    transform: rotateZ(-10deg);
-                }
-            }
-            .searchbrush {
-                position: absolute;
-                z-index: -10;
-                width: 7rem;
-                height: 7rem;
-                transform: translateX(-30%) translateY(-30%);
-                background-image: url(/images/searchbrush.png);
-                background-size: cover;
-            }
-        }
-    }
-    .options {
-        display: flex;
-        z-index: 10;
-        width: 80rem;
-        justify-content: space-between;
-        position: absolute;
-        top: 76vh;
-        width: 70vw;
-        .options-type {
-            display: flex;
-            flex-direction: column;
-            max-height: 19vh;
-            width: 16rem;
-            visibility: hidden;
-            margin: 1rem 0.5rem;
-            overflow-y: auto;
-            overflow-x: hidden; 
-            box-shadow: 0 0 0.2rem rgb(155, 155, 155);
-            &.displayed {
-                display: flex;
-                visibility: visible;
-                background-color: white;
-                border-radius: 20px;
-            }
-        }
-        .options-zona {
-            &.displayed {
-                div {
-                    display: flex;
-                    div {
-                        width: 2rem;
-                        height: 2rem;
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                        margin-top: 0.5rem;
-                    }
-                    &:hover {
-                        cursor: pointer;
-                        background-color: rgb(240, 240, 240);
-                    }
-                }
-            }
-            .option {
+        .landingdescription {
+            margin-top: 4rem;
+            width: calc(50%);
+            font-size: 1.6rem;
+            font-weight: 500;
+            color: $newgreenhard;
+            @media (max-width: 800px) {
                 width: 100%;
-                height: 1.2rem !important;
-                padding: 0.55rem 1rem;
-                background-size: contain;
-                background-repeat: no-repeat;
-                &:hover {
-                    cursor: pointer;
-                    background-color: rgb(240, 240, 240);
-                }
+            margin-top: 2rem;
+            
             }    
         }
-        .options-especie {
-            &.displayed {
-                .option {
+        .landingimages {
+            display: flex;
+            margin-top: 2rem;
+            justify-content: space-between;
+            width: 100%;
+            height: 50%;
+            .landingdogs {
+                width: 49.5%;
+                height: 100%;
+                background-image: url('/images/perrosjugando.jpeg');
+                background-size: cover;
+                background-position: center;
+                border-radius: 0 120px 0 240px;
+                @media (max-width: 800px) {
+                    display: none;
+                }    
+            }
+            .landingcats {
+                position: relative;
+                width: 49.5%;
+                height: 100%;
+                background-image: url('/images/gatosjugando.jpg');
+                background-size: cover;
+                background-position: center;
+                border-radius: 120px 0 240px 0;
+                transform: translateY(-5rem);
+                @media (max-width: 800px) {
+                    transform: translateY(0);
+                    width: 200%;
+                }   
+                // border: solid 6px white;
+                .searcher {
                     display: flex;
-                    justify-content: left;
-                    align-items: center;
-                    div {
-                        width: 2rem;
-                        height: 1.8rem;
-                        background-size: contain;
-                        background-repeat: no-repeat;
-                        margin-top: 0.3rem;
-                    }
-                    &:hover {
-                        cursor: pointer;
-                        background-color: rgb(240, 240, 240);
-                    }
-                }
-            }
-        }
-        .options-raza {
-            .option {
-                width: 100%;
-                height: 1.2rem !important;
-                padding: 0.55rem 1rem;
-                background-size: contain;
-                background-repeat: no-repeat;
-                &:hover {
-                    cursor: pointer;
-                    background-color: rgb(240, 240, 240);
-                }
-            }
-        }
-        .analog-blankspace-busquedarapida {
-            display: flex;
-            visibility: hidden;
-            align-items: center;
-            font-size: 1rem;
-            font-weight: 500;
-            min-width: 15vw;
-        }
-        .analog-blankspace-searcher {
-            margin-left: 5rem;
-            width: 3.2rem;
-            height: 3.2rem;
-        }
-    }
-    .publishnowcontainer {
-        width: 70vw;
-        height: 60vh;
-        .playingdogs {
-            position: relative;
-            top: 5vh;
-            left: 7vw;
-            width: 38vw;
-            height: 47vh;
-            background-image: url(/images/perrosjugando.jpeg);
-            background-size: cover;
-            background-position: center;
-            border-radius: 2.5rem;
-        }
-        .description {
-            position: relative;
-            width: 20vw;
-            top: -28vh;
-            left: 42vw;
-            font-size: 1.125rem;
-            color: rgba(0, 0, 0, 0.4);
-            background-color: white;
-            padding: 1rem;
-            border-radius: 20px;
-            font-weight: 500;
-            margin-bottom: 4vh;
-        }
-        .publishbutton {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            color: white;
-            font-weight: 500;
-            font-size: 1.125rem;
-            letter-spacing: 0.125rem;
-            top: -30vh;
-            left: 50vw;
-            width: 12rem;
-            height: 3.5rem;
-            border-radius: 30px;
-            background-image: url(/images/titlebrushback2.png);
-            background-size: cover;
-            box-shadow: 2px 2px 0.2rem rgb(155, 155, 155);
-            transition: border-radius 0.2s;
-            &:hover {
-                cursor: pointer;
-                // width: 12.5rem;
-                // height: 3.8rem;
-                // transform: translateY(-0.15rem);
-                border-radius: 20px 30px 20px 30px;
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    width: 100%;
+                    max-width: 600px;
+                    .searchelement {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        margin: 10px 20px 10px 10px;
+                        @media (max-width: 800px) {
+                            margin: 40px 20px;
+                        }   
+                        &.especie {
+                            width: 120px;
+                        }
+                        &.provincia {
+                            width: 140px;
+                        }
+                        .buttonbox {
+                            height: 40px;
+                            background-color: $newgreenhard;
+                            width: 100%;
+                            padding: 0 10px;
+                            margin-bottom: 4px;
+                            border-radius: 16px;
+                            justify-content: space-between;
+                            &:hover {
+                                cursor: pointer;
+                            }
+                            &.especie {
+                                display: flex;
+                                align-items: center;
+                                .icon {
+                                    height: 25px;
+                                    width: 25px;
+                                    background-image: url(/images/dog_light.svg);
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                }
+                                .text {
+                                    font-size: 12px;
+                                    font-weight: 600;
+                                    color: $newgreenlight;
+                                }
+                            }
+                            &.search {
+                                margin-left: 4rem;
+                                width: 20px;
+                                svg {
+                                    width: 100%;
+                                    height: 100%;
+                                }
+                            }
+                        }
+                        .inputbox {
+                            height: 40px;
+                            background-color: $newgreenlight;
+                            padding: 0 10px;
+                            border-radius: 16px;
+                            width: 100%;
+                            border: none;
+                            font-family: 'Montserrat Alternates', sans-serif;
+                            font-size: 12px;
+                            font-weight: 600;
+                            letter-spacing: 1px;
+                            color: $newgreenhard;
+                            -webkit-appearance: none;
+                            &:focus {
+                                outline: none;
+                            }
+                            &::placeholder {
+                                color: $newgreenhard;
+                            }
+                        }
+                        .options {
+                            display: none;
+                            flex-wrap: wrap;
+                            align-items: center;
+                            justify-content: space-between;
+                            width: 140px;
+                            min-height: 0px;
+                            &.displayed {
+                                display: flex;
+                            }
+                            &.provincia {
+                                max-height: 120px;
+                                margin-top: 5px;
+                                border-radius: 16px;
+                                padding: 0 10px;
+                                background-color: $newgreenlight;
+                            }
+                            .searchoption {
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                background-color: $newgreenhard;
+                                height: 40px;
+                                width: 40px;
+                                margin: 2px 0;
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                                .icon {
+                                    height: 25px;
+                                    width: 25px;
+                                    background-size: contain;
+                                    background-repeat: no-repeat;
+                                    background-position: center;
+                                }
+                                &.dog {
+                                    .icon {
+                                        background-image: url(/images/dog_light.svg);
+                                    }
+                                }
+                                &.cats {
+                                    .icon {
+                                        background-image: url(/images/cat_light.svg);
+                                    }
+                                }
+                                &.horse {
+                                    .icon {
+                                        background-image: url(/images/horse_light.svg);
+                                    }
+                                }
+                                &.conejos {
+                                    .icon {
+                                        background-image: url(/images/rabbit_light.svg);
+                                    }
+                                }
+                                &.dog {
+                                    .icon {
+                                        background-image: url(/images/dog_light.svg);
+                                    }
+                                }
+                                &.white {
+                                    background-color: white;
+                                    &:hover {
+                                        cursor: auto;
+                                        pointer-events: none;
+                                    }
+                                }
+                            }
+                            .provinciaoption {
+                                display: flex;
+                                align-items: center;
+                                justify-content: left;
+                                height: 40px;
+                                width: 100%;
+                                font-size: 1.2rem;
+                                font-weight: 600;
+                                &:hover {
+                                    cursor: pointer;
+                                }
+                            }
 
+                        }
+                    }
+                   
+                }
             }
         }
+        
     }
+    
     .explora {
         position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-top: 100vh;
         p {
             color: rgb(0, 0, 0);
             font-size: 1.125rem;

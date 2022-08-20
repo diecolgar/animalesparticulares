@@ -1,118 +1,112 @@
-// import {firebaseFillExploreItem} from '/firebase.js';
 
-// Selectable buttons to open displayable
-const landingSelectableZona = document.querySelector(".selectable.zona")
-const landingSelectableEspecie = document.querySelector(".selectable.especie")
-const landingSelectableRaza = document.querySelector(".selectable.raza")
-// Displayed options box
-const landingOptionsZona = document.querySelector(".options-zona")
-const landingOptionsEspecie = document.querySelector(".options-especie")
-const landingOptionsRaza = document.querySelector(".options-raza")
-// Displayed options individually
-const specificOptionZona = document.querySelectorAll(".options-zona .option")
-const specificOptionEspecie = document.querySelectorAll(".options-especie .option")
-// Selectable buttons texts
-const chosenZonaText = document.querySelector(".selectable.zona p")
-const chosenEspecieText = document.querySelector(".selectable.especie .chosen p")
-const chosenRazaText = document.querySelector(".selectable.raza p")
-// Selectable buttons images
-const chosenEspecieImg = document.querySelector(".selectable .chosen .icon")
-// Search button
-const searchButton = document.querySelector(".gosearch")
-// Explora items
 const exploraItem = document.querySelectorAll(".exploraitem")
 
+const especieSelectable = document.querySelector('.searchelement.especie .buttonbox')
+const especieSelectableText = document.querySelector('.searchelement.especie .buttonbox .text')
+const especieSelectableIcon = document.querySelector('.searchelement.especie .buttonbox .icon')
+const especieDisplayable = document.querySelector('.searchelement.especie .options')
+const especieOptions = document.querySelectorAll('.searchelement.especie .options .searchoption')
+
+const provinciaSelectable = document.querySelector('.searchelement.provincia')
+const provinciaSelectableText = document.querySelector('.searchelement.provincia .inputbox')
+const provinciaOptions = document.querySelector('.searchelement.provincia .options')
+
+provincias = ['alava','albacete','alicante','almería','asturias','avila','badajoz','barcelona','burgos','cáceres',
+'cádiz','cantabria','castellón','ciudad real','córdoba','la coruña','cuenca','gerona','granada','guadalajara',
+'guipúzcoa','huelva','huesca','islas baleares','jaén','león','lérida','lugo','madrid','málaga','murcia','navarra',
+'orense','palencia','las palmas','pontevedra','la rioja','salamanca','segovia','sevilla','soria','tarragona',
+'santa cruz de tenerife','teruel','toledo','valencia','valladolid','vizcaya','zamora','zaragoza']
+
+// QUICK SEARCH BUTTONS
+// Onclick handlers por especie button
 window.addEventListener('click', function(e){   
-  if (landingSelectableZona.contains(e.target)){
+  if (especieSelectable.contains(e.target)){
     // Clicked in box
-    landingSelectableZona.classList.toggle('displayed');
-    landingOptionsZona.classList.toggle('displayed');
+    especieDisplayable.classList.toggle('displayed');
   } else{
     // Clicked outside the box
-    landingSelectableZona.classList.remove('displayed');
-    landingOptionsZona.classList.remove('displayed');
+    especieDisplayable.classList.remove('displayed');
   }
 })
 
+// Onclick handlers por provincia button
 window.addEventListener('click', function(e){   
-    if (landingSelectableEspecie.contains(e.target)){
+    if (provinciaSelectable.contains(e.target)){
       // Clicked in box
-      landingSelectableEspecie.classList.toggle('displayed');
-      landingOptionsEspecie.classList.toggle('displayed');
     } else{
       // Clicked outside the box
-      landingSelectableEspecie.classList.remove('displayed');
-      landingOptionsEspecie.classList.remove('displayed');
+      provinciaOptions.innerHTML = ''
+      let provinciaMatch = false
+      provincias.forEach(provincia => {
+        if( provincia.toLowerCase() === provinciaSelectableText.value.toLowerCase() ) {
+            console.log(provincia)
+            provinciaMatch = true
+        }
+      })
+      if (provinciaMatch === false) {
+        provinciaSelectableText.value = ''
+      } else {
+        const capitalizeProvincia = provinciaSelectableText.value.toLowerCase().split('')
+        capitalizeProvincia[0] = capitalizeProvincia[0].toUpperCase()
+        provinciaSelectableText.value = capitalizeProvincia.join('')
+      }
     }
-})
-
-window.addEventListener('click', function(e){   
-    if (landingSelectableRaza.contains(e.target)){
-      // Clicked in box
-      landingSelectableRaza.classList.toggle('displayed');
-      landingOptionsRaza.classList.toggle('displayed');
-    } else{
-      // Clicked outside the box
-      landingSelectableRaza.classList.remove('displayed');
-      landingOptionsRaza.classList.remove('displayed');
-    }
-})
-
-specificOptionZona.forEach((zona, id) => {
-  zona.addEventListener('click', function() {
-    chosenZonaText.innerHTML = zona.innerHTML;
   })
-})
 
-specificOptionEspecie.forEach((especie, id) => {
-    especie.addEventListener('click', function() {
-        chosenEspecieImg.removeAttribute("class")
-        chosenEspecieImg.classList.add(especie.children[0].className)
-        chosenEspecieText.innerHTML = especie.children[1].innerHTML;
-        chosenRazaText.innerHTML = 'Cualquier raza';
-        fetchAnimals(chosenEspecieText.innerHTML)
+// Assign data from search especie button
+especieOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        if (option.classList.contains('dog')) {
+            especieSelectableText.innerHTML = 'Perros'
+            especieSelectableIcon.style.backgroundImage = 'url(/images/dog_light.svg)'
+        }
+        if (option.classList.contains('cats')) {
+            especieSelectableText.innerHTML = 'Gatos'
+            especieSelectableIcon.style.backgroundImage = 'url(/images/cat_light.svg)'
+        }
+        if (option.classList.contains('horse')) {
+            especieSelectableText.innerHTML = 'Caballos'
+            especieSelectableIcon.style.backgroundImage = 'url(/images/horse_light.svg)'
+
+        }
+        if (option.classList.contains('conejos')) {
+            especieSelectableText.innerHTML = 'Conejos'
+            especieSelectableIcon.style.backgroundImage = 'url(/images/rabbit_light.svg)'
+
+        }
     })
 })
 
 
-
-// Fetch and display razas-animales list from local txt...
-function fetchAnimals(especie) {
-  if (especie === 'Perros') {
-    var fetchData = 'perros_razas.txt'
-  } else if (especie === 'Gatos') {
-    var fetchData = 'gatos_razas.txt'
-  } else if (especie === 'Caballos') {
-    var fetchData = 'caballos_razas.txt'
-  } else {
-    var fetchData = 'cualquiera_razas.txt'
-  }
-  fetch(`/razas_db/${fetchData}`)
-  .then(response => response.text())
-  .then((response) => {
-
-      // First remove previous divs
-      while (document.querySelector(".options-raza").firstChild) {
-        document.querySelector(".options-raza").removeChild(document.querySelector(".options-raza").firstChild);
-      }
-      // Now create the rest
-      reducedWords = response.split('\n')
-      reducedWords.forEach(word => {
-        word = (word.length > 25)? word.substring(0, 22) + "...": word;
+// Fetch and display provincia
+provinciaSelectableText.addEventListener('input', ()=> {
+    const value = provinciaSelectableText.value.toLowerCase();
+    const filteredArray = provincias.filter(provincia => provincia.includes(value));
+    provinciaOptions.innerHTML = ''
+    for (let i = 0; (i < 3) && (i < filteredArray.length); i++) {
         var newDiv = document.createElement("div");
-        newDiv.classList.add('option')
-        newDiv.textContent = word
-        document.querySelector(".options-raza").appendChild(newDiv)
-      })
-      var specificOptionRaza = document.querySelectorAll(".options-raza .option")
-      specificOptionRaza.forEach((raza, id) => {
-        raza.addEventListener('click', function() {
-            chosenRazaText.innerHTML = raza.innerHTML;
+        newDiv.classList.add('provinciaoption')
+        
+        const capitalizeProvincia = filteredArray[i].toLowerCase().split('')
+        capitalizeProvincia[0] = capitalizeProvincia[0].toUpperCase()
+        filteredArray[i] = capitalizeProvincia.join('')
+
+        newDiv.textContent = filteredArray[i]
+        provinciaOptions.appendChild(newDiv)
+    }
+    document.querySelectorAll('.searchelement.provincia .options .provinciaoption').forEach(provincia => {
+        provincia.addEventListener('click', () => {
+            provinciaSelectableText.value = provincia.innerHTML
+            provinciaOptions.innerHTML = ''
         })
-      })
-  })
-  .catch(err => console.log(err))
-}
+    })
+})
+
+// Handle select provincia option
+
+
+
+// ------------------------------------------------------ EXPLORE SECTION
 
 // Fetch and display explore section...
 displayExploreItem = function(Id, desiredItem) {

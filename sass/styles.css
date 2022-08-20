@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&display=swap");
 /* scrollbar */
 /* width */
 ::-webkit-scrollbar {
@@ -26,8 +26,8 @@
 nav {
   position: fixed;
   z-index: 100;
-  width: 70vw;
-  padding: 0 15vw;
+  width: 90vw;
+  max-width: 1200px;
   height: 8vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -38,10 +38,14 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  color: black;
   background-color: white;
-  border: 1px solid #e6e6e6;
   font-weight: 500;
+}
+
+@media (max-width: 1600px) {
+  nav {
+    max-width: 1000px;
+  }
 }
 
 nav .logo {
@@ -50,19 +54,15 @@ nav .logo {
   display: flex;
   cursor: pointer;
   text-decoration: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   color: black;
 }
 
-nav .logo .logoimage {
-  height: 5vh;
-  width: 5vh;
-  background-image: url(/images/logo.png);
-  background-size: cover;
-  margin-right: 1.5rem;
-}
-
 nav .logo p {
-  font-size: 2.25rem;
+  color: #949c81;
+  letter-spacing: 2px;
   margin: 0;
 }
 
@@ -73,13 +73,226 @@ nav .navigation {
   cursor: pointer;
 }
 
-nav .navigation div {
+nav .navigation .navelement {
+  display: none;
   margin-left: 2vw;
-  font-size: 1rem;
+  text-decoration: none;
+  color: #949c81;
+  font-size: 1.6rem;
+  font-weight: 600;
 }
 
-nav .navigation div:hover {
-  color: #68d368;
+@media (min-width: 1400px) {
+  nav .navigation .navelement {
+    font-size: 14px;
+  }
+}
+
+nav .navigation .navelement:hover {
+  color: #52694F;
+}
+
+nav .navigation .navelement.displayed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+nav .navigation .navelement.usernav {
+  color: #bbbbbb;
+}
+
+nav .navigation .navelement.usernav:hover {
+  cursor: default;
+}
+
+nav .navigation .navelement.signout {
+  height: 1.6rem;
+}
+
+nav .navigation .navelement.signout .svg {
+  margin-left: 0.5rem;
+  height: 1.6rem;
+  width: 1.6rem;
+  background-image: url("/images/signout.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+nav .navigation .navelement.signout:hover {
+  color: #bbbbbb;
+}
+
+.authenticationwindow {
+  position: absolute;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+}
+
+.authenticationwindow.displayed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.authenticationwindow .loginwindow, .authenticationwindow .signinwindow, .authenticationwindow .validatedwindow {
+  display: none;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 300px;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.authenticationwindow .loginwindow.displayed, .authenticationwindow .signinwindow.displayed, .authenticationwindow .validatedwindow.displayed {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.authenticationwindow .loginwindow .firstline, .authenticationwindow .signinwindow .firstline, .authenticationwindow .validatedwindow .firstline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.authenticationwindow .loginwindow .firstline .title, .authenticationwindow .signinwindow .firstline .title, .authenticationwindow .validatedwindow .firstline .title {
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: #52694F;
+  font-weight: 600;
+}
+
+.authenticationwindow .loginwindow .firstline .closer, .authenticationwindow .signinwindow .firstline .closer, .authenticationwindow .validatedwindow .firstline .closer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: white;
+  -webkit-box-shadow: 0 0 3px grey;
+          box-shadow: 0 0 3px grey;
+}
+
+.authenticationwindow .loginwindow .firstline .closer:hover, .authenticationwindow .signinwindow .firstline .closer:hover, .authenticationwindow .validatedwindow .firstline .closer:hover {
+  cursor: pointer;
+}
+
+.authenticationwindow .loginwindow .input, .authenticationwindow .signinwindow .input, .authenticationwindow .validatedwindow .input {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 60px;
+  width: 100%;
+}
+
+.authenticationwindow .loginwindow .input .titleinput, .authenticationwindow .signinwindow .input .titleinput, .authenticationwindow .validatedwindow .input .titleinput {
+  margin-bottom: 0.25rem;
+  margin-left: 0.25rem;
+}
+
+.authenticationwindow .loginwindow .input .inputbox, .authenticationwindow .signinwindow .input .inputbox, .authenticationwindow .validatedwindow .input .inputbox {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: none;
+  height: 30px;
+  padding: 0.25rem 1.125rem;
+  font-family: 'Montserrat Alternates', sans-serif;
+  width: 100%;
+  background: none;
+  -webkit-box-shadow: 0 0 3px grey;
+          box-shadow: 0 0 3px grey;
+  border-radius: 20px;
+}
+
+.authenticationwindow .loginwindow .input .inputbox:focus, .authenticationwindow .signinwindow .input .inputbox:focus, .authenticationwindow .validatedwindow .input .inputbox:focus {
+  outline: none;
+  background-color: white;
+}
+
+.authenticationwindow .loginwindow .validator, .authenticationwindow .signinwindow .validator, .authenticationwindow .validatedwindow .validator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 30px;
+  width: 100px;
+  margin: auto;
+  background: #52694F;
+  color: #F0E6D1;
+  border-radius: 20px;
+  -webkit-box-shadow: 0 0 2px grey;
+          box-shadow: 0 0 2px grey;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.authenticationwindow .loginwindow .validator:hover, .authenticationwindow .signinwindow .validator:hover, .authenticationwindow .validatedwindow .validator:hover {
+  cursor: pointer;
+}
+
+.authenticationwindow .loginwindow .signinerrorlog, .authenticationwindow .signinwindow .signinerrorlog, .authenticationwindow .validatedwindow .signinerrorlog {
+  font-size: 1.2rem;
+  margin: 4px auto;
+  color: #6b0000;
+}
+
+.authenticationwindow .validatedwindow {
+  padding: 10px 40px 10px 10px;
+}
+
+.authenticationwindow .validatedwindow .exitotext {
+  margin: auto;
+  font-weight: 500;
+}
+
+.authenticationwindow .validatedwindow .icon {
+  margin: 1.5rem auto 0.5rem auto;
+  -webkit-transform: translateX(0.4rem);
+          transform: translateX(0.4rem);
 }
 
 .landing {
@@ -93,176 +306,113 @@ nav .navigation div:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 10vh;
-  width: 70vw;
-  background-color: white;
+  padding-top: 8vh;
+  width: 90vw;
   background-size: cover;
 }
 
-.landing .searcher {
-  z-index: 20;
-  margin-top: 0vh;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  width: 70vw;
-}
-
-.landing .searcher .busquedarapida {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 1.125rem;
-  font-weight: 500;
-  min-width: 15vw;
-}
-
-.landing .searcher .selectable {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin: 0 0.5rem;
-  width: 20rem;
-  height: 3.2rem;
-  -webkit-box-shadow: 0 0 0.2rem #9b9b9b;
-          box-shadow: 0 0 0.2rem #9b9b9b;
-  background-color: white;
-  border-radius: 20px;
-}
-
-.landing .searcher .selectable p {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  color: black;
-}
-
-.landing .searcher .selectable .chosen {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin-right: 1rem;
-}
-
-.landing .searcher .selectable .flechaseleccion {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-.landing .searcher .selectable .flechaseleccion .bar {
-  background-color: black;
-  width: 10px;
-  height: 2px;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-}
-
-.landing .searcher .selectable .flechaseleccion .bar.a {
-  -webkit-transform: translateX(4px) rotate(45deg);
-          transform: translateX(4px) rotate(45deg);
-}
-
-.landing .searcher .selectable .flechaseleccion .bar.b {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
-}
-
-.landing .searcher .selectable.displayed .flechaseleccion .bar.a {
-  -webkit-transform: translateX(4px) rotate(-45deg);
-          transform: translateX(4px) rotate(-45deg);
-}
-
-.landing .searcher .selectable.displayed .flechaseleccion .bar.b {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-
-.landing .searcher .selectable.zona:hover {
-  cursor: pointer;
-}
-
-.landing .searcher .selectable.especie:hover {
-  cursor: pointer;
-}
-
-.landing .searcher .selectable.raza:hover {
-  cursor: pointer;
-}
-
-.landing .searcher .gosearch {
+.landing .firstpagecontainer {
   position: relative;
-  width: 3.2rem;
-  min-width: 3.2rem;
-  height: 3.2rem;
-  background-color: white;
-  margin-left: 5rem;
-  -webkit-box-shadow: 0 0 0.2rem #9b9b9b;
-          box-shadow: 0 0 0.2rem #9b9b9b;
-  border-radius: 20px;
+  width: 90vw;
+  max-width: 1200px;
+  height: 92vh;
 }
 
-.landing .searcher .gosearch svg {
-  position: absolute;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+@media (max-width: 1600px) {
+  .landing .firstpagecontainer {
+    max-width: 1000px;
+  }
 }
 
-.landing .searcher .gosearch:hover {
-  cursor: pointer;
+.landing .firstpagecontainer .landingtitle {
+  margin-top: 4rem;
+  width: 100%;
+  font-weight: 500;
+  font-size: 5.4rem;
+  line-height: 100%;
+  color: #52694F;
 }
 
-.landing .searcher .gosearch:hover svg {
-  -webkit-transform: rotateZ(-10deg);
-          transform: rotateZ(-10deg);
+@media (max-width: 1400px) {
+  .landing .firstpagecontainer .landingtitle {
+    font-size: 5.4rem;
+  }
 }
 
-.landing .searcher .gosearch .searchbrush {
-  position: absolute;
-  z-index: -10;
-  width: 7rem;
-  height: 7rem;
-  -webkit-transform: translateX(-30%) translateY(-30%);
-          transform: translateX(-30%) translateY(-30%);
-  background-image: url(/images/searchbrush.png);
-  background-size: cover;
+.landing .firstpagecontainer .landingdescription {
+  margin-top: 4rem;
+  width: calc(50%);
+  font-size: 1.6rem;
+  font-weight: 500;
+  color: #52694F;
 }
 
-.landing .options {
+@media (max-width: 800px) {
+  .landing .firstpagecontainer .landingdescription {
+    width: 100%;
+    margin-top: 2rem;
+  }
+}
+
+.landing .firstpagecontainer .landingimages {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  z-index: 10;
-  width: 80rem;
+  margin-top: 2rem;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  position: absolute;
-  top: 76vh;
-  width: 70vw;
+  width: 100%;
+  height: 50%;
 }
 
-.landing .options .options-type {
+.landing .firstpagecontainer .landingimages .landingdogs {
+  width: 49.5%;
+  height: 100%;
+  background-image: url("/images/perrosjugando.jpeg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 120px 0 240px;
+}
+
+@media (max-width: 800px) {
+  .landing .firstpagecontainer .landingimages .landingdogs {
+    display: none;
+  }
+}
+
+.landing .firstpagecontainer .landingimages .landingcats {
+  position: relative;
+  width: 49.5%;
+  height: 100%;
+  background-image: url("/images/gatosjugando.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 120px 0 240px 0;
+  -webkit-transform: translateY(-5rem);
+          transform: translateY(-5rem);
+}
+
+@media (max-width: 800px) {
+  .landing .firstpagecontainer .landingimages .landingcats {
+    -webkit-transform: translateY(0);
+            transform: translateY(0);
+    width: 200%;
+  }
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-width: 600px;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -270,177 +420,213 @@ nav .navigation div:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  max-height: 19vh;
-  width: 16rem;
-  visibility: hidden;
-  margin: 1rem 0.5rem;
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-box-shadow: 0 0 0.2rem #9b9b9b;
-          box-shadow: 0 0 0.2rem #9b9b9b;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px 20px 10px 10px;
 }
 
-.landing .options .options-type.displayed {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  visibility: visible;
-  background-color: white;
-  border-radius: 20px;
+@media (max-width: 800px) {
+  .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement {
+    margin: 40px 20px;
+  }
 }
 
-.landing .options .options-zona.displayed div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement.especie {
+  width: 120px;
 }
 
-.landing .options .options-zona.displayed div div {
-  width: 2rem;
-  height: 2rem;
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-top: 0.5rem;
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement.provincia {
+  width: 140px;
 }
 
-.landing .options .options-zona.displayed div:hover {
-  cursor: pointer;
-  background-color: #f0f0f0;
-}
-
-.landing .options .options-zona .option {
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .buttonbox {
+  height: 40px;
+  background-color: #52694F;
   width: 100%;
-  height: 1.2rem !important;
-  padding: 0.55rem 1rem;
-  background-size: contain;
-  background-repeat: no-repeat;
+  padding: 0 10px;
+  margin-bottom: 4px;
+  border-radius: 16px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
-.landing .options .options-zona .option:hover {
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .buttonbox:hover {
   cursor: pointer;
-  background-color: #f0f0f0;
 }
 
-.landing .options .options-especie.displayed .option {
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .buttonbox.especie {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
 }
 
-.landing .options .options-especie.displayed .option div {
-  width: 2rem;
-  height: 1.8rem;
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .buttonbox.especie .icon {
+  height: 25px;
+  width: 25px;
+  background-image: url(/images/dog_light.svg);
   background-size: contain;
   background-repeat: no-repeat;
-  margin-top: 0.3rem;
 }
 
-.landing .options .options-especie.displayed .option:hover {
-  cursor: pointer;
-  background-color: #f0f0f0;
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .buttonbox.especie .text {
+  font-size: 12px;
+  font-weight: 600;
+  color: #F0E6D1;
 }
 
-.landing .options .options-raza .option {
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .buttonbox.search {
+  margin-left: 4rem;
+  width: 20px;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .buttonbox.search svg {
   width: 100%;
-  height: 1.2rem !important;
-  padding: 0.55rem 1rem;
-  background-size: contain;
-  background-repeat: no-repeat;
+  height: 100%;
 }
 
-.landing .options .options-raza .option:hover {
-  cursor: pointer;
-  background-color: #f0f0f0;
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox {
+  height: 40px;
+  background-color: #F0E6D1;
+  padding: 0 10px;
+  border-radius: 16px;
+  width: 100%;
+  border: none;
+  font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #52694F;
+  -webkit-appearance: none;
 }
 
-.landing .options .analog-blankspace-busquedarapida {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  visibility: hidden;
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox:focus {
+  outline: none;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox::-webkit-input-placeholder {
+  color: #52694F;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox:-ms-input-placeholder {
+  color: #52694F;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox::-ms-input-placeholder {
+  color: #52694F;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox::placeholder {
+  color: #52694F;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options {
+  display: none;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 1rem;
-  font-weight: 500;
-  min-width: 15vw;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 140px;
+  min-height: 0px;
 }
 
-.landing .options .analog-blankspace-searcher {
-  margin-left: 5rem;
-  width: 3.2rem;
-  height: 3.2rem;
-}
-
-.landing .publishnowcontainer {
-  width: 70vw;
-  height: 60vh;
-}
-
-.landing .publishnowcontainer .playingdogs {
-  position: relative;
-  top: 5vh;
-  left: 7vw;
-  width: 38vw;
-  height: 47vh;
-  background-image: url(/images/perrosjugando.jpeg);
-  background-size: cover;
-  background-position: center;
-  border-radius: 2.5rem;
-}
-
-.landing .publishnowcontainer .description {
-  position: relative;
-  width: 20vw;
-  top: -28vh;
-  left: 42vw;
-  font-size: 1.125rem;
-  color: rgba(0, 0, 0, 0.4);
-  background-color: white;
-  padding: 1rem;
-  border-radius: 20px;
-  font-weight: 500;
-  margin-bottom: 4vh;
-}
-
-.landing .publishnowcontainer .publishbutton {
-  position: relative;
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options.displayed {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options.provincia {
+  max-height: 120px;
+  margin-top: 5px;
+  border-radius: 16px;
+  padding: 0 10px;
+  background-color: #F0E6D1;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  background-color: #52694F;
+  height: 40px;
+  width: 40px;
+  margin: 2px 0;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption:hover {
+  cursor: pointer;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption .icon {
+  height: 25px;
+  width: 25px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.dog .icon {
+  background-image: url(/images/dog_light.svg);
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.cats .icon {
+  background-image: url(/images/cat_light.svg);
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.horse .icon {
+  background-image: url(/images/horse_light.svg);
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.conejos .icon {
+  background-image: url(/images/rabbit_light.svg);
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.dog .icon {
+  background-image: url(/images/dog_light.svg);
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.white {
+  background-color: white;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.white:hover {
+  cursor: auto;
+  pointer-events: none;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .provinciaoption {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  text-decoration: none;
-  color: white;
-  font-weight: 500;
-  font-size: 1.125rem;
-  letter-spacing: 0.125rem;
-  top: -30vh;
-  left: 50vw;
-  width: 12rem;
-  height: 3.5rem;
-  border-radius: 30px;
-  background-image: url(/images/titlebrushback2.png);
-  background-size: cover;
-  -webkit-box-shadow: 2px 2px 0.2rem #9b9b9b;
-          box-shadow: 2px 2px 0.2rem #9b9b9b;
-  -webkit-transition: border-radius 0.2s;
-  transition: border-radius 0.2s;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  height: 40px;
+  width: 100%;
+  font-size: 1.2rem;
+  font-weight: 600;
 }
 
-.landing .publishnowcontainer .publishbutton:hover {
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .provinciaoption:hover {
   cursor: pointer;
-  border-radius: 20px 30px 20px 30px;
 }
 
 .landing .explora {
@@ -455,6 +641,7 @@ nav .navigation div:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 100vh;
 }
 
 .landing .explora p {
@@ -705,8 +892,11 @@ nav .navigation div:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 70rem;
-  height: 60vh;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 70vw;
+  height: 64vh;
 }
 
 .publica .maincontainers .datacontainer {
@@ -720,10 +910,10 @@ nav .navigation div:hover {
   -webkit-box-align: left;
       -ms-flex-align: left;
           align-items: left;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  width: 35vw;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 25vw;
   height: 60vh;
 }
 
@@ -1019,7 +1209,7 @@ nav .navigation div:hover {
   display: -ms-flexbox;
   display: flex;
   width: 35vw;
-  height: 50vh;
+  height: 57vh;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -1220,7 +1410,7 @@ nav .navigation div:hover {
       -ms-flex-align: center;
           align-items: center;
   width: 8rem;
-  height: 5vh;
+  height: 3rem;
   margin: 2vh auto;
   color: white;
   font-weight: 500;
@@ -1473,7 +1663,18 @@ nav .navigation div:hover {
   border-radius: 20px;
 }
 
+html {
+  font-size: 62.5%;
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 50%;
+  }
+}
+
 body {
+  color: #52694F;
   background-color: #fdfdfd;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1482,6 +1683,9 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   font-family: 'Montserrat Alternates', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.1rem;
   margin: 0;
 }
 /*# sourceMappingURL=styles.css.map */

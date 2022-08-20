@@ -12,13 +12,15 @@
     <nav>
         <a href='index.html' class="logo">
             <div class="logoimage"></div>
-            <p>AP</p>
+            <p>Animales Particulares</p>
         </a>
         <div class="navigation">
-            <div class="search">Búsqueda Avanzada</div>
-            <div class="search">Publica</div>
-            <div class="log in">Inicia Sesión</div>
-            <div class="sign in">Regístrate</div>
+            <a class="navelement searchnav displayed">Búsqueda Avanzada</a>
+            <a class="navelement publicanav displayed" href="/publish.html">Publica</a>
+            <a class="navelement loginnav displayed">Inicia Sesión</a>
+            <a class="navelement signinnav displayed">Regístrate</a>
+            <a class="navelement usernav">usuario</a>
+            <a class="navelement signout displayed">out</a>
         </div>
     </nav>
 
@@ -50,7 +52,7 @@
                     </div>
                 </div>
                 <div class="datarow numero">
-                    <div class="datatitle">Camada/Grupo</div>
+                    <div class="datatitle">Camada</div>
                     <div class="datainput">
                         <input type="checkbox" class="inputbox multiples"></input>
                         <p class="cuantos">¿Cuántos?</p>
@@ -213,10 +215,52 @@
         <a class="ver" >ver</a>
     </div>
 
+    <div class="authenticationwindow">
+        <div class="loginwindow authsubwindow">
+            <div class="firstline">
+                <div class="title">Inicia Sesión</div>
+                <div class="closer">X</div>
+            </div>
+            <div class="user input">
+                <div class="errormesage"></div>
+                <input class="inputbox" placeholder="email"></input>
+            </div>
+            <div class="password input">
+                <div class="errormesage"></div>
+                <input class="inputbox" type="password" placeholder="contraseña"></input>
+            </div>
+            <div class="loginvalidator validator">continúa</div>
+        </div>
+        <div class="signinwindow authsubwindow">
+            <div class="firstline">
+                <div class="title">Regístrate</div>
+                <div class="closer">X</div>
+            </div>
+            <div class="username input">
+                <div class="errormesage"></div>
+                <input class="inputbox" placeholder="nombre"></input>
+            </div>
+            <div class="user input">
+                <div class="errormesage"></div>
+                <input class="inputbox" placeholder="email"></input>
+            </div>
+            <div class="password input">
+                <div class="errormesage"></div>
+                <input class="inputbox" type="password" placeholder="contraseña"></input>
+            </div>
+            <div class="password validation input">
+                <div class="errormesage"></div>
+                <input class="inputbox" type="password" placeholder="confirma contraseña"></input>
+            </div>
+            <div class="signinerrorlog"></div>
+            <div class="signinvalidator validator">continúa</div>
+        </div>
+    </div>
+
     <script type="module" src="/javascript/firebase.js"></script>
     <script src="/javascript/resizer.js"></script>
     <script src="/javascript/publish.js"></script>
-
+    <script src="/javascript/navlogic.js"></script>
 
 </body>
 </html>
