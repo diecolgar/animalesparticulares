@@ -25,6 +25,15 @@ const arrowright = document.querySelector(".imagescontainer .arrowright")
 const imagecloser = document.querySelector(".imagescontainer .imagesdisplay .closer")
 const imagecounter = document.querySelector(".imagescontainer .imagesdisplay .numerodeimagenes")
 
+// Nombre
+const dataNombreInput = document.querySelector(".nombrecontacto .datainput .inputbox")
+
+// Email
+const dataEmailInput = document.querySelector(".emailcontacto .datainput .inputbox")
+
+// Phone
+const dataPhoneInput = document.querySelector(".phonecontacto .datainput .inputbox")
+
 // Especie
 const dataEspecieInput = document.querySelectorAll(".especie .datainput .especie")
 
@@ -318,6 +327,9 @@ validationButtuon.addEventListener('click', () => {
   let publish = true;
 
   const publishData = {
+    publishName: '',
+    publishEmail: '',
+    publishPhone: '',
     publishEspecie: '',
     publishRaza: '',
     publishNumber: '1',
@@ -329,6 +341,21 @@ validationButtuon.addEventListener('click', () => {
     publishDate: new Date().toLocaleDateString("es-ES"),
     publishImageNumber: numberOfUploadedImages
   }
+
+  // Check and get nombre
+  if (!(dataNombreInput.value === '')) {
+    publishData.publishName = dataNombreInput.value;
+  }
+
+  // Check and get email
+    if (!(dataEmailInput.value === '')) {
+    publishData.publishEmail = dataEmailInput.value;
+    }
+
+    // Check and get phone
+    if (!(dataPhoneInput.value === '')) {
+    publishData.publishPhone = dataPhoneInput.value;
+    }
 
   // Check and get especie
   dataEspecieInput.forEach(especie => {

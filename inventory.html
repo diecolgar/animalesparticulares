@@ -12,19 +12,41 @@
     <nav>
         <a href='index.html' class="logo">
             <div class="logoimage"></div>
-            <p>Animales Particulares</p>
+            <p>Animales<br>Particulares</p>
         </a>
         <div class="navigation">
-            <a class="navelement searchnav displayed">Búsqueda Avanzada</a>
+            <a class="navelement searchnav displayed">Busca</a>
+            <a class="navelement loginnav displayed">Accede</a>
+            <a class="navelement signinnav displayed">Únete</a>
             <a class="navelement publicanav displayed" href="/publish.html">Publica</a>
-            <a class="navelement loginnav displayed">Inicia Sesión</a>
-            <a class="navelement signinnav displayed">Regístrate</a>
             <a class="navelement usernav">usuario</a>
-            <a class="navelement signout displayed">out</a>
+            <a class="navelement signout">
+                <div></div>
+                <div class="svg"></div>
+            </a>
         </div>
     </nav>
 
     <div class="inventory">
+
+        <div class="imagescontainer">
+            <div class="imagedisplay">
+                <div class="image"></div>
+                <div class="image hidden"></div>
+                <div class="image hidden"></div>
+                <div class="image hidden"></div>
+                <div class="image hidden"></div>
+            </div>
+            <div class="arrowleft hidden">
+                <div class="arrow"></div>
+            </div>
+            <div class="arrowright hidden">
+                <div class="arrow"></div>
+            </div>
+            <div class="counter">
+                <div class="button">1/?</div>
+            </div>
+        </div>
         <div class="title">
             <div class="maintitle">
                 <div class="icon"></div>
@@ -38,18 +60,6 @@
                 <div class="separator"></div>
                 <div class="location loading">?????????</div>
             </div>
-        </div>
-        <div class="imagescontainer">
-            <div class="container one">
-                <div class="image main"></div>
-            </div>
-            <div class="container two">
-                <div class="image"></div>
-                <div class="image"></div>
-                <div class="image"></div>
-                <div class="image"></div>
-            </div>
-            <div class="image"></div>
         </div>
         <div class="information">
             <div class="description loading">???????????????</div>
@@ -65,8 +75,8 @@
     <div class="authenticationwindow">
         <div class="loginwindow authsubwindow">
             <div class="firstline">
-                <div class="title">Inicia Sesión</div>
-                <div class="closer">X</div>
+                <div class="title">¡Hola de nuevo!</div>
+                <div class="closer"></div>
             </div>
             <div class="user input">
                 <div class="errormesage"></div>
@@ -76,12 +86,12 @@
                 <div class="errormesage"></div>
                 <input class="inputbox" type="password" placeholder="contraseña"></input>
             </div>
-            <div class="loginvalidator validator">continúa</div>
+            <div class="loginvalidator validator">inicia sesión</div>
         </div>
         <div class="signinwindow authsubwindow">
             <div class="firstline">
                 <div class="title">Regístrate</div>
-                <div class="closer">X</div>
+                <div class="closer"></div>
             </div>
             <div class="username input">
                 <div class="errormesage"></div>
@@ -101,6 +111,19 @@
             </div>
             <div class="signinerrorlog"></div>
             <div class="signinvalidator validator">continúa</div>
+        </div>
+        <div class="validatedwindow authsubwindow">
+            <div class="firstline">
+                <div class="title"> </div>
+                <div class="closer">X</div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#357439" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="9" cy="7" r="4" />
+                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                <path d="M16 11l2 2l4 -4" />
+            </svg>
+            <div class="exitotext">¡Listo!</div>
         </div>
     </div>
 

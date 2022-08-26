@@ -1,12 +1,15 @@
 // New colors
+$newgreenstandart: #7fa984;
 $newgreenhard: #52694F;
-$newgreensoft: #949c81;
-$newgreenlight: #F0E6D1;
+$newgreensoft: #82a35c;
+$newgreenlight: #d7f0d1;
+$newgreencolorful: #82a35c;
 
 nav {
     position: fixed;
     z-index: 100;
 	width: 90vw;
+    padding: 0 20vw;
     max-width: 1200px;
     height: 8vh;
     display: flex;
@@ -31,7 +34,8 @@ nav {
         //     margin-right: 1.5rem;
         // }
         p {
-            color: $newgreensoft;
+            color: $newgreenhard;
+            font-weight: 600;
             letter-spacing: 2px;
             margin: 0;
         }
@@ -41,16 +45,13 @@ nav {
         cursor: pointer;
         .navelement {
             display: none;
+            align-items: center;
             margin-left: 2vw;
             text-decoration: none;
-            color: $newgreensoft;
-            font-size: 1.6rem;
-            @media (min-width: 1400px) {
-                font-size: 14px;
-              }   
+            color: $newgreenstandart;
             font-weight: 600;
             &:hover {
-                color: $newgreenhard
+                color: $newgreenhard;
             }
             &.displayed {
                 display: flex;
@@ -62,11 +63,12 @@ nav {
                 }
             }
             &.signout {
-                height: 1.6rem;
+                align-items: center;
+                height: 3.8rem;
                 .svg {
                     margin-left: 0.5rem;
-                    height: 1.6rem;
-                    width: 1.6rem;
+                    height: 2.4rem;
+                    width: 2.4rem;
                     background-image: url('/images/signout.svg');
                     background-size: contain;
                     background-position: center;
@@ -76,13 +78,19 @@ nav {
                     color: rgb(187, 187, 187);
                 }
             }
+            &.publicanav {
+                color: white;
+                background-color: $newgreenstandart;
+                border-radius: 12px 0 12px 0;
+                padding: 1rem 1.5rem;
+            }
         }
     }
     
 }
 
 .authenticationwindow {
-    position: absolute;
+    position: fixed;
     display: none;
     align-items: center;
     justify-content: center;
@@ -99,8 +107,8 @@ nav {
         display: none;
         flex-direction: column;
         width: 300px;
-        padding: 2.5rem;
-        background: rgba(255, 255, 255, 0.90);
+        padding: 3.5rem;
+        background: rgba(255, 255, 255, 1);
         border-radius: 20px;
         box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         backdrop-filter: blur(5px);
@@ -109,10 +117,15 @@ nav {
         &.displayed {
             display: flex;
         }
+        .subtitle {
+            font-weight: 600;
+            font-size: 1rem;
+        }
         .firstline {
             display: flex;
             justify-content: space-between;
             .title {
+                font-size: 2.4rem;
                 font-weight: 500;
                 margin-bottom: 30px;
                 color: $newgreenhard;
@@ -125,11 +138,12 @@ nav {
                 text-align: center;
                 font-size: 1rem;
                 font-weight: 600;
-                width: 25px;
-                height: 25px;
+                width: 32px;
+                height: 32px;
                 border-radius: 50%;
-                background-color: white;
-                box-shadow: 0 0 3px grey;
+                background-image: url(/images/closeicon.svg);
+                background-position: center;
+                background-size: cover;
                 &:hover {
                     cursor: pointer;
                 }
@@ -147,12 +161,14 @@ nav {
             .inputbox {
                 appearance: none;
                 border: none;
-                height: 30px;
+                height: 42px;
                 padding: 0.25rem 1.125rem;
                 font-family: 'Montserrat Alternates', sans-serif;
+                font-weight: 500;
+                letter-spacing: 1px;
                 width: 100%;
                 background: none;
-                box-shadow: 0 0 3px grey;
+                box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
                 border-radius: 20px;
                 &:focus {
                     outline: none;
@@ -165,14 +181,13 @@ nav {
             text-align: center;
             justify-content: center;
             align-items: center;
-            height: 30px;
-            width: 100px;
-            margin: auto;
+            height: 42px;
+            width: 140px;
+            margin: 20px auto;
             background: $newgreenhard;
-            color: $newgreenlight;
+            color: white;
             border-radius: 20px;
             box-shadow: 0 0 2px grey;
-            font-size: 1.2rem;
             font-weight: 600;
             &:hover {
                 cursor: pointer;

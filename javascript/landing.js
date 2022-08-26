@@ -120,9 +120,9 @@ displayExploreItem = function(Id, desiredItem) {
         const especieIcon = document.querySelectorAll(".exploraicon")[desiredItem];
         especieIcon.style.width = '20%'
         if (result.especie === "perros") {
-            especieIcon.style.backgroundImage = `url('/images/dog.svg')`;
+            especieIcon.style.backgroundImage = `url('/images/dog_green.svg')`;
         } else if (result.especie === "gatos") {
-            especieIcon.style.backgroundImage = `url('/images/cat.svg')`;
+            especieIcon.style.backgroundImage = `url('/images/cat_green.svg')`;
         } else if (result.especie === "caballos") {
             especieIcon.style.backgroundImage = `url('/images/horse.svg')`;
         }
@@ -160,6 +160,9 @@ window.addEventListener('load', function() {
     displayExploreItem("2315221133", 0);
     displayExploreItem("2262447875", 1);
     displayExploreItem("0294537884", 2);
+    displayExploreItem("2315221133", 3);
+    displayExploreItem("2262447875", 4);
+    displayExploreItem("0294537884", 5);
 });
 
 // Explore onclick event handler

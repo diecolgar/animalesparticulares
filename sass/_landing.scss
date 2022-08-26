@@ -6,16 +6,18 @@ $harderfont: #357439;
 $harderfontlight: #35743981;
 
 // New colors
+$newgreenstandart: #7fa984;
 $newgreenhard: #52694F;
-$newgreensoft: #839886;
-$newgreenlight: #F0E6D1;
+$newgreensoft: #949c81;
+$newgreenlight: #d7f0d1;
+$newgreencolorful: #82a35c;
 
 
 .landing {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 8vh;
+    padding-top: 6vh;
 	width: 90vw;
     // background-color: rgb(240, 151, 151);
 	background-size: cover;
@@ -23,11 +25,11 @@ $newgreenlight: #F0E6D1;
         position: relative;
         // background-color: rgb(179, 240, 151);
         width: 90vw;
+        // height: 75vh;
         max-width: 1200px;
         @media (max-width: 1600px) {
             max-width: 1000px;
-          }   
-        height: 92vh;
+          }
         .landingtitle {
             margin-top: 4rem;
             width: 100%;
@@ -35,9 +37,6 @@ $newgreenlight: #F0E6D1;
             font-size: 5.4rem;
             line-height: 100%;
             color: $newgreenhard;
-            @media (max-width: 1400px) {
-                font-size: 5.4rem;
-            }
         }
         .landingdescription {
             margin-top: 4rem;
@@ -47,8 +46,7 @@ $newgreenlight: #F0E6D1;
             color: $newgreenhard;
             @media (max-width: 800px) {
                 width: 100%;
-            margin-top: 2rem;
-            
+                margin-top: 2rem;
             }    
         }
         .landingimages {
@@ -56,6 +54,7 @@ $newgreenlight: #F0E6D1;
             margin-top: 2rem;
             justify-content: space-between;
             width: 100%;
+            min-height: 50vh;
             height: 50%;
             .landingdogs {
                 width: 49.5%;
@@ -84,29 +83,39 @@ $newgreenlight: #F0E6D1;
                 // border: solid 6px white;
                 .searcher {
                     display: flex;
+                    flex-wrap: wrap;
                     position: absolute;
                     top: 100%;
                     left: 0;
                     width: 100%;
                     max-width: 600px;
+                    margin-top: 10px;
+                    @media (max-width: 380px) {
+                        display: none;
+                    }
                     .searchelement {
                         display: flex;
                         flex-direction: column;
                         align-items: center;
-                        margin: 10px 20px 10px 10px;
-                        @media (max-width: 800px) {
-                            margin: 40px 20px;
-                        }   
+                        margin: 0 20px 0 0;
+                        // @media (max-width: 800px) {
+                        //     margin: 40px 20px;
+                        // }   
                         &.especie {
-                            width: 120px;
+                            min-width: 140px;
                         }
                         &.provincia {
-                            width: 140px;
+                            width: 120px;
+                        }
+                        &.busqueda {
+                            margin: 0;
                         }
                         .buttonbox {
                             height: 40px;
                             background-color: $newgreenhard;
+                            color: black;
                             width: 100%;
+                            max-width: 120px;
                             padding: 0 10px;
                             margin-bottom: 4px;
                             border-radius: 16px;
@@ -127,11 +136,10 @@ $newgreenlight: #F0E6D1;
                                 .text {
                                     font-size: 12px;
                                     font-weight: 600;
-                                    color: $newgreenlight;
+                                    color: white;
                                 }
                             }
                             &.search {
-                                margin-left: 4rem;
                                 width: 20px;
                                 svg {
                                     width: 100%;
@@ -156,7 +164,7 @@ $newgreenlight: #F0E6D1;
                                 outline: none;
                             }
                             &::placeholder {
-                                color: $newgreenhard;
+                                color: rgb(177, 177, 177);
                             }
                         }
                         .options {
@@ -164,7 +172,7 @@ $newgreenlight: #F0E6D1;
                             flex-wrap: wrap;
                             align-items: center;
                             justify-content: space-between;
-                            width: 140px;
+                            width: 120px;
                             min-height: 0px;
                             &.displayed {
                                 display: flex;
@@ -184,6 +192,7 @@ $newgreenlight: #F0E6D1;
                                 height: 40px;
                                 width: 40px;
                                 margin: 2px 0;
+                                border-radius: 50%;
                                 &:hover {
                                     cursor: pointer;
                                 }
@@ -252,98 +261,98 @@ $newgreenlight: #F0E6D1;
     .explora {
         position: relative;
         display: flex;
+        margin-top: 48px;
+        @media (max-width: 800px) {
+            margin-top: 104px;
+        }  
         flex-direction: column;
         align-items: center;
-        margin-top: 100vh;
         p {
-            color: rgb(0, 0, 0);
-            font-size: 1.125rem;
-            font-weight: 500;
-            margin-top: 10vh;
+            color: $newgreenhard;
+            font-weight: 600;
+            margin-top: 3vh;
+            margin-bottom: 0;
         }
         .explorebrush {
             position: absolute;
-            top: 5.7vh;
-            width: 12rem;
-            height: 8rem;
-            background-image: url(/images/explorebrush.png);
-            background-size: cover;
+            width: 7rem;
+            height: 7rem;
+            background-color: $newgreenlight;
             opacity: 0.8;
-            transform: rotate(30deg);
-        }
-        &:hover {
-            cursor: pointer;
+            border-radius: 0 50% 50% 50%;
+            transform: rotate(225deg);
+            z-index: -10;
         }
     }
 
     .exploragrid {
         display: flex;
-        flex-direction: column;
-        width: 70vw;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        width: 90vw;
+        max-width: 1200px;
         margin-top: 8vh;
-        .explorarow {
-            display: flex;
-            margin: auto;
-            .exploraitem {
-                width: 15vw;
-                max-width: 18rem;
-                margin: 1rem 1.5rem;
-                .exploraimage {
-                    width: 100%;
-                    padding-bottom: 100%;  
-                    background-color: rgb(230, 230, 230);
-                    border-radius: 20px;
-                    background-size: cover;
-                    background-position: center;
-                }
-                .explorainfo {
+        .exploraitem {
+            width: 20%;
+            min-width: 200px;
+            max-width: 400px;
+            margin: 28px 10px;
+            .exploraimage {
+                width: 100%;
+                padding-bottom: 100%;  
+                background-color: rgb(230, 230, 230);
+                border-radius: 20px;
+                background-size: cover;
+                background-position: center;
+
+            }
+            .explorainfo {
+                display: flex;
+                margin-top: 0.5rem;
+                .exploracontainer {
                     display: flex;
-                    margin-top: 0.5rem;
-                    .exploracontainer {
+                    flex-direction: column;
+                    &.one {
+                        width: 0%;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        margin-right: 1rem;
+                    }
+                    &.two {
+                        width: 80%;
+                    }
+                    .subcontainer {
                         display: flex;
-                        flex-direction: column;
-                        &.one {
-                            width: 0%;
-                            background-size: contain;
-                            background-repeat: no-repeat;
+                        align-items: center;
+                        color: $newgreensoft;
+                        .exploratitulo {
+                            margin-right: 0.5rem;
+                            color: $newgreenhard;
+                            font-weight: 600;
+                        }
+                        .exploranumber {
                             margin-right: 1rem;
+                            font-weight: 600;
                         }
-                        &.two {
-                            width: 80%;
+                        .exploraedad {
+                            margin-right: 0.5rem;
                         }
-                        .subcontainer {
-                            display: flex;
+                        .separator {
+                            width: 0.2rem;
+                            height: 0.2rem;
                             align-items: center;
-                            .exploratitulo {
-                                margin-right: 0.5rem;
-                                color: $harderfont;
-                                font-weight: 500;
-                            }
-                            .exploranumber {
-                                margin-right: 1rem;
-                                color: $harderfontlight;
-                                font-weight: 500;
-                            }
-                            .exploraedad {
-                                margin-right: 0.5rem;
-                            }
-                            .separator {
-                                width: 0.2rem;
-                                height: 0.2rem;
-                                align-items: center;
-                                background-color: $harderfontlight;
-                                border-radius: 50%;
-                            }
-                            .exploralugar {
-                                margin-left: 0.5rem;
-                            }
+                            background-color: $harderfontlight;
+                            border-radius: 50%;
+                        }
+                        .exploralugar {
+                            margin-left: 0.5rem;
                         }
                     }
                 }
-                &:hover {
-                    &.filled {
-                        cursor: pointer;
-                    }
+            }
+            &:hover {
+                &.filled {
+                    cursor: pointer;
                 }
             }
         }

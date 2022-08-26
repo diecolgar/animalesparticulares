@@ -117,6 +117,9 @@ async function firebaseFetchAnimal(Id) {
 		getDocs(q).then((querySnapshot) => {
 			querySnapshot.forEach((doc) => {
 				outputData = {
+                    name: doc.data().Name,
+                    email: doc.data().Email,
+                    phone: doc.data().Phone,
 					id: doc.data().Id,
 					age: doc.data().Age,
 					ageUom: doc.data().AgeUom,
@@ -142,6 +145,9 @@ window.firebaseFetchAnimal = firebaseFetchAnimal
 function firebasePublishNewAnimal(publishData) {
 	try {
 		const docRef = addDoc(collection(db, 'animales'), {
+            Name: publishData.publishName,
+            Email: publishData.publishEmail,
+            Phone: publishData.publishPhone,
 			Id: publishData.publishId,
 			Especie: publishData.publishEspecie,
 			Raza: publishData.publishRaza,

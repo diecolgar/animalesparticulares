@@ -12,10 +12,10 @@ $newgreenlight: #F0E6D1;
 
 html {
     font-size: 62.5%; // 1rem = 10px
-    // @media (max-width: 900px) {
-    //     font-size: 55%;
-    //   }   
-    @media (max-width: 500px) {
+    @media (max-width: 800px) {
+        font-size: 55%
+      }      
+    @media (max-width: 450px) {
         font-size: 50%
       }    
 }

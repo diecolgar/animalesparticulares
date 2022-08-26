@@ -27,6 +27,7 @@ nav {
   position: fixed;
   z-index: 100;
   width: 90vw;
+  padding: 0 20vw;
   max-width: 1200px;
   height: 8vh;
   display: -webkit-box;
@@ -61,7 +62,8 @@ nav .logo {
 }
 
 nav .logo p {
-  color: #949c81;
+  color: #52694F;
+  font-weight: 600;
   letter-spacing: 2px;
   margin: 0;
 }
@@ -75,17 +77,13 @@ nav .navigation {
 
 nav .navigation .navelement {
   display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-left: 2vw;
   text-decoration: none;
-  color: #949c81;
-  font-size: 1.6rem;
+  color: #7fa984;
   font-weight: 600;
-}
-
-@media (min-width: 1400px) {
-  nav .navigation .navelement {
-    font-size: 14px;
-  }
 }
 
 nav .navigation .navelement:hover {
@@ -107,13 +105,16 @@ nav .navigation .navelement.usernav:hover {
 }
 
 nav .navigation .navelement.signout {
-  height: 1.6rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 3.8rem;
 }
 
 nav .navigation .navelement.signout .svg {
   margin-left: 0.5rem;
-  height: 1.6rem;
-  width: 1.6rem;
+  height: 2.4rem;
+  width: 2.4rem;
   background-image: url("/images/signout.svg");
   background-size: contain;
   background-position: center;
@@ -124,8 +125,15 @@ nav .navigation .navelement.signout:hover {
   color: #bbbbbb;
 }
 
+nav .navigation .navelement.publicanav {
+  color: white;
+  background-color: #7fa984;
+  border-radius: 12px 0 12px 0;
+  padding: 1rem 1.5rem;
+}
+
 .authenticationwindow {
-  position: absolute;
+  position: fixed;
   display: none;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -154,8 +162,8 @@ nav .navigation .navelement.signout:hover {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 300px;
-  padding: 2.5rem;
-  background: rgba(255, 255, 255, 0.9);
+  padding: 3.5rem;
+  background: white;
   border-radius: 20px;
   -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
@@ -170,6 +178,11 @@ nav .navigation .navelement.signout:hover {
   display: flex;
 }
 
+.authenticationwindow .loginwindow .subtitle, .authenticationwindow .signinwindow .subtitle, .authenticationwindow .validatedwindow .subtitle {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
 .authenticationwindow .loginwindow .firstline, .authenticationwindow .signinwindow .firstline, .authenticationwindow .validatedwindow .firstline {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -180,6 +193,7 @@ nav .navigation .navelement.signout:hover {
 }
 
 .authenticationwindow .loginwindow .firstline .title, .authenticationwindow .signinwindow .firstline .title, .authenticationwindow .validatedwindow .firstline .title {
+  font-size: 2.4rem;
   font-weight: 500;
   margin-bottom: 30px;
   color: #52694F;
@@ -199,12 +213,12 @@ nav .navigation .navelement.signout:hover {
   text-align: center;
   font-size: 1rem;
   font-weight: 600;
-  width: 25px;
-  height: 25px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background-color: white;
-  -webkit-box-shadow: 0 0 3px grey;
-          box-shadow: 0 0 3px grey;
+  background-image: url(/images/closeicon.svg);
+  background-position: center;
+  background-size: cover;
 }
 
 .authenticationwindow .loginwindow .firstline .closer:hover, .authenticationwindow .signinwindow .firstline .closer:hover, .authenticationwindow .validatedwindow .firstline .closer:hover {
@@ -232,13 +246,15 @@ nav .navigation .navelement.signout:hover {
      -moz-appearance: none;
           appearance: none;
   border: none;
-  height: 30px;
+  height: 42px;
   padding: 0.25rem 1.125rem;
   font-family: 'Montserrat Alternates', sans-serif;
+  font-weight: 500;
+  letter-spacing: 1px;
   width: 100%;
   background: none;
-  -webkit-box-shadow: 0 0 3px grey;
-          box-shadow: 0 0 3px grey;
+  -webkit-box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 4px 5px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
 
@@ -258,15 +274,14 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  height: 30px;
-  width: 100px;
-  margin: auto;
+  height: 42px;
+  width: 140px;
+  margin: 20px auto;
   background: #52694F;
-  color: #F0E6D1;
+  color: white;
   border-radius: 20px;
   -webkit-box-shadow: 0 0 2px grey;
           box-shadow: 0 0 2px grey;
-  font-size: 1.2rem;
   font-weight: 600;
 }
 
@@ -306,7 +321,7 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-top: 8vh;
+  padding-top: 6vh;
   width: 90vw;
   background-size: cover;
 }
@@ -315,7 +330,6 @@ nav .navigation .navelement.signout:hover {
   position: relative;
   width: 90vw;
   max-width: 1200px;
-  height: 92vh;
 }
 
 @media (max-width: 1600px) {
@@ -331,12 +345,6 @@ nav .navigation .navelement.signout:hover {
   font-size: 5.4rem;
   line-height: 100%;
   color: #52694F;
-}
-
-@media (max-width: 1400px) {
-  .landing .firstpagecontainer .landingtitle {
-    font-size: 5.4rem;
-  }
 }
 
 .landing .firstpagecontainer .landingdescription {
@@ -363,6 +371,7 @@ nav .navigation .navelement.signout:hover {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 100%;
+  min-height: 50vh;
   height: 50%;
 }
 
@@ -405,11 +414,20 @@ nav .navigation .navelement.signout:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   position: absolute;
   top: 100%;
   left: 0;
   width: 100%;
   max-width: 600px;
+  margin-top: 10px;
+}
+
+@media (max-width: 380px) {
+  .landing .firstpagecontainer .landingimages .landingcats .searcher {
+    display: none;
+  }
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement {
@@ -423,27 +441,27 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 10px 20px 10px 10px;
-}
-
-@media (max-width: 800px) {
-  .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement {
-    margin: 40px 20px;
-  }
+  margin: 0 20px 0 0;
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement.especie {
-  width: 120px;
+  min-width: 140px;
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement.provincia {
-  width: 140px;
+  width: 120px;
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement.busqueda {
+  margin: 0;
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .buttonbox {
   height: 40px;
   background-color: #52694F;
+  color: black;
   width: 100%;
+  max-width: 120px;
   padding: 0 10px;
   margin-bottom: 4px;
   border-radius: 16px;
@@ -476,11 +494,10 @@ nav .navigation .navelement.signout:hover {
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .buttonbox.especie .text {
   font-size: 12px;
   font-weight: 600;
-  color: #F0E6D1;
+  color: white;
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .buttonbox.search {
-  margin-left: 4rem;
   width: 20px;
 }
 
@@ -491,7 +508,7 @@ nav .navigation .navelement.signout:hover {
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox {
   height: 40px;
-  background-color: #F0E6D1;
+  background-color: #d7f0d1;
   padding: 0 10px;
   border-radius: 16px;
   width: 100%;
@@ -509,19 +526,19 @@ nav .navigation .navelement.signout:hover {
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox::-webkit-input-placeholder {
-  color: #52694F;
+  color: #b1b1b1;
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox:-ms-input-placeholder {
-  color: #52694F;
+  color: #b1b1b1;
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox::-ms-input-placeholder {
-  color: #52694F;
+  color: #b1b1b1;
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .inputbox::placeholder {
-  color: #52694F;
+  color: #b1b1b1;
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options {
@@ -534,7 +551,7 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 140px;
+  width: 120px;
   min-height: 0px;
 }
 
@@ -549,7 +566,7 @@ nav .navigation .navelement.signout:hover {
   margin-top: 5px;
   border-radius: 16px;
   padding: 0 10px;
-  background-color: #F0E6D1;
+  background-color: #d7f0d1;
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption {
@@ -566,6 +583,7 @@ nav .navigation .navelement.signout:hover {
   height: 40px;
   width: 40px;
   margin: 2px 0;
+  border-radius: 50%;
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption:hover {
@@ -634,6 +652,7 @@ nav .navigation .navelement.signout:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin-top: 48px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -641,58 +660,55 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-top: 100vh;
+}
+
+@media (max-width: 800px) {
+  .landing .explora {
+    margin-top: 104px;
+  }
 }
 
 .landing .explora p {
-  color: black;
-  font-size: 1.125rem;
-  font-weight: 500;
-  margin-top: 10vh;
+  color: #52694F;
+  font-weight: 600;
+  margin-top: 3vh;
+  margin-bottom: 0;
 }
 
 .landing .explora .explorebrush {
   position: absolute;
-  top: 5.7vh;
-  width: 12rem;
-  height: 8rem;
-  background-image: url(/images/explorebrush.png);
-  background-size: cover;
+  width: 7rem;
+  height: 7rem;
+  background-color: #d7f0d1;
   opacity: 0.8;
-  -webkit-transform: rotate(30deg);
-          transform: rotate(30deg);
-}
-
-.landing .explora:hover {
-  cursor: pointer;
+  border-radius: 0 50% 50% 50%;
+  -webkit-transform: rotate(225deg);
+          transform: rotate(225deg);
+  z-index: -10;
 }
 
 .landing .exploragrid {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  width: 70vw;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 90vw;
+  max-width: 1200px;
   margin-top: 8vh;
 }
 
-.landing .exploragrid .explorarow {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  margin: auto;
+.landing .exploragrid .exploraitem {
+  width: 20%;
+  min-width: 200px;
+  max-width: 400px;
+  margin: 28px 10px;
 }
 
-.landing .exploragrid .explorarow .exploraitem {
-  width: 15vw;
-  max-width: 18rem;
-  margin: 1rem 1.5rem;
-}
-
-.landing .exploragrid .explorarow .exploraitem .exploraimage {
+.landing .exploragrid .exploraitem .exploraimage {
   width: 100%;
   padding-bottom: 100%;
   background-color: #e6e6e6;
@@ -701,14 +717,14 @@ nav .navigation .navelement.signout:hover {
   background-position: center;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo {
+.landing .exploragrid .exploraitem .explorainfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   margin-top: 0.5rem;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer {
+.landing .exploragrid .exploraitem .explorainfo .exploracontainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -718,43 +734,43 @@ nav .navigation .navelement.signout:hover {
           flex-direction: column;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer.one {
+.landing .exploragrid .exploraitem .explorainfo .exploracontainer.one {
   width: 0%;
   background-size: contain;
   background-repeat: no-repeat;
   margin-right: 1rem;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer.two {
+.landing .exploragrid .exploraitem .explorainfo .exploracontainer.two {
   width: 80%;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer {
+.landing .exploragrid .exploraitem .explorainfo .exploracontainer .subcontainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  color: #949c81;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer .exploratitulo {
+.landing .exploragrid .exploraitem .explorainfo .exploracontainer .subcontainer .exploratitulo {
   margin-right: 0.5rem;
-  color: #357439;
-  font-weight: 500;
+  color: #52694F;
+  font-weight: 600;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer .exploranumber {
+.landing .exploragrid .exploraitem .explorainfo .exploracontainer .subcontainer .exploranumber {
   margin-right: 1rem;
-  color: #35743981;
-  font-weight: 500;
+  font-weight: 600;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer .exploraedad {
+.landing .exploragrid .exploraitem .explorainfo .exploracontainer .subcontainer .exploraedad {
   margin-right: 0.5rem;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer .separator {
+.landing .exploragrid .exploraitem .explorainfo .exploracontainer .subcontainer .separator {
   width: 0.2rem;
   height: 0.2rem;
   -webkit-box-align: center;
@@ -764,11 +780,11 @@ nav .navigation .navelement.signout:hover {
   border-radius: 50%;
 }
 
-.landing .exploragrid .explorarow .exploraitem .explorainfo .exploracontainer .subcontainer .exploralugar {
+.landing .exploragrid .exploraitem .explorainfo .exploracontainer .subcontainer .exploralugar {
   margin-left: 0.5rem;
 }
 
-.landing .exploragrid .explorarow .exploraitem:hover.filled {
+.landing .exploragrid .exploraitem:hover.filled {
   cursor: pointer;
 }
 
@@ -850,53 +866,107 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  -webkit-box-align: left;
-      -ms-flex-align: left;
-          align-items: left;
-  margin-top: 8vh;
-  width: 70vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 12vh;
+  width: 90vw;
+  max-width: 1200px;
+  border-radius: 20px;
 }
 
 .publica .title {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  position: relative;
-  color: #357439;
-  width: 35rem;
-  font-size: 2.25rem;
-  font-weight: 500;
-}
-
-.publica .title p {
-  z-index: 10;
-  letter-spacing: 0.25rem;
-}
-
-.publica .title .brush {
-  position: absolute;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   width: 100%;
-  height: 100%;
-  background-image: url(/images/titlebrush.png);
-  background-size: contain;
-  background-repeat: no-repeat;
+  position: relative;
+  color: #52694F;
+  font-size: 5.4rem;
 }
 
 .publica .maincontainers {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 70vw;
-  height: 64vh;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  width: 100%;
+}
+
+.publica .maincontainers .decorationimage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  height: 500px;
+  margin: 10px 0;
+  z-index: -10;
+}
+
+@media (max-width: 1350px) {
+  .publica .maincontainers .decorationimage {
+    height: 200px;
+  }
+}
+
+.publica .maincontainers .decorationimage.first .background {
+  background-image: url("/images/publicaimages/Frame 26.svg") !important;
+}
+
+.publica .maincontainers .decorationimage.second {
+  height: 500px;
+}
+
+@media (max-width: 1350px) {
+  .publica .maincontainers .decorationimage.second {
+    height: 200px;
+  }
+}
+
+.publica .maincontainers .decorationimage.second .background {
+  background-image: url("/images/publicaimages/Frame 28.svg") !important;
+}
+
+.publica .maincontainers .decorationimage.third {
+  height: 200px;
+}
+
+@media (max-width: 1350px) {
+  .publica .maincontainers .decorationimage.third {
+    height: 200px;
+  }
+}
+
+.publica .maincontainers .decorationimage.third .background {
+  background-image: url("/images/publicaimages/Frame 27.svg") !important;
+  height: 30vh;
+}
+
+.publica .maincontainers .decorationimage .background {
+  width: 40vh;
+  height: 40vh;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .publica .maincontainers .datacontainer {
@@ -907,26 +977,59 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-align: left;
-      -ms-flex-align: left;
-          align-items: left;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  width: 25vw;
-  height: 60vh;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: white;
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  padding-top: 20px;
+  padding-bottom: 80px;
+  width: 90vw;
+  max-width: 600px;
+  max-height: 100vw;
+  margin-top: 40px;
+  border-radius: 20px;
+}
+
+.publica .maincontainers .datacontainer.contact {
+  padding-bottom: 20px;
+}
+
+@media (max-width: 450px) {
+  .publica .maincontainers .datacontainer {
+    width: calc(100vw - 16px);
+  }
 }
 
 .publica .maincontainers .datacontainer .datarow {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  margin: 0.4rem;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 10px;
   width: 100%;
-  height: 3rem;
+  height: 48px;
+}
+
+@media (max-width: 450px) {
+  .publica .maincontainers .datacontainer .datarow {
+    width: 90%;
+  }
+}
+
+.publica .maincontainers .datacontainer .datarow.numero .datainput {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .publica .maincontainers .datacontainer .datarow .datatitle {
@@ -939,11 +1042,11 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-right: 2rem;
-  font-size: 1rem;
-  font-weight: 500;
-  width: 6rem;
-  height: 3rem;
+  margin-right: 28px;
+  width: 96px;
+  height: 48px;
+  color: #52694F;
+  font-weight: 600;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput {
@@ -953,19 +1056,14 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 12rem;
-  height: 3rem;
+  width: 300px;
+  height: 40px;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 1rem;
-  font-weight: 500;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -974,16 +1072,15 @@ nav .navigation .navelement.signout:hover {
           justify-content: center;
   position: relative;
   width: 100%;
-  height: 2.5rem;
+  height: 40px;
   color: #4ca852;
-  -webkit-box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
-          box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
-  border-radius: 15px;
+  border-radius: 8px;
+  background-color: #eeeeee;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie {
-  width: 2.5rem;
-  background-size: 1.8rem 1.8rem;
+  width: 40px;
+  background-size: 25px 25px;
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -1027,8 +1124,8 @@ nav .navigation .navelement.signout:hover {
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.multiples {
-  width: 1rem;
-  height: 0.9rem;
+  width: 20px;
+  height: 20px;
   margin-right: 15%;
   border-radius: 5px;
   -webkit-appearance: none;
@@ -1092,50 +1189,67 @@ nav .navigation .navelement.signout:hover {
   cursor: auto;
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion {
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
   font-family: 'Montserrat Alternates', sans-serif;
-  min-height: 4rem;
-  font-size: 1rem;
+  height: 20px;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
   font-weight: 500;
   border: none;
   resize: none;
   padding: 1rem;
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion:hover {
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto.descripcion {
+  height: 8rem;
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto:hover {
   cursor: auto;
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion:focus {
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto:focus {
   outline: none;
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion::-webkit-input-placeholder {
-  color: #dfdfdf;
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto::-webkit-input-placeholder {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #aaaaaa;
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion:-ms-input-placeholder {
-  color: #dfdfdf;
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto:-ms-input-placeholder {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #aaaaaa;
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion::-ms-input-placeholder {
-  color: #dfdfdf;
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto::-ms-input-placeholder {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #aaaaaa;
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.descripcion::placeholder {
-  color: #dfdfdf;
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto::placeholder {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #aaaaaa;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox .innertext {
-  color: #dfdfdf;
-  font-weight: 400;
+  color: #8EC287;
+  font-weight: 500;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox .innertext.selected {
-  color: #4ca852;
+  color: #8EC287;
   font-weight: 500;
 }
 
@@ -1154,19 +1268,19 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  text-align: center;
+  text-align: left;
   position: absolute;
   z-index: 100;
   left: 0;
   top: 0;
-  max-height: 350%;
+  max-height: 450%;
   overflow-y: auto;
   overflow-x: hidden;
   width: 100%;
   background-color: white;
-  border-radius: 15px;
-  -webkit-box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
-          box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 0px 1px 1px #c4c4c4;
+          box-shadow: 0px 0px 1px 1px #c4c4c4;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .selectable.displayed {
@@ -1177,7 +1291,7 @@ nav .navigation .navelement.signout:hover {
 
 .publica .maincontainers .datacontainer .datarow .datainput .selectable .option {
   width: 100%;
-  padding: 0.7rem 0;
+  padding: 11px 14px;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .selectable .option:hover {
@@ -1185,37 +1299,22 @@ nav .navigation .navelement.signout:hover {
   background-color: #c0ecc4;
 }
 
-.publica .maincontainers .datacontainer .datarow.descripcion {
-  height: 6rem;
-}
-
-.publica .maincontainers .datacontainer .datarow.descripcion .datainput {
-  -webkit-box-align: start;
-      -ms-flex-align: start;
-          align-items: start;
-  width: 18rem;
-}
-
-.publica .maincontainers .datacontainer .datarow.especie .datainput {
-  width: 18rem;
-}
-
-.publica .maincontainers .datacontainer .datarow.raza .datainput {
-  width: 18rem;
-}
-
 .publica .maincontainers .imagescontainer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 35vw;
-  height: 57vh;
+  width: 100%;
+  max-width: 600px;
+  height: 500px;
+  background-color: white;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-radius: 20px;
+  max-height: 100vw;
 }
 
 .publica .maincontainers .imagescontainer .arrowleft {
@@ -1264,8 +1363,15 @@ nav .navigation .navelement.signout:hover {
 
 .publica .maincontainers .imagescontainer .imagesdisplay {
   position: relative;
-  width: 100%;
-  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 500px;
+  height: 500px;
+  max-height: 90vw;
+  -webkit-box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
 }
 
 .publica .maincontainers .imagescontainer .imagesdisplay .uploadedimage {
@@ -1290,8 +1396,8 @@ nav .navigation .navelement.signout:hover {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  font-size: 0.7rem;
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 600;
   text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1299,10 +1405,10 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  top: 0.5rem;
-  right: 0.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
   background-color: white;
   border-radius: 50%;
   z-index: 20;
@@ -1324,8 +1430,8 @@ nav .navigation .navelement.signout:hover {
   display: -ms-flexbox;
   display: flex;
   position: absolute;
-  font-size: 0.7rem;
-  font-weight: 500;
+  font-size: 10px;
+  font-weight: 600;
   text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
@@ -1333,10 +1439,10 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  bottom: 0.5rem;
-  left: 0.5rem;
-  width: 1.5rem;
-  height: 1.5rem;
+  bottom: 8px;
+  left: 8px;
+  width: 24px;
+  height: 24px;
   background-color: white;
   border-radius: 50%;
   z-index: 20;
@@ -1348,9 +1454,10 @@ nav .navigation .navelement.signout:hover {
 }
 
 .publica .maincontainers .imagescontainer .subeaqui {
+  font-weight: 600;
   position: absolute;
-  -webkit-transform: translateY(3rem);
-          transform: translateY(3rem);
+  -webkit-transform: translateY(90px);
+          transform: translateY(90px);
 }
 
 .publica .maincontainers .imagescontainer #files::-webkit-file-upload-button {
@@ -1360,20 +1467,18 @@ nav .navigation .navelement.signout:hover {
 .publica .maincontainers .imagescontainer #files {
   position: absolute;
   content: 'Select some files';
+  color: white;
   display: inline-block;
-  background-image: url("/images/plus.png");
+  background-image: url("/images/uploadimagee.png");
   background-size: cover;
   background-position: center;
-  -webkit-box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
-          box-shadow: 0px 0px 0.1rem 1px #c4c4c4;
   border-radius: 20px;
-  width: 3rem;
-  height: 3rem;
-  outline: none;
+  width: 200px;
+  height: 200px;
   white-space: nowrap;
+  -webkit-transform: translateY(-50px);
+          transform: translateY(-50px);
   cursor: pointer;
-  text-shadow: 1px 1px #fff;
-  font-weight: 700;
 }
 
 .publica .maincontainers .imagescontainer #result {
@@ -1391,12 +1496,12 @@ nav .navigation .navelement.signout:hover {
 }
 
 .publica .publisherrormessage {
-  font-size: 1rem;
+  font-size: 1.2rem;
   height: 0;
   text-align: center;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  color: #357439;
+  margin-top: 60px;
+  font-weight: 600;
+  color: #c23c3c;
 }
 
 .publica .publishbutton {
@@ -1409,29 +1514,24 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  width: 8rem;
-  height: 3rem;
-  margin: 2vh auto;
-  color: white;
-  font-weight: 500;
-  font-size: 1rem;
-  letter-spacing: 0.125rem;
-  border-radius: 40px;
-  background-image: url(/images/titlebrushback2.png);
-  background-size: cover;
-  -webkit-box-shadow: 2px 2px 0.2rem #9b9b9b;
-          box-shadow: 2px 2px 0.2rem #9b9b9b;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
+  width: 120px;
+  height: 120px;
+  margin: 20px auto 40px auto;
+  color: #52694F;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 50%;
+  background-color: #B6F2BC;
+  -webkit-box-shadow: 1px 1px 0.2rem #9b9b9b;
+          box-shadow: 1px 1px 0.2rem #9b9b9b;
 }
 
 .publica .publishbutton:hover {
   cursor: pointer;
-  border-radius: 20px 30px 20px 30px;
 }
 
 .validationscreen {
-  position: absolute;
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1469,11 +1569,11 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  font-size: 1.375rem;
   color: #357439;
-  font-weight: 500;
-  width: 40vw;
-  height: 20vh;
+  font-size: 2.4rem;
+  font-weight: 600;
+  width: 100vw;
+  height: 100px;
   background-image: url("/images/titlebrush2.png");
   background-size: contain;
   background-repeat: no-repeat;
@@ -1490,22 +1590,18 @@ nav .navigation .navelement.signout:hover {
       -ms-flex-align: center;
           align-items: center;
   text-decoration: none;
-  width: 4rem;
-  height: 5vh;
-  margin: 2vh auto;
+  width: 8rem;
+  height: 8rem;
   color: #357439;
-  font-weight: 500;
-  font-size: 1.125rem;
+  font-size: 1.5rem;
+  font-weight: 600;
   letter-spacing: 0.125rem;
-  border-radius: 40px;
+  border-radius: 50% 0;
   color: #357439;
   font-weight: 500;
-  -webkit-box-shadow: 0 0 0.2rem #357439;
-          box-shadow: 0 0 0.2rem #357439;
-  -webkit-transition: 0.2s;
-  transition: 0.2s;
-  -webkit-transform: translateY(-4vh);
-          transform: translateY(-4vh);
+  background-color: #B6F2BC;
+  -webkit-box-shadow: 1px 1px 0.2rem #9b9b9b;
+          box-shadow: 1px 1px 0.2rem #9b9b9b;
 }
 
 .validationscreen .ver:hover {
@@ -1513,9 +1609,16 @@ nav .navigation .navelement.signout:hover {
 }
 
 .inventory {
-  width: 70vw;
-  margin-top: 12vh;
+  width: 90vw;
+  max-width: 1200px;
+  margin-top: 9vh;
   letter-spacing: 0.125rem;
+}
+
+@media (max-width: 1600px) {
+  .inventory {
+    max-width: 1000px;
+  }
 }
 
 .inventory .title {
@@ -1526,16 +1629,17 @@ nav .navigation .navelement.signout:hover {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  font-size: 2.25rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 4.2rem;
 }
 
 .inventory .title .maintitle .icon {
-  width: 44px;
-  height: 44px;
+  width: 4.2rem;
+  height: 4.2rem;
   background-position: center;
   background-size: cover;
-  -webkit-transform: translateY(0.3rem);
-          transform: translateY(0.3rem);
 }
 
 .inventory .title .maintitle .text {
@@ -1546,7 +1650,6 @@ nav .navigation .navelement.signout:hover {
 }
 
 .inventory .title .maintitle .text .especie {
-  color: #357439;
   font-weight: 500;
 }
 
@@ -1558,10 +1661,9 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  font-size: 2rem;
+  font-size: 2.4rem;
   font-weight: 500;
   margin-left: 2rem;
-  color: #35743981;
 }
 
 .inventory .title .subtitle {
@@ -1571,9 +1673,8 @@ nav .navigation .navelement.signout:hover {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin-left: 4.9rem;
   margin-top: 0.125rem;
-  font-size: 1.125rem;
+  font-size: 2.4rem;
   font-weight: 500;
 }
 
@@ -1593,49 +1694,150 @@ nav .navigation .navelement.signout:hover {
 }
 
 .inventory .imagescontainer {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: left;
-      -ms-flex-pack: left;
-          justify-content: left;
-  margin-top: 1.25rem;
+  width: 90vw;
+  max-width: 500px;
+  height: 90vw;
+  max-height: 500px;
+  margin: 40px 0;
 }
 
-.inventory .imagescontainer .container {
+.inventory .imagescontainer .counter {
+  position: absolute;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  height: 25rem;
-  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 40px;
 }
 
-.inventory .imagescontainer .container .image {
-  height: 50%;
-  width: 50%;
-  background-size: cover;
+.inventory .imagescontainer .counter .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 10px;
+  font-weight: 600;
+  color: black;
+  width: 30px;
+  max-width: 30px;
+  height: 30px;
+  max-height: 30px;
+  border-radius: 50%;
+  background-color: white;
   background-position: center;
-  -webkit-box-shadow: inset 0px 0px 0px 0.125rem white;
-          box-shadow: inset 0px 0px 0px 0.125rem white;
+  background-repeat: no-repeat;
 }
 
-.inventory .imagescontainer .container .image.main {
+.inventory .imagescontainer .arrowright {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  right: 0;
+  width: 40px;
+  height: 100%;
+}
+
+.inventory .imagescontainer .arrowright .arrow {
+  width: 30px;
+  max-width: 30px;
+  height: 30px;
+  max-height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  background-image: url(/images/arrow.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.inventory .imagescontainer .arrowright:hover {
+  cursor: pointer;
+}
+
+.inventory .imagescontainer .arrowleft {
+  position: absolute;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  left: 0;
+  width: 40px;
+  height: 100%;
+}
+
+.inventory .imagescontainer .arrowleft .arrow {
+  width: 30px;
+  max-width: 30px;
+  height: 30px;
+  max-height: 30px;
+  border-radius: 50%;
+  background-color: white;
+  background-image: url(/images/arrow.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-transform: scale(-1);
+          transform: scale(-1);
+}
+
+.inventory .imagescontainer .arrowleft:hover {
+  cursor: pointer;
+}
+
+.inventory .imagescontainer .imagedisplay .image {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
   height: 100%;
-  border-radius: 0 0 0 60px;
-}
-
-.inventory .imagescontainer .container .image:nth-child(2) {
-  border-radius: 0 60px 0 0;
+  min-width: 200px;
+  min-height: 200px;
+  background-color: #e6e6e6;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0 70px;
 }
 
 .inventory .information {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 70vw;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 90vw;
+  max-width: 500px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1643,7 +1845,7 @@ nav .navigation .navelement.signout:hover {
 }
 
 .inventory .information .description {
-  width: 30vw;
+  width: 100%;
 }
 
 .inventory .information .contactinfo {
@@ -1651,23 +1853,35 @@ nav .navigation .navelement.signout:hover {
       -ms-flex-pack: right;
           justify-content: right;
   text-align: right;
+  margin-top: 4px;
 }
 
 .inventory .information .contactinfo .contactlabel {
   font-weight: 600;
+  margin-bottom: 4px;
 }
 
 .loading {
-  background-color: #dfdfdf;
-  color: #dfdfdf !important;
+  background-color: #e6e6e6;
+  color: #e6e6e6 !important;
   border-radius: 20px;
+}
+
+.hidden {
+  display: none !important;
 }
 
 html {
   font-size: 62.5%;
 }
 
-@media (max-width: 500px) {
+@media (max-width: 800px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+@media (max-width: 450px) {
   html {
     font-size: 50%;
   }
