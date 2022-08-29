@@ -103,7 +103,7 @@ nav {
     &.displayed {
         display: flex;
     }
-    .loginwindow, .signinwindow, .validatedwindow {
+    .loginwindow, .signinwindow, .authsubwindow {
         display: none;
         flex-direction: column;
         width: 300px;
@@ -193,10 +193,19 @@ nav {
                 cursor: pointer;
             }
         }
-        .signinerrorlog {
+        .signinerrorlog, .loginerrorlog {
             font-size: 1.2rem;
             margin: 4px auto;
             color: rgb(107, 0, 0);
+        }
+        .forgotpassword {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: rgb(68, 141, 175);
+            text-align: center;
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
     .validatedwindow {
@@ -208,6 +217,27 @@ nav {
         .icon {
             margin: 1.5rem auto 0.5rem auto;
             transform: translateX(0.4rem);
+        }
+    }
+    .forgotpasswordwindow {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        line-height: 24px;
+        .closer {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin: 14px auto 0 auto;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: $newgreenstandart;
+            &:hover {
+                cursor: pointer;
+            }
         }
     }
 }

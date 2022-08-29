@@ -29,6 +29,10 @@ $newgreencolorfullight: #B6F2BC;
 		position: relative;
 		color: $newgreenhard;
 		font-size: 5.4rem;
+        height: 8rem;
+        @media (max-width: 1350px) {
+            height: auto;
+        }
 	}
 	.maincontainers {
 		display: flex;
@@ -503,9 +507,6 @@ $newgreencolorfullight: #B6F2BC;
 		font-weight: 600;
 		width: 100vw;
 		height: 100px;
-		background-image: url('/images/titlebrush2.png');
-		background-size: contain;
-		background-repeat: no-repeat;
 	}
 	.ver {
 		display: flex;

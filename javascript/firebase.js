@@ -9,7 +9,7 @@ import {
 	getDownloadURL,
 } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js'
 import {
-	getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword,
+	getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail
 } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js'
 
 // Your web app's Firebase configuration
@@ -32,12 +32,17 @@ const db = getFirestore(firebase)
 // --------------------------------------------------------------- USER REGISTER
 const auth = getAuth()
 
-function firebaseCreateUser(email, password) {
+function firebaseCreateUser(email, password, name) {
 	return new Promise(function (resolve, reject) {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((userCredential) => {
 				// Signed in
-				resolve(userCredential.user)
+                updateProfile(auth.currentUser, {
+                    displayName: name, photoURL: "https://example.com/jane-q-user/profile.jpg"
+                })
+                document.querySelector('.navelement.usernav').innerHTML = name
+                document.querySelector('.navelement.usernav').classList.add('displayed')
+				resolve()
 				// ...
 			})
 			.catch((error) => {
@@ -58,12 +63,23 @@ onAuthStateChanged(auth, (user) => {
 		// User is signed in, see docs for a list of available properties
 		// https://firebase.google.com/docs/reference/js/firebase.User
 		const uid = user.uid
-		document.querySelector('.navelement.usernav').innerHTML = user.email
+		document.querySelector('.navelement.usernav').innerHTML = `Hola, ${user.displayName}`
         document.querySelector('.navelement.usernav').classList.add('displayed')
         document.querySelector('.loginnav').classList.remove('displayed')
         document.querySelector('.signinnav').classList.remove('displayed')
         document.querySelector('.signout').classList.add('displayed')
 
+        const userData = firebaseGetUserData().then( (userData) => {
+            document.querySelector(".nombrecontacto .datainput .inputbox").value = userData.displayName;
+            document.querySelector(".nombrecontacto .datainput .inputbox").style.pointerEvents = 'none';
+            document.querySelector(".nombrecontacto .datainput .inputbox").style.backgroundColor = 'white';
+            document.querySelector(".emailcontacto .datainput .inputbox").value = userData.email;
+            document.querySelector(".emailcontacto .datainput .inputbox").style.pointerEvents = 'none';
+            document.querySelector(".emailcontacto .datainput .inputbox").style.backgroundColor = 'white';
+        })
+        .catch( () => {
+            // Not a problem
+        })
     // ...
 	} else {
 		// User is signed out
@@ -100,6 +116,49 @@ function firebaseLogIn(email, password) {
 // Making fuction global
 export { firebaseLogIn }
 window.firebaseLogIn = firebaseLogIn
+
+// --------------------------------------------------------------- PASSWORD RESET
+function firebaseResetPassword(email) {
+	return new Promise(function (resolve, reject) {
+        sendPasswordResetEmail(auth, email)
+        .then(() => {
+            resolve()
+        })
+        .catch((error) => {
+            reject(error)
+        });
+    })
+}
+
+// Get user data
+export { firebaseResetPassword }
+window.firebaseResetPassword = firebaseResetPassword
+
+// --------------------------------------------------------------- GET USER DATA
+function firebaseGetUserData() {
+	return new Promise(function (resolve, reject) {
+
+        const auth = getAuth();
+        const user = auth.currentUser;
+        if ((user !== null) && (document.URL === 'http://127.0.0.1:5500/publish.html')){
+            let userData = {
+                displayName: user.displayName,
+                email: user.email,
+                phone: user.email
+            }
+            console.log(userData)
+            resolve(userData)
+        } else {
+            reject('')
+        }
+
+    })
+
+}
+
+// Get user data
+export { firebaseGetUserData }
+window.firebaseGetUserData = firebaseGetUserData
 
 
 // FIREBASE GENERAL FETCH

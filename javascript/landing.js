@@ -162,7 +162,7 @@ window.addEventListener('load', function() {
     displayExploreItem("0294537884", 2);
     displayExploreItem("2315221133", 3);
     displayExploreItem("2262447875", 4);
-    displayExploreItem("0294537884", 5);
+    displayExploreItem("8217688185", 5);
 });
 
 // Explore onclick event handler
@@ -170,7 +170,7 @@ exploraItem.forEach(item => {
     item.addEventListener('click', () => {
         if (item.classList.contains('filled')) {
             const redirectId = item.dataset.identifier;
-            item.href = `http://127.0.0.1:5500/inventory.html?${redirectId}`
+            item.href = `https://animalesparticulares.netlify.app/inventory.html?${redirectId}`
         }
     })
 })
