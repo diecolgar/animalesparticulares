@@ -140,7 +140,7 @@ function firebaseGetUserData() {
 
         const auth = getAuth();
         const user = auth.currentUser;
-        if ((user !== null) && (document.URL === 'http://127.0.0.1:5500/publish.html')){
+        if ((user !== null) && ((document.URL === 'http://127.0.0.1:5500/publish.html') || (document.URL === 'https://animalesparticulares.netlify.app/publish') )){
             let userData = {
                 displayName: user.displayName,
                 email: user.email,
