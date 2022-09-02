@@ -102,9 +102,6 @@ provinciaSelectableText.addEventListener('input', ()=> {
     })
 })
 
-// Handle select provincia option
-
-
 
 // ------------------------------------------------------ EXPLORE SECTION
 
@@ -157,10 +154,10 @@ displayExploreItem = function(Id, desiredItem) {
 }
 
 window.addEventListener('load', function() {
-    displayExploreItem("2315221133", 0);
-    displayExploreItem("2262447875", 1);
-    displayExploreItem("0294537884", 2);
-    displayExploreItem("2315221133", 3);
+    displayExploreItem("0042830522", 0);
+    displayExploreItem("6514940586", 1);
+    displayExploreItem("5067777030", 2);
+    displayExploreItem("4923993962", 3);
     displayExploreItem("2262447875", 4);
     displayExploreItem("8217688185", 5);
 });

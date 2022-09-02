@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animales Particulares</title>
+    <link rel="stylesheet" href="sass/styles.css">
+    <!-- <link rel="icon" href="/img/fav.png?v=1" type="image/x-icon"> -->
+</head>
+<body>
+    <nav>
+        <a href='index.html' class="logo">
+            <div class="logoimage"></div>
+            <p>Animales<br>Particulares</p>
+        </a>
+        <div class="navigation">
+            <a class="navelement searchnav displayed">Busca</a>
+            <a class="navelement loginnav displayed">Accede</a>
+            <a class="navelement signinnav displayed">Únete</a>
+            <a class="navelement publicanav displayed" href="/publish.html">Publica</a>
+            <a class="navelement usernav">usuario</a>
+            <a class="navelement signout">
+                <div></div>
+                <div class="svg"></div>
+            </a>
+        </div>
+    </nav>
+
+    <div class="busquedasearcher">
+        <div class="searchedfilters">
+            <div class="filterelement spacecreator"></div>
+            <div class="filterelement filtersbox">
+                <div class="filter especie ">
+                    <div class="icon"></div>
+                    <div class="label">Perros</div>
+                </div>
+                <div class="separator"></div>
+                <input class="filter raza" placeholder="Cualquier raza"></input>
+                <div class="separator"></div>
+                <input class="filter provincia" placeholder="Cualquier sitio"></input>
+                <div class="searchbutton">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="44" height="44" viewBox="0 0 24 24" stroke-width="2.5" stroke="#FFFFFF" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="10" cy="10" r="7" />
+                        <line x1="21" y1="21" x2="15" y2="15" />
+                    </svg>
+                </div>
+            </div>
+            <div class="filteroptions hidden">
+                <div class="option especie invisible">
+                    <div class="specificoption withicons dogs">
+                        <div class="icon dogs"></div>
+                        <div class="label">Perros</div>
+                    </div>
+                    <div class="specificoption withicons cats">
+                        <div class="icon cats"></div>
+                        <div class="label">Gatos</div>
+                    </div>
+                    <div class="specificoption withicons horses">
+                        <div class="icon horses"></div>
+                        <div class="label">Caballos</div>
+                    </div>
+                    <div class="specificoption withicons">
+                        <div class="icon dog"></div>
+                        <div class="label">Roedores</div>
+                    </div>
+                    <div class="specificoption withicons">
+                        <div class="icon dog"></div>
+                        <div class="label">Aves</div>
+                    </div>
+                    <div class="specificoption withicons">
+                        <div class="icon dog"></div>
+                        <div class="label">Reptiles</div>
+                    </div>
+                    <div class="specificoption withicons">
+                        <div class="icon dog"></div>
+                        <div class="label">De granja</div>
+                    </div>
+                </div>
+                <div class="option raza">
+                </div>
+                <div class="option provincia">
+                </div>
+                <div class="option searchanalog invisible"></div>
+            </div>
+            <div class="filterelement additionalfilters">
+                <div class="additionalfiltersbutton">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-adjustments" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#64a35cb0" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                        <circle cx="6" cy="10" r="2" />
+                        <line x1="6" y1="4" x2="6" y2="8" />
+                        <line x1="6" y1="12" x2="6" y2="20" />
+                        <circle cx="12" cy="16" r="2" />
+                        <line x1="12" y1="4" x2="12" y2="14" />
+                        <line x1="12" y1="18" x2="12" y2="20" />
+                        <circle cx="18" cy="7" r="2" />
+                        <line x1="18" y1="4" x2="18" y2="5" />
+                        <line x1="18" y1="9" x2="18" y2="20" />
+                      </svg>
+                </div>
+            </div>
+        </div>
+        <div class="searchedresults">
+            <div class="searchedelement">
+                <div class="searchedimage">
+                    <div class="dummy"></div>
+                    <div class="actualimage"></div>
+                </div>
+                <div class="searchedinfo">
+                    <div class="searchedtitle">
+                        <div class="searchedespecie">?????????</div>
+                        <div class="searchednumber">??</div>
+                    </div>
+                    <div class="searchedsubtitle">
+                        <div class="searchedage">??</div>
+                        <div class="separator"></div>
+                        <div class="searchedlocation">???????</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="authenticationwindow">
+        <div class="loginwindow authsubwindow">
+            <div class="firstline">
+                <div class="title">¡Hola de nuevo!</div>
+                <div class="closer"></div>
+            </div>
+            <div class="user input">
+                <div class="errormesage"></div>
+                <input class="inputbox" placeholder="email"></input>
+            </div>
+            <div class="password input">
+                <div class="errormesage"></div>
+                <input class="inputbox" type="password" placeholder="contraseña"></input>
+            </div>
+            <div class="loginerrorlog"></div>
+            <div class="forgotpassword">¿Olvidaste tu contraseña?</div>
+            <div class="loginvalidator validator">inicia sesión</div>
+        </div>
+        <div class="signinwindow authsubwindow">
+            <div class="firstline">
+                <div class="title">¡Bienvenid@!</div>
+                <div class="closer"></div>
+            </div>
+            <div class="username input">
+                <div class="errormesage"></div>
+                <input class="inputbox" placeholder="nombre"></input>
+            </div>
+            <div class="user input">
+                <div class="errormesage"></div>
+                <input class="inputbox" placeholder="email"></input>
+            </div>
+            <div class="password input">
+                <div class="errormesage"></div>
+                <input class="inputbox" type="password" placeholder="contraseña"></input>
+            </div>
+            <div class="password validation input">
+                <div class="errormesage"></div>
+                <input class="inputbox" type="password" placeholder="confirma contraseña"></input>
+            </div>
+            <div class="signinerrorlog"></div>
+            <div class="signinvalidator validator">regístrate</div>
+        </div>
+        <div class="validatedwindow authsubwindow">
+            <div class="firstline">
+                <div class="title"> </div>
+                <div class="closer"></div>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#357439" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                <circle cx="9" cy="7" r="4" />
+                <path d="M3 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                <path d="M16 11l2 2l4 -4" />
+            </svg>
+            <div class="exitotext">¡Listo!</div>
+        </div>
+        <div class="forgotpasswordwindow authsubwindow">
+            <div>Te hemos enviado un email para que reestablezcas tu contraseña.</div>
+            <div class="closer">ok</div>
+        </div>
+    </div>
+
+    <script type="module" src="/javascript/firebase.js"></script>
+    <script src="/javascript/searcher.js"></script>
+    <script src="/javascript/resizer.js"></script>
+    <script src="/javascript/navlogic.js"></script>
+
+
+</body>
+</html>

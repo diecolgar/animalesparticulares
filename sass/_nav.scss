@@ -1,9 +1,8 @@
-// New colors
-$newgreenstandart: #7fa984;
 $newgreenhard: #52694F;
-$newgreensoft: #82a35c;
-$newgreenlight: #d7f0d1;
-$newgreencolorful: #82a35c;
+$newgreencolorful: #64A35C;
+$newgreencolorfulsoft: #b2d2ae;
+$newgreencolorfulsofter: #e2eee1;
+
 
 nav {
     position: fixed;
@@ -42,15 +41,15 @@ nav {
     }
     .navigation {
         display: flex;
-        cursor: pointer;
         .navelement {
             display: none;
             align-items: center;
-            margin-left: 2vw;
+            padding: 0 22px;
             text-decoration: none;
-            color: $newgreenstandart;
+            color: $newgreencolorful;
             font-weight: 600;
             &:hover {
+                cursor: pointer;
                 color: $newgreenhard;
             }
             &.displayed {
@@ -80,9 +79,10 @@ nav {
             }
             &.publicanav {
                 color: white;
-                background-color: $newgreenstandart;
+                background-color: $newgreencolorfulsoft;
                 border-radius: 12px 0 12px 0;
                 padding: 1rem 1.5rem;
+                margin-left: 1rem;
             }
         }
     }
@@ -234,7 +234,7 @@ nav {
             width: 32px;
             height: 32px;
             border-radius: 50%;
-            background-color: $newgreenstandart;
+            background-color: $newgreencolorful;
             &:hover {
                 cursor: pointer;
             }

@@ -140,7 +140,7 @@ function firebaseGetUserData() {
 
         const auth = getAuth();
         const user = auth.currentUser;
-        if ((user !== null) && ((document.URL === 'http://127.0.0.1:5500/publish.html') || (document.URL === 'https://animalesparticulares.netlify.app/publish') )){
+        if ((user !== null) && ((document.URL === 'http://127.0.0.1:5500/publish.html') || (document.URL === 'https://animalesparticulares.netlify.app/publish.html') )){
             let userData = {
                 displayName: user.displayName,
                 email: user.email,
@@ -162,7 +162,7 @@ window.firebaseGetUserData = firebaseGetUserData
 
 
 // FIREBASE GENERAL FETCH
-// --------------------------------------------------------------- FETCH ANIMAL
+// --------------------------------------------------------------- FETCH ANIMAL FROM ID
 async function firebaseFetchAnimal(Id) {
 	return new Promise(function (resolve, reject) {
 		let outputData = {}
@@ -200,7 +200,55 @@ async function firebaseFetchAnimal(Id) {
 export { firebaseFetchAnimal }
 window.firebaseFetchAnimal = firebaseFetchAnimal
 
-// PUBLISH NEW ANIMAL
+// --------------------------------------------------------------- FETCH ANIMAL FROM FULL DATA
+async function firebaseFetchAnimalComplex(dataObject) {
+	return new Promise(function (resolve, reject) {
+		let outputData = {}
+        let razaCompare = '=='
+        if ( (dataObject.raza === undefined) || (dataObject.raza === '') ){
+            razaCompare = '!='
+            dataObject.raza = ''
+        }
+		let q = query(
+			collection(db, 'animales'),
+			where('Especie', '==', dataObject.especie),
+			where('Raza', razaCompare, dataObject.raza),
+			limit(100)
+		)
+        
+        let outputArray = []
+		getDocs(q).then((querySnapshot) => {
+			querySnapshot.forEach((doc) => {
+				outputData = {
+                    name: doc.data().Name,
+                    email: doc.data().Email,
+                    phone: doc.data().Phone,
+					id: doc.data().Id,
+					age: doc.data().Age,
+					ageUom: doc.data().AgeUom,
+					description: doc.data().Description,
+					especie: doc.data().Especie,
+					fecha: doc.data().Fecha,
+					number: doc.data().Number,
+					provincia: doc.data().Provincia,
+					raza: doc.data().Raza,
+					numberOfImages: doc.data().NumeroImagenes,
+				}
+                if ( (dataObject.provincia === undefined ) || (dataObject.provincia === '') ) {
+                    outputArray.push(outputData)
+                } else if (dataObject.provincia === outputData.provincia) {
+                    outputArray.push(outputData)
+                }
+			})
+			resolve(outputArray)
+		})
+	})
+}
+// Making fuction global
+export { firebaseFetchAnimalComplex }
+window.firebaseFetchAnimalComplex = firebaseFetchAnimalComplex
+
+// --------------------------------------------------------------- PUBLISH NEW ANIMAL
 function firebasePublishNewAnimal(publishData) {
 	try {
 		const docRef = addDoc(collection(db, 'animales'), {

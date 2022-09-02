@@ -5,6 +5,7 @@
 @import './landing';
 @import './publish';
 @import './inventory';
+@import './searcher';
 
 $newgreenhard: #52694F;
 $newgreensoft: #949c81;
@@ -22,7 +23,7 @@ html {
 
 body {
     color: $newgreenhard;
-	background-color: rgb(253, 253, 253);
+	background-color: white;
 	display: flex;
 	justify-content: center;
 	font-family: 'Montserrat Alternates', sans-serif;
