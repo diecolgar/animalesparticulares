@@ -2278,15 +2278,19 @@ nav .navigation .navelement.publicanav {
 }
 
 .busquedasearcher .searchedfilters .filteroptions .option .specificoption.withicons .icon.rabbits {
-  background-image: url(/images/dog.svg);
+  background-image: url(/images/rabbit.svg);
 }
 
 .busquedasearcher .searchedfilters .filteroptions .option .specificoption.withicons .icon.birds {
-  background-image: url(/images/dog.svg);
+  background-image: url(/images/bird.svg);
 }
 
 .busquedasearcher .searchedfilters .filteroptions .option .specificoption.withicons .icon.reptiles {
-  background-image: url(/images/dog.svg);
+  background-image: url(/images/turtle.svg);
+}
+
+.busquedasearcher .searchedfilters .filteroptions .option .specificoption.withicons .icon.farms {
+  background-image: url(/images/vacas.svg);
 }
 
 .busquedasearcher .searchedfilters .filteroptions .option .specificoption.withicons .label {

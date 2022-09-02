@@ -201,13 +201,16 @@ $newgreencolorfulsofter: #e2eee1;
                                 background-image: url(/images/horse.svg);
                             }
                             &.rabbits {
-                                background-image: url(/images/dog.svg);
+                                background-image: url(/images/rabbit.svg);
                             }
                             &.birds {
-                                background-image: url(/images/dog.svg);
+                                background-image: url(/images/bird.svg);
                             }
                             &.reptiles {
-                                background-image: url(/images/dog.svg);
+                                background-image: url(/images/turtle.svg);
+                            }
+                            &.farms {
+                                background-image: url(/images/vacas.svg);
                             }
                         }
                         .label {
