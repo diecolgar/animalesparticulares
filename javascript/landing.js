@@ -187,5 +187,5 @@ exploraItem.forEach(item => {
 
 // Search button onclick handler
 searchButton.addEventListener('click', () => {
-    searchButton.href = `hhttps://animalesparticulares.netlify.app/searcher.html?${especieSelectableText.innerHTML}?${provinciaSelectableText.value}`
+    searchButton.href = `https://animalesparticulares.netlify.app/searcher.html?${especieSelectableText.innerHTML}?${provinciaSelectableText.value}`
 })
