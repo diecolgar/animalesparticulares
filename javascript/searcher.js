@@ -61,7 +61,6 @@ if (especieHref) {
 }
 
 if (provinciaHref) {
-    debugger
     provinciaFilter.value = provinciaHref
 }
 
