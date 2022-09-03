@@ -646,7 +646,7 @@ nav .navigation .navelement.publicanav {
   background-position: center;
 }
 
-.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.dog .icon {
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.dogs .icon {
   background-image: url(/images/dog_light.svg);
 }
 
@@ -654,16 +654,24 @@ nav .navigation .navelement.publicanav {
   background-image: url(/images/cat_light.svg);
 }
 
-.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.horse .icon {
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.horses .icon {
   background-image: url(/images/horse_light.svg);
 }
 
-.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.conejos .icon {
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.rabbits .icon {
   background-image: url(/images/rabbit_light.svg);
 }
 
-.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.dog .icon {
-  background-image: url(/images/dog_light.svg);
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.birds .icon {
+  background-image: url(/images/bird_light.svg);
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.reptiles .icon {
+  background-image: url(/images/turtle_light.svg);
+}
+
+.landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.farms .icon {
+  background-image: url(/images/vacas_light.svg);
 }
 
 .landing .firstpagecontainer .landingimages .landingcats .searcher .searchelement .options .searchoption.white {
@@ -701,6 +709,7 @@ nav .navigation .navelement.publicanav {
   display: -ms-flexbox;
   display: flex;
   margin-top: 48px;
+  z-index: -10;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;

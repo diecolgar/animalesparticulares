@@ -1,3 +1,5 @@
+
+
 const mainFilters = document.querySelectorAll('.filtersbox .filter')
 
 const especieFilter = document.querySelector('.filterelement .especie')
@@ -26,6 +28,42 @@ const searchButton = document.querySelector('.searchbutton')
 
 const searchedResults = document.querySelector('.searchedresults')
 
+
+//
+
+const especieHref = window.location.href.split('?')[1];
+// const razaHref = window.location.href.split('?')[2];
+const provinciaHref = window.location.href.split('?')[2];
+
+if (especieHref) {
+    especieFilterLabel.innerHTML = especieHref
+    if (especieHref === 'Perros') {
+        especieFilterIcon.style.backgroundImage = 'url(/images/dog.svg)' 
+    }
+    if (especieHref === 'Gatos') {
+        especieFilterIcon.style.backgroundImage = 'url(/images/cat.svg)' 
+    }
+    if (especieHref === 'Caballos') {
+        especieFilterIcon.style.backgroundImage = 'url(/images/horse.svg)' 
+    }
+    if (especieHref === 'Roedores') {
+        especieFilterIcon.style.backgroundImage = 'url(/images/rabbit.svg)' 
+    }
+    if (especieHref === 'Pajaros') {
+        especieFilterIcon.style.backgroundImage = 'url(/images/bird.svg)' 
+    }
+    if (especieHref === 'Reptiles') {
+        especieFilterIcon.style.backgroundImage = 'url(/images/reptile.svg)' 
+    }
+    if (especieHref === 'Granja') {
+        especieFilterIcon.style.backgroundImage = 'url(/images/vacas.svg)' 
+    }
+}
+
+if (provinciaHref) {
+    debugger
+    provinciaFilter.value = provinciaHref
+}
 
 mainFilters.forEach((filter,id) => {
     window.addEventListener('click', function(e){   
@@ -241,8 +279,11 @@ function goSearch() {
 }
 
 window.addEventListener('load', function() {
+
     goSearch();
 });
+
+// READING HREF INFORMATION
 
 
 

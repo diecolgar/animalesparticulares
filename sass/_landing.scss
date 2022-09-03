@@ -193,7 +193,7 @@ $newgreencolorfulsoft: #64a35c7e;
                                     background-repeat: no-repeat;
                                     background-position: center;
                                 }
-                                &.dog {
+                                &.dogs {
                                     .icon {
                                         background-image: url(/images/dog_light.svg);
                                     }
@@ -203,19 +203,29 @@ $newgreencolorfulsoft: #64a35c7e;
                                         background-image: url(/images/cat_light.svg);
                                     }
                                 }
-                                &.horse {
+                                &.horses {
                                     .icon {
                                         background-image: url(/images/horse_light.svg);
                                     }
                                 }
-                                &.conejos {
+                                &.rabbits {
                                     .icon {
                                         background-image: url(/images/rabbit_light.svg);
                                     }
                                 }
-                                &.dog {
+                                &.birds {
                                     .icon {
-                                        background-image: url(/images/dog_light.svg);
+                                        background-image: url(/images/bird_light.svg);
+                                    }
+                                }
+                                &.reptiles {
+                                    .icon {
+                                        background-image: url(/images/turtle_light.svg);
+                                    }
+                                }
+                                &.farms {
+                                    .icon {
+                                        background-image: url(/images/vacas_light.svg);
                                     }
                                 }
                                 &.white {
@@ -252,6 +262,7 @@ $newgreencolorfulsoft: #64a35c7e;
         position: relative;
         display: flex;
         margin-top: 48px;
+        z-index: -10;
         @media (max-width: 800px) {
             margin-top: 104px;
         }  

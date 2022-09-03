@@ -11,6 +11,8 @@ const provinciaSelectable = document.querySelector('.searchelement.provincia')
 const provinciaSelectableText = document.querySelector('.searchelement.provincia .inputbox')
 const provinciaOptions = document.querySelector('.searchelement.provincia .options')
 
+const searchButton = document.querySelector('.search')
+
 provincias = ['alava','albacete','alicante','almería','asturias','avila','badajoz','barcelona','burgos','cáceres',
 'cádiz','cantabria','castellón','ciudad real','córdoba','la coruña','cuenca','gerona','granada','guadalajara',
 'guipúzcoa','huelva','huesca','islas baleares','jaén','león','lérida','lugo','madrid','málaga','murcia','navarra',
@@ -56,7 +58,7 @@ window.addEventListener('click', function(e){
 // Assign data from search especie button
 especieOptions.forEach(option => {
     option.addEventListener('click', () => {
-        if (option.classList.contains('dog')) {
+        if (option.classList.contains('dogs')) {
             especieSelectableText.innerHTML = 'Perros'
             especieSelectableIcon.style.backgroundImage = 'url(/images/dog_light.svg)'
         }
@@ -64,15 +66,26 @@ especieOptions.forEach(option => {
             especieSelectableText.innerHTML = 'Gatos'
             especieSelectableIcon.style.backgroundImage = 'url(/images/cat_light.svg)'
         }
-        if (option.classList.contains('horse')) {
+        if (option.classList.contains('horses')) {
             especieSelectableText.innerHTML = 'Caballos'
             especieSelectableIcon.style.backgroundImage = 'url(/images/horse_light.svg)'
 
         }
-        if (option.classList.contains('conejos')) {
+        if (option.classList.contains('rabbits')) {
             especieSelectableText.innerHTML = 'Conejos'
             especieSelectableIcon.style.backgroundImage = 'url(/images/rabbit_light.svg)'
-
+        }
+        if (option.classList.contains('birds')) {
+            especieSelectableText.innerHTML = 'Pajaros'
+            especieSelectableIcon.style.backgroundImage = 'url(/images/bird_light.svg)'
+        }
+        if (option.classList.contains('reptiles')) {
+            especieSelectableText.innerHTML = 'Reptiles'
+            especieSelectableIcon.style.backgroundImage = 'url(/images/turtle_light.svg)'
+        }
+        if (option.classList.contains('farms')) {
+            especieSelectableText.innerHTML = 'De granja'
+            especieSelectableIcon.style.backgroundImage = 'url(/images/vacas_light.svg)'
         }
     })
 })
@@ -170,4 +183,9 @@ exploraItem.forEach(item => {
             item.href = `https://animalesparticulares.netlify.app/inventory.html?${redirectId}`
         }
     })
+})
+
+// Search button onclick handler
+searchButton.addEventListener('click', () => {
+    searchButton.href = `hhttps://animalesparticulares.netlify.app/searcher.html?${especieSelectableText.innerHTML}?${provinciaSelectableText.value}`
 })
