@@ -87,6 +87,7 @@ dataEspecieInput.forEach(especie => {
             }
         })
         especie.classList.toggle('active')
+        dataRazaInput.style.pointerEvents = 'auto'
         dataRazaText.innerHTML = 'Seleccionar...';
         dataRazaText.classList.remove('selected')
         fetchAnimalsPublish(especie.className.split(" ")[2])

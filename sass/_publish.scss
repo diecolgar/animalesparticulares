@@ -191,9 +191,13 @@ $newgreencolorfullight: #B6F2BC;
 						}
 						&.raza {
 							width: 100%;
+                            pointer-events: none;
 							&:hover {
 								cursor: pointer;
 							}
+                            .innertext {
+                                color: rgb(190, 190, 190);
+                            }
 						}
 						&.multiples {
 							width: 20px;
@@ -268,7 +272,7 @@ $newgreencolorfullight: #B6F2BC;
                                 font-size: 1.4rem;
                                 font-weight: 500;
                                 letter-spacing: 1px;
-								color: rgb(170, 170, 170);
+								color: rgb(190, 190, 190);
 							}
 						}
 						.innertext {
@@ -282,7 +286,7 @@ $newgreencolorfullight: #B6F2BC;
 					}
 					.cuantos {
 						margin-right: 7%;
-						color: rgb(223, 223, 223);
+                        color: rgb(190, 190, 190);
 						&.writteable {
 							color: black;
 						}

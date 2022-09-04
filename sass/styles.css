@@ -1202,10 +1202,15 @@ nav .navigation .navelement.publicanav {
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.raza {
   width: 100%;
+  pointer-events: none;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.raza:hover {
   cursor: pointer;
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.raza .innertext {
+  color: #bebebe;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.multiples {
@@ -1304,28 +1309,28 @@ nav .navigation .navelement.publicanav {
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 1px;
-  color: #aaaaaa;
+  color: #bebebe;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto:-ms-input-placeholder {
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 1px;
-  color: #aaaaaa;
+  color: #bebebe;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto::-ms-input-placeholder {
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 1px;
-  color: #aaaaaa;
+  color: #bebebe;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.contacto::placeholder {
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 1px;
-  color: #aaaaaa;
+  color: #bebebe;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox .innertext {
@@ -1340,7 +1345,7 @@ nav .navigation .navelement.publicanav {
 
 .publica .maincontainers .datacontainer .datarow .datainput .cuantos {
   margin-right: 7%;
-  color: #dfdfdf;
+  color: #bebebe;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .cuantos.writteable {
