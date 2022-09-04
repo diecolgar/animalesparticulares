@@ -1,4 +1,5 @@
 
+const filtersContainer = document.querySelector('.filterelement')
 
 const mainFilters = document.querySelectorAll('.filtersbox .filter')
 
@@ -64,6 +65,7 @@ if (provinciaHref) {
     provinciaFilter.value = provinciaHref
 }
 
+// Onclick handlers for option boxes
 mainFilters.forEach((filter,id) => {
     window.addEventListener('click', function(e){   
         if (filter.contains(e.target)){
@@ -79,7 +81,19 @@ mainFilters.forEach((filter,id) => {
       })
 })
 
+window.addEventListener('click', function(e){   
+    if (filtersContainer.contains(e.target)){
+        // Clicked in box
+        filterOptionsContainer.classList.remove('hidden')
+      } else{
+        // Clicked outside the box
+        filterOptionsContainer.classList.add('hidden')
+      }
+})
+
+// Setting default especie as perros
 let currentEspecie = 'Perros'
+
 // ------------- SELECTION HANDLER FOR ESPECIE
 filterOptionEspecieSpecific.forEach((option,id) => {
     option.addEventListener('click', () => {
@@ -242,23 +256,37 @@ function goSearch() {
     }
     
     firebaseFetchAnimalComplex(dataObject).then( (output) => {
-        document.querySelectorAll('.searchedimage .actualimage').forEach(image => {
-            image.style.backgroundImage = 'none'
-        })
+        // Reset all images
+
+
+        // Remove all previous images
         while (document.querySelector(".searchedresults").children[1]) {
             document.querySelector(".searchedresults").removeChild(document.querySelector(".searchedresults").firstChild);
         }
 
+        // For given output, do things -- if no output we just call it
+        if (output.length === 0) {
+            document.querySelector('.searchedimage .actualimage').style.backgroundImage = 'none'
+            document.querySelector('.searchedespecie').innerHTML = 'Sin resultados'
+            document.querySelector('.searchedage').innerHTML = '??'
+            document.querySelector('.searchedlocation').innerHTML = '????'
+        }
+        // Fastest way to create new elements is to clone the first -- that is why I never eliminate this first one even if no results are displayed
         for (let i = 1; i < output.length; i++) {
             var newww = document.querySelectorAll('.searchedelement')[0].cloneNode(true)
             searchedResults.appendChild(newww)        
         }
-            const searchedImage = document.querySelectorAll('.searchedimage .actualimage')
-            const searchedEspecie = document.querySelectorAll('.searchedespecie')
-            const searchedNumber = document.querySelectorAll('.searchednumber')
-            const searchedAge = document.querySelectorAll('.searchedage')
-            const searchedLocation = document.querySelectorAll('.searchedlocation')
+
+        // Here I redefine all the elements to be written for each case
+        const searchedElement = document.querySelectorAll('.searchedelement')
+        const searchedImage = document.querySelectorAll('.searchedimage .actualimage')
+        const searchedEspecie = document.querySelectorAll('.searchedespecie')
+        const searchedNumber = document.querySelectorAll('.searchednumber')
+        const searchedAge = document.querySelectorAll('.searchedage')
+        const searchedLocation = document.querySelectorAll('.searchedlocation')
+
         for (let i = 0; i < output.length; i++) {
+            // And here for each element I get its corresponding picture and information
             firebaseGetPicture(output[i].id, 0).then((result) => {
                 searchedImage[i].style.backgroundImage = `url(${result}`;
             });
@@ -273,29 +301,24 @@ function goSearch() {
 
             searchedAge[i].innerHTML = `${output[i].age} ${output[i].ageUom}`
             searchedLocation[i].innerHTML = output[i].provincia
+
+            searchedElement[i].dataset.identifier = output[i].id
         }
+
+        // Finally I implement the event handler redirection for clicking any element
+        searchedElement.forEach(element => {
+            element.addEventListener('click', () => {
+                element.href = `https://animalesparticulares.netlify.app/inventory.html?${element.dataset.identifier}`
+            })
+        })
     })
 }
 
+// Just to display something on load
 window.addEventListener('load', function() {
-
     goSearch();
 });
 
-// READING HREF INFORMATION
 
 
-
-
-
-
-
-
-
-
-const provincias = ['alava','albacete','alicante','almería','asturias','avila','badajoz','barcelona','burgos','cáceres',
-'cádiz','cantabria','castellón','ciudad real','córdoba','la coruña','cuenca','gerona','granada','guadalajara',
-'guipúzcoa','huelva','huesca','islas baleares','jaén','león','lérida','lugo','madrid','málaga','murcia','navarra',
-'orense','palencia','las palmas','pontevedra','la rioja','salamanca','segovia','sevilla','soria','tarragona',
-'santa cruz de tenerife','teruel','toledo','valencia','valladolid','vizcaya','zamora','zaragoza'];
 
