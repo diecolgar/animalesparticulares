@@ -33,7 +33,6 @@ const searchedResults = document.querySelector('.searchedresults')
 //
 
 const especieHref = window.location.href.split('?')[1];
-// const razaHref = window.location.href.split('?')[2];
 const provinciaHref = window.location.href.split('?')[2];
 
 if (especieHref) {
@@ -56,8 +55,9 @@ if (especieHref) {
     if (especieHref === 'Reptiles') {
         especieFilterIcon.style.backgroundImage = 'url(/images/reptile.svg)' 
     }
-    if (especieHref === 'Granja') {
+    if (especieHref === 'DeGranja') {
         especieFilterIcon.style.backgroundImage = 'url(/images/vacas.svg)' 
+        especieFilterLabel.innerHTML = 'De Granja'
     }
 }
 
@@ -151,7 +151,7 @@ razaFilter.addEventListener('input', ()=> {
     } else if (especieFilterLabel.innerHTML === 'Roedores') {
         filteredArray = roedores_db.filter(animal => animal.includes(value));
     } else if (especieFilterLabel.innerHTML === 'Pájaros') {
-        filteredArray = aves_db.filter(animal => animal.includes(value));
+        filteredArray = pajaros_db.filter(animal => animal.includes(value));
     }
     filterOptionRaza.innerHTML = ''
     for (let i = 0; (i < 3) && (i < filteredArray.length); i++) {
@@ -254,6 +254,11 @@ function goSearch() {
         numero: '',
         fecha: ''
     }
+
+    // Handling 'De Granja' space...
+    if (dataObject.especie === 'de granja') {
+        dataObject.especie = 'degranja'
+    }
     
     firebaseFetchAnimalComplex(dataObject).then( (output) => {
         // Reset all images
@@ -264,9 +269,11 @@ function goSearch() {
             document.querySelector(".searchedresults").removeChild(document.querySelector(".searchedresults").firstChild);
         }
 
+        // Remove background from default image
+        document.querySelector('.searchedimage .actualimage').style.backgroundImage = 'none'
+
         // For given output, do things -- if no output we just call it
         if (output.length === 0) {
-            document.querySelector('.searchedimage .actualimage').style.backgroundImage = 'none'
             document.querySelector('.searchedespecie').innerHTML = 'Sin resultados'
             document.querySelector('.searchedage').innerHTML = '??'
             document.querySelector('.searchedlocation').innerHTML = '????'

@@ -1096,6 +1096,10 @@ nav .navigation .navelement.publicanav {
           align-items: center;
 }
 
+.publica .maincontainers .datacontainer .datarow.especie {
+  margin-bottom: 48px;
+}
+
 .publica .maincontainers .datacontainer .datarow .datatitle {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1124,6 +1128,14 @@ nav .navigation .navelement.publicanav {
   height: 40px;
 }
 
+.publica .maincontainers .datacontainer .datarow .datainput.especie {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1147,6 +1159,7 @@ nav .navigation .navelement.publicanav {
   background-size: 25px 25px;
   background-position: center;
   background-repeat: no-repeat;
+  margin: 4px 8px;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie.perros {
@@ -1161,12 +1174,20 @@ nav .navigation .navelement.publicanav {
   background-image: url(/images/horse.svg);
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie.aves {
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie.pajaros {
   background-image: url(/images/bird.svg);
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie.roedores {
   background-image: url(/images/rabbit.svg);
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie.reptiles {
+  background-image: url(/images/turtle.svg);
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie.degranja {
+  background-image: url(/images/vacas.svg);
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie:hover {

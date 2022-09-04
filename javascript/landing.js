@@ -78,7 +78,7 @@ especieOptions.forEach(option => {
             especieSelectableIcon.style.backgroundImage = 'url(/images/turtle_light.svg)'
         }
         if (option.classList.contains('farms')) {
-            especieSelectableText.innerHTML = 'De granja'
+            especieSelectableText.innerHTML = 'De Granja'
             especieSelectableIcon.style.backgroundImage = 'url(/images/vacas_light.svg)'
         }
     })
@@ -181,5 +181,10 @@ exploraItem.forEach(item => {
 
 // Search button onclick handler
 searchButton.addEventListener('click', () => {
-    searchButton.href = `https://animalesparticulares.netlify.app/searcher.html?${especieSelectableText.innerHTML}?${provinciaSelectableText.value}`
+    // Handling 'de granja' case
+    if (especieSelectableText.innerHTML === 'De Granja') {
+        searchButton.href = `https://animalesparticulares.netlify.app/searcher.html?${'DeGranja'}?${provinciaSelectableText.value}`
+    } else {
+        searchButton.href = `https://animalesparticulares.netlify.app/searcher.html?${especieSelectableText.innerHTML}?${provinciaSelectableText.value}`
+    }
 })

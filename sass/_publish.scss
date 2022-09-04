@@ -121,6 +121,9 @@ $newgreencolorfullight: #B6F2BC;
                         align-items: center;
                     }
                 }
+                &.especie {
+                    margin-bottom: 48px;
+                }
 				.datatitle {
 					display: flex;
 					justify-content: right;
@@ -136,6 +139,10 @@ $newgreencolorfullight: #B6F2BC;
 					justify-content: space-between;
 					width: 300px;
 					height: 40px;
+                    &.especie {
+                        justify-content: left;
+                        flex-wrap: wrap;
+                    }
 					.inputbox {
 						display: flex;
 						align-items: center;
@@ -152,6 +159,7 @@ $newgreencolorfullight: #B6F2BC;
 							background-size: 25px 25px;
 							background-position: center;
 							background-repeat: no-repeat;
+                            margin: 4px 8px;
 							&.perros {
 								background-image: url(/images/dog.svg);
 							}
@@ -161,11 +169,17 @@ $newgreencolorfullight: #B6F2BC;
 							&.caballos {
 								background-image: url(/images/horse.svg);
 							}
-							&.aves {
+							&.pajaros {
 								background-image: url(/images/bird.svg);
 							}
 							&.roedores {
 								background-image: url(/images/rabbit.svg);
+							}
+                            &.reptiles {
+								background-image: url(/images/turtle.svg);
+							}
+							&.degranja {
+								background-image: url(/images/vacas.svg);
 							}
 							&:hover {
 								cursor: pointer;

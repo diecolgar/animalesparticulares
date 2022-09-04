@@ -102,9 +102,17 @@ function fetchAnimalsPublish(especie) {
         fetchData = gatos_db
     } else if (especie === 'caballos') {
         fetchData = caballos_db
-    } else {
-        fetchData = perros_db
-    }
+    } else if (especie === 'caballos') {
+        fetchData = caballos_db
+    } else if (especie === 'roedores') {
+        fetchData = roedores_db
+    } else if (especie === 'pajaros') {
+        fetchData = pajaros_db
+    } else if (especie === 'reptiles') {
+        fetchData = reptiles_db
+    } else if (especie === 'degranja') {
+        fetchData = degranja_db
+    } 
   
         // First remove previous divs
         while (document.querySelector(".raza .datainput .raza .selectable").firstChild) {
