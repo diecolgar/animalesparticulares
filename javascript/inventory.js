@@ -58,6 +58,7 @@ displayExploreItem = function(Id) {
         // Set contactdata
         document.querySelector(".contactinfo .nombre").innerHTML = result.name;
         document.querySelector(".contactinfo .mail").innerHTML = result.email;
+        checkIfUserIsPropietaryToDisplayDeleteOption()
         document.querySelector(".contactinfo .phone").innerHTML = result.phone;
         // document.querySelector(".description").classList.remove('loading');
 
@@ -82,7 +83,6 @@ displayExploreItem = function(Id) {
 
 window.addEventListener('load', function() {
     displayExploreItem(ID);
-    checkIfUserIsPropietaryToDisplayDeleteOption();
 });
 
 // IMAGE SLIDER LOGIC
@@ -115,10 +115,19 @@ function updateDisplayedImageFromIndex(index) {
 
 // CHECK IF USER IS PROPIETARY
 function checkIfUserIsPropietaryToDisplayDeleteOption() {
-    if (document.querySelector('.usernav').innerHTML === document.querySelector(".contactinfo .mail").innerHTML) {
-        document.querySelector('.borrarpublicacion').style.display = 'flex'
-    }
+    const inventoryUserEmail = document.querySelector(".contactinfo .mail").innerHTML
+    console.log(inventoryUserEmail)
+    firebaseGetUserData().then( (userData) => {
+        let currentUserEmail = userData.email 
+        console.log(currentUserEmail)
+        if (currentUserEmail === inventoryUserEmail) {
+            document.querySelector('.borrarpublicacion').style.display = 'flex'
+        }
+    })
+    .catch()
 }
+
+
 
 // DELETE PUBLICACION
 

@@ -55,24 +55,24 @@ onAuthStateChanged(auth, (user) => {
 	if (user) {
 		// User is signed in, see docs for a list of available properties
 		// https://firebase.google.com/docs/reference/js/firebase.User
-		const uid = user.uid
-		document.querySelector('.navelement.usernav').innerHTML = `Hola, ${user.displayName}`
+
+        const uid = user.uid
+        document.querySelector('.navelement.usernav').innerHTML = `Hola, ${user.displayName}`
         document.querySelector('.navelement.usernav').classList.add('displayed')
         document.querySelector('.loginnav').classList.remove('displayed')
         document.querySelector('.signinnav').classList.remove('displayed')
         document.querySelector('.signout').classList.add('displayed')
 
-        const userData = firebaseGetUserData().then( (userData) => {
-            document.querySelector(".nombrecontacto .datainput .inputbox").value = userData.displayName;
-            document.querySelector(".nombrecontacto .datainput .inputbox").style.pointerEvents = 'none';
-            document.querySelector(".nombrecontacto .datainput .inputbox").style.backgroundColor = 'white';
-            document.querySelector(".emailcontacto .datainput .inputbox").value = userData.email;
-            document.querySelector(".emailcontacto .datainput .inputbox").style.pointerEvents = 'none';
-            document.querySelector(".emailcontacto .datainput .inputbox").style.backgroundColor = 'white';
-        })
-        .catch( () => {
-            // Not a problem
-        })
+        if ((document.URL === 'http://127.0.0.1:5500/publish.html') || (document.URL === 'https://animalesparticulares.netlify.app/publish.html') ) {
+            firebaseGetUserData().then( (userData) => {
+                document.querySelector(".nombrecontacto .datainput .inputbox").value = userData.displayName;
+                document.querySelector(".nombrecontacto .datainput .inputbox").style.pointerEvents = 'none';
+                document.querySelector(".nombrecontacto .datainput .inputbox").style.backgroundColor = 'white';
+                document.querySelector(".emailcontacto .datainput .inputbox").value = userData.email;
+                document.querySelector(".emailcontacto .datainput .inputbox").style.pointerEvents = 'none';
+                document.querySelector(".emailcontacto .datainput .inputbox").style.backgroundColor = 'white';
+            })
+        }
     // ...
 	} else {
 		// User is signed out
@@ -130,21 +130,15 @@ window.firebaseResetPassword = firebaseResetPassword
 // --------------------------------------------------------------- GET USER DATA
 function firebaseGetUserData() {
 	return new Promise(function (resolve, reject) {
-
-        const auth = getAuth();
-        const user = auth.currentUser;
-        if ((user !== null) && ((document.URL === 'http://127.0.0.1:5500/publish.html') || (document.URL === 'https://animalesparticulares.netlify.app/publish.html') )){
-            let userData = {
-                displayName: user.displayName,
-                email: user.email,
-                phone: user.email
-            }
-            console.log(userData)
-            resolve(userData)
-        } else {
-            reject('')
+    const auth = getAuth();
+    const user = auth.currentUser;
+        let userData = {
+            displayName: user.displayName,
+            email: user.email,
+            phone: user.email
         }
-
+        console.log(userData)
+        resolve(userData)
     })
 
 }
@@ -152,7 +146,6 @@ function firebaseGetUserData() {
 // Get user data
 export { firebaseGetUserData }
 window.firebaseGetUserData = firebaseGetUserData
-
 
 // FIREBASE GENERAL FETCH
 // --------------------------------------------------------------- FETCH ANIMAL FROM ID

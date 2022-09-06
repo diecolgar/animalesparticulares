@@ -124,7 +124,12 @@ function fetchAnimalsPublish(especie) {
         fetchData.forEach(word => {
           var newDiv = document.createElement("div");
           newDiv.classList.add('option')
-          newDiv.textContent = word
+
+          const wordSplitted = word.split('')
+          wordSplitted[0] = wordSplitted[0].toUpperCase()
+          const capitalizedWord = wordSplitted.join('')
+
+          newDiv.textContent = capitalizedWord
           document.querySelector(".raza .datainput .raza .selectable").appendChild(newDiv)
         })
 
