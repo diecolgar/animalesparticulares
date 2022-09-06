@@ -23,6 +23,16 @@ displayExploreItem = function(Id) {
             especieIcon.style.backgroundImage = `url('/images/cat.svg')`;
         } else if (result.especie === "caballos") {
             especieIcon.style.backgroundImage = `url('/images/horse.svg')`;
+        } else if (result.especie === "roedores") {
+            especieIcon.style.backgroundImage = `url('/images/rabbit.svg')`;
+        } else if (result.especie === "reptiles") {
+            especieIcon.style.backgroundImage = `url('/images/turtle.svg')`;
+        } else if (result.especie === "caballos") {
+            especieIcon.style.backgroundImage = `url('/images/horse.svg')`;
+        } else if (result.especie === "pajaros") {
+            especieIcon.style.backgroundImage = `url('/images/bird.svg')`;
+        } else if (result.especie === "degranja") {
+            especieIcon.style.backgroundImage = `url('/images/vacas.svg')`;
         }
 
         // Set number
