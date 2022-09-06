@@ -13,7 +13,6 @@ $newgreencolorful: #64A35C;
 
 .inventory {
     display: flex;
-    justify-content: center;
     width: 90vw;
     max-width: 1200px;
 	margin-top: 12vh;
@@ -232,4 +231,81 @@ $newgreencolorful: #64A35C;
 
 .hidden {
     display: none !important;
+}
+
+.borrarpublicacion {
+    display: none;
+    justify-content: center;
+    position: absolute;
+    bottom: 28px;
+    width: 100vw;
+    .borrarbutton {
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        width: 200px;
+        height: 48px;
+        background-color: $soft;
+        border-radius: 20px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+
+}
+
+.borrarseguro {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 50;
+	background: rgba(255, 255, 255, 0.37);
+	box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(4px);
+	-webkit-backdrop-filter: blur(4px);
+	border: 1px solid rgba(255, 255, 255, 0.25);
+    .borrarcontainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        max-width: 100vw;
+        width: 320px;
+        background-color: white;
+        border-radius: 28px;
+		box-shadow: 1px 1px 0.2rem rgb(155, 155, 155);
+        padding: 44px 36px;
+        .borraroptions {
+            display: flex;
+            justify-content: center;
+            width: 300px;
+            margin-top: 28px;
+            .borrarsi {
+                padding: 7px 14px;
+                border-radius: 20px;
+                background-color: $soft;
+                margin-right: 7px;
+		        box-shadow: 1px 1px 0.2rem rgb(155, 155, 155);
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+            .borrarno {
+                padding: 7px 14px;
+                border-radius: 20px;
+                background-color: rgb(255, 255, 255);
+                margin-left: 7px;
+		        box-shadow: 1px 1px 0.2rem rgb(212, 212, 212);
+                &:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+    }
 }

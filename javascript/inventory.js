@@ -72,63 +72,8 @@ displayExploreItem = function(Id) {
 
 window.addEventListener('load', function() {
     displayExploreItem(ID);
+    checkIfUserIsPropietaryToDisplayDeleteOption();
 });
-
-// CASUISTRY FOR NUMBER OF IMAGES
-// function numberOfImagesCSSReworker(numberOfImages) {
-//     numberOfImages = 1;
-//     if (numberOfImages === 1) {
-//         images[0].style.width = '25vw'
-//         images[0].style.height = '25vw'
-//         images[0].style.borderRadius = '0 60px 0 60px'
-//     }
-//     if (numberOfImages === 2) {
-//         images[0].style.width = '500px'
-//         images[0].style.height = '500px'
-//         images[0].style.margin = '20px'
-//         images[0].style.borderRadius = '0 60px 0 0'
-//         images[1].style.width = '500px'
-//         images[1].style.height = '500px'
-//         images[1].style.margin = '20px'
-//         images[1].style.borderRadius = '0 60px 0 0'
-//     }
-//     if (numberOfImages === 3) {
-//         images[0].style.width = '300px'
-//         images[0].style.height = '300px'
-//         images[0].style.margin = '10px'
-//         images[0].style.borderRadius = '0 60px 0 0'
-//         images[1].style.width = '300px'
-//         images[1].style.height = '300px'
-//         images[1].style.margin = '10px'
-//         images[1].style.borderRadius = '0 60px 0 0'
-//         images[2].style.width = '300px'
-//         images[2].style.height = '300px'
-//         images[2].style.margin = '10px'
-//         images[2].style.borderRadius = '0 60px 0 0'
-//     }
-//     if (numberOfImages === 4) {
-//         images[0].style.width = '500px'
-//         images[0].style.height = '500px'
-//         images[0].style.margin = '10px'
-//         images[0].style.borderRadius = '0 60px 0 0'
-//         images[1].style.width = '500px'
-//         images[1].style.height = '500px'
-//         images[1].style.margin = '10px'
-//         images[1].style.borderRadius = '0 60px 0 0'
-//         images[2].style.width = '500px'
-//         images[2].style.height = '500px'
-//         images[2].style.margin = '10px'
-//         images[2].style.borderRadius = '0 60px 0 0'
-//         images[3].style.width = '500px'
-//         images[3].style.height = '500px'
-//         images[3].style.margin = '10px'
-//         images[3].style.borderRadius = '0 60px 0 0'
-//     }
-//     if (numberOfImages === 5) {
-//         // Nothing yet
-//     }
-// }
-
 
 // IMAGE SLIDER LOGIC
 let currentDisplayedImageIndex = 0;
@@ -156,3 +101,34 @@ function updateDisplayedImageFromIndex(index) {
     images[index].classList.remove('hidden')
     counter.innerHTML = `${index+1}/${numberOfImagesGlobal}`
 }
+
+
+// CHECK IF USER IS PROPIETARY
+function checkIfUserIsPropietaryToDisplayDeleteOption() {
+    if (document.querySelector('.usernav').innerHTML === document.querySelector(".contactinfo .mail").innerHTML) {
+        document.querySelector('.borrarpublicacion').style.display = 'flex'
+    }
+}
+
+// DELETE PUBLICACION
+
+const borrarButton = document.querySelector('.borrarbutton')
+const borrarSeguro = document.querySelector('.borrarseguro')
+const borrarSeguroSi = document.querySelector('.borrarsi')
+const borrarSeguroNo = document.querySelector('.borrarno')
+
+
+borrarButton.addEventListener('click', () => {
+    borrarSeguro.style.display = 'flex'
+})
+
+borrarSeguroNo.addEventListener('click', () => {
+    borrarSeguro.style.display = 'none'
+})
+
+borrarSeguroSi.addEventListener('click', () => {
+    firebaseErasePublication(ID).then( output => {
+        alert('Publicación eliminada con éxito!')
+        borrarSeguro.style.display = 'none'
+    })
+})

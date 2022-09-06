@@ -1,16 +1,9 @@
 const animalId = 'perro1239201'
 
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-app.js'
-import { getFirestore, collection, addDoc, getDocs, where, query, limit, } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js'
-import {
-	getStorage,
-	ref,
-	uploadString,
-	getDownloadURL,
-} from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js'
-import {
-	getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail
-} from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js'
+import { getFirestore, collection, addDoc, getDocs, where, query, limit, doc, deleteDoc} from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-firestore.js'
+import { getStorage, ref, uploadString, getDownloadURL, deleteObject } from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-storage.js'
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, signOut, signInWithEmailAndPassword, updateProfile, sendPasswordResetEmail} from 'https://www.gstatic.com/firebasejs/9.9.0/firebase-auth.js'
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -317,3 +310,43 @@ function firebaseGetPicture(imageId, index) {
 // Making fuction global
 export { firebaseGetPicture }
 window.firebaseGetPicture = firebaseGetPicture
+
+// --------------------------------------------------------------- ERASE PUBLICATION
+function firebaseErasePublication(id) {
+	return new Promise(function (resolve, reject) {
+
+		const q = query(
+			collection(db, 'animales'),
+			where('Id', '==', id),
+			limit(1)
+		)
+
+		getDocs(q).then((querySnapshot) => {
+			querySnapshot.forEach((docc) => {
+                console.log(docc.id)
+                const docRef = doc(db, "animales", docc.id);
+                const imageRef0 = ref(storage, `id=${id}img=0`);
+                const imageRef1 = ref(storage, `id=${id}img=1`);
+                const imageRef2 = ref(storage, `id=${id}img=2`);
+                const imageRef3 = ref(storage, `id=${id}img=3`);
+                const imageRef4 = ref(storage, `id=${id}img=4`);
+
+                deleteDoc(docRef)
+                .then(() => {
+                    console.log("Entire Document has been deleted successfully.")
+                    deleteObject(imageRef0).catch()
+                    deleteObject(imageRef1).catch()
+                    deleteObject(imageRef2).catch()
+                    deleteObject(imageRef3).catch()
+                    deleteObject(imageRef4).catch()
+                    resolve()
+                })
+                .catch( (error) => console.log(error))
+			})
+		})
+	})
+}
+
+// Making fuction global
+export { firebaseErasePublication }
+window.firebaseErasePublication = firebaseErasePublication
