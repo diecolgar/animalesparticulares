@@ -66,7 +66,7 @@ especieOptions.forEach(option => {
 
         }
         if (option.classList.contains('rabbits')) {
-            especieSelectableText.innerHTML = 'Conejos'
+            especieSelectableText.innerHTML = 'Roedores'
             especieSelectableIcon.style.backgroundImage = 'url(/images/rabbit_light.svg)'
         }
         if (option.classList.contains('birds')) {
