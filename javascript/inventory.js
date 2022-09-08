@@ -60,7 +60,7 @@ displayExploreItem = function(Id) {
             document.querySelector(".contactinfo .nombre").innerHTML = result.name;
         }
         if (result.email !== 'indefinido') {
-            document.querySelector(".contactinfo .email").innerHTML = result.email;
+            document.querySelector(".contactinfo .mail").innerHTML = result.email;
         }
         checkIfUserIsPropietaryToDisplayDeleteOption()
         document.querySelector(".contactinfo .phone").innerHTML = result.phone;
