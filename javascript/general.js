@@ -10,4 +10,4 @@ const caballos_db = ["mestizo", "akhal-teke", "apaloosa", "araapaloosa", "árabe
 const roedores_db = ["conejo", "cobaya", "capibara", "hamster", "ratón", "rata"];
 const pajaros_db = ["agapornis", "cacatúas", "canarios", "cotorras", "diamante mandarin", "diamantes", "eclectus", "guacamayo", "jilgueros", "loro", "mirlo", "ninfas", "periquito", "periquitos", "ruiseñor", "yaco"]
 const reptiles_db = ["tortuga", "lagarto"]
-const degranja_db = ["cerdo", "oveja", "vaca"]
+const degranja_db = ["cabra", "cerdo", "gallina", "gallo", "oveja", "pato", "vaca", "toro", "ternero", "otro ganado"]
