@@ -443,6 +443,6 @@ validationButtuon.addEventListener('click', () => {
 })
 
 verButton.addEventListener('click', () => {
-    const url = `http://127.0.0.1:5500/inventory.html?${randomId}`
+    const url = `http://animalesparticulares.com/inventory.html?${randomId}`
     verButton.href = url;
 });
