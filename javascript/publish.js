@@ -338,8 +338,8 @@ validationButtuon.addEventListener('click', () => {
   let publish = true;
 
   const publishData = {
-    publishName: '',
-    publishEmail: '',
+    publishName: 'indefinido',
+    publishEmail: 'indefinido',
     publishPhone: '',
     publishEspecie: '',
     publishRaza: '',

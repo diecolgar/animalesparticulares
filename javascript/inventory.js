@@ -56,8 +56,12 @@ displayExploreItem = function(Id) {
         document.querySelector(".description").classList.remove('loading');
 
         // Set contactdata
-        document.querySelector(".contactinfo .nombre").innerHTML = result.name;
-        document.querySelector(".contactinfo .mail").innerHTML = result.email;
+        if (result.name !== 'indefinido') {
+            document.querySelector(".contactinfo .nombre").innerHTML = result.name;
+        }
+        if (result.email !== 'indefinido') {
+            document.querySelector(".contactinfo .email").innerHTML = result.email;
+        }
         checkIfUserIsPropietaryToDisplayDeleteOption()
         document.querySelector(".contactinfo .phone").innerHTML = result.phone;
         // document.querySelector(".description").classList.remove('loading');
