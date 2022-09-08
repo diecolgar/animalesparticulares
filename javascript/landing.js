@@ -165,8 +165,10 @@ window.addEventListener('load', function() {
     displayExploreItem("6514940586", 1);
     displayExploreItem("5067777030", 2);
     displayExploreItem("4923993962", 3);
-    displayExploreItem("2262447875", 4);
-    displayExploreItem("8217688185", 5);
+    displayExploreItem("8120695249", 4);
+    displayExploreItem("4919233007", 5);
+    displayExploreItem("6671840101", 6);
+    displayExploreItem("3070934282", 7);
 });
 
 // Explore onclick event handler
