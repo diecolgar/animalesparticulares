@@ -124,11 +124,19 @@ displayExploreItem = function(Id, desiredItem) {
         const especieIcon = document.querySelectorAll(".exploraicon")[desiredItem];
         especieIcon.style.width = '20%'
         if (result.especie === "perros") {
-            especieIcon.style.backgroundImage = `url('/images/dog_green.svg')`;
+            especieIcon.style.backgroundImage = `url('/images/dog.svg')`;
         } else if (result.especie === "gatos") {
-            especieIcon.style.backgroundImage = `url('/images/cat_green.svg')`;
+            especieIcon.style.backgroundImage = `url('/images/cat.svg')`;
         } else if (result.especie === "caballos") {
             especieIcon.style.backgroundImage = `url('/images/horse.svg')`;
+        } else if (result.especie === "roedores") {
+            especieIcon.style.backgroundImage = `url('/images/rabbit.svg')`;
+        } else if (result.especie === "pajaros") {
+            especieIcon.style.backgroundImage = `url('/images/bird.svg')`;
+        } else if (result.especie === "degranja") {
+            especieIcon.style.backgroundImage = `url('/images/vacas.svg')`;
+        } else if (result.especie === "reptiles") {
+            especieIcon.style.backgroundImage = `url('/images/turtle.svg')`;
         }
 
         // Set title
