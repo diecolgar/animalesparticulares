@@ -63,7 +63,7 @@ onAuthStateChanged(auth, (user) => {
         document.querySelector('.signinnav').classList.remove('displayed')
         document.querySelector('.signout').classList.add('displayed')
 
-        if ((document.URL === 'http://127.0.0.1:5500/publish.html') || (document.URL === 'https://animalesparticulares.app/publish.html') ) {
+        if ((document.URL === 'http://127.0.0.1:5500/publish.html') || (document.URL === 'https://animalesparticulares.com/publish.html') ) {
             firebaseGetUserData().then( (userData) => {
                 document.querySelector(".nombrecontacto .datainput .inputbox").value = userData.displayName;
                 document.querySelector(".nombrecontacto .datainput .inputbox").style.pointerEvents = 'none';

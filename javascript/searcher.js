@@ -315,7 +315,7 @@ function goSearch() {
         // Finally I implement the event handler redirection for clicking any element
         searchedElement.forEach(element => {
             element.addEventListener('click', () => {
-                element.href = `https://animalesparticulares.app/inventory.html?${element.dataset.identifier}`
+                element.href = `https://animalesparticulares.com/inventory.html?${element.dataset.identifier}`
             })
         })
     })
