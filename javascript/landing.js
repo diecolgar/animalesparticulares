@@ -174,7 +174,7 @@ exploraItem.forEach(item => {
     item.addEventListener('click', () => {
         if (item.classList.contains('filled')) {
             const redirectId = item.dataset.identifier;
-            item.href = `https://animalesparticulares.netlify.app/inventory.html?${redirectId}`
+            item.href = `https://animalesparticulares.app/inventory.html?${redirectId}`
         }
     })
 })
@@ -183,8 +183,8 @@ exploraItem.forEach(item => {
 searchButton.addEventListener('click', () => {
     // Handling 'de granja' case
     if (especieSelectableText.innerHTML === 'De Granja') {
-        searchButton.href = `https://animalesparticulares.netlify.app/searcher.html?${'DeGranja'}?${provinciaSelectableText.value}`
+        searchButton.href = `https://animalesparticulares.app/searcher.html?${'DeGranja'}?${provinciaSelectableText.value}`
     } else {
-        searchButton.href = `https://animalesparticulares.netlify.app/searcher.html?${especieSelectableText.innerHTML}?${provinciaSelectableText.value}`
+        searchButton.href = `https://animalesparticulares.app/searcher.html?${especieSelectableText.innerHTML}?${provinciaSelectableText.value}`
     }
 })
