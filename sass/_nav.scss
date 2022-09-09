@@ -13,7 +13,6 @@ nav {
     height: 8vh;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     background-color: white;
     font-weight: 500;
     @media (max-width: 1600px) {
@@ -25,6 +24,8 @@ nav {
         text-decoration: none;
         align-items: center;
         color: black;
+        height: 40px;
+        margin-top: 16px;
         // .logoimage {
         //     height: 5vh;
         //     width: 5vh;
@@ -34,6 +35,7 @@ nav {
         // }
         p {
             color: $newgreenhard;
+            font-size: 14px;
             font-weight: 600;
             letter-spacing: 2px;
             margin: 0;
@@ -41,10 +43,31 @@ nav {
     }
     .navigation {
         display: flex;
+        align-items: center;
+        margin-top: 16px;
+        @media (max-width: 600px) {
+            flex-direction: column;
+            height: 260px;
+            width: 120px;
+            background-color: white;
+            box-shadow: 2px 2px 8px rgb(202, 202, 202);
+            border-radius: 20px 0;
+        }
+        &.closed {
+            width: 40px;
+            height: 40px;
+            .navelement {
+                display: none !important;
+            }
+            .hamburguermenu {
+                display: flex !important;
+            }  
+        }
         .navelement {
             display: none;
             align-items: center;
-            padding: 0 22px;
+            height: 22px;
+            padding: 14px 22px;
             text-decoration: none;
             color: $newgreencolorful;
             font-weight: 600;
@@ -79,10 +102,32 @@ nav {
             }
             &.publicanav {
                 color: white;
+                @media (max-width: 600px) {
+                    background-color: white;
+                    color: $newgreencolorful;
+                    padding: 14px 22px;
+                    margin-left: 0;
+                }
                 background-color: $newgreencolorfulsoft;
                 border-radius: 12px 0 12px 0;
                 padding: 1rem 1.5rem;
                 margin-left: 1rem;
+            }
+            &.hamburguermenu {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 12px 22px;
+                @media (min-width: 600px) {
+                    display: none;  
+                }
+            }
+            .hamburguerbar {
+                width: 18px;
+                height: 2px;
+                background-color: $newgreenhard;
+                margin: 2px 0;
             }
         }
     }

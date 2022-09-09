@@ -1,3 +1,5 @@
+const navContainer = document.querySelector('.navigation')
+
 const loginNav = document.querySelector('.navigation .loginnav')
 const signinNav = document.querySelector('.navigation .signinnav')
 const authWindow = document.querySelector('.authenticationwindow')
@@ -125,4 +127,10 @@ forgotPasswordLink.addEventListener('click', () => {
         }
     })
 
+})
+
+const hamburguerMenu = document.querySelector('.hamburguermenu')
+
+hamburguerMenu.addEventListener('click', () => {
+    navContainer.classList.toggle('closed')
 })

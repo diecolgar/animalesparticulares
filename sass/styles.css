@@ -36,9 +36,6 @@ nav {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   background-color: white;
   font-weight: 500;
 }
@@ -59,10 +56,13 @@ nav .logo {
       -ms-flex-align: center;
           align-items: center;
   color: black;
+  height: 40px;
+  margin-top: 16px;
 }
 
 nav .logo p {
   color: #52694F;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 2px;
   margin: 0;
@@ -72,6 +72,40 @@ nav .navigation {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 16px;
+}
+
+@media (max-width: 600px) {
+  nav .navigation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    height: 260px;
+    width: 120px;
+    background-color: white;
+    -webkit-box-shadow: 2px 2px 8px #cacaca;
+            box-shadow: 2px 2px 8px #cacaca;
+    border-radius: 20px 0;
+  }
+}
+
+nav .navigation.closed {
+  width: 40px;
+  height: 40px;
+}
+
+nav .navigation.closed .navelement {
+  display: none !important;
+}
+
+nav .navigation.closed .hamburguermenu {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
 }
 
 nav .navigation .navelement {
@@ -79,7 +113,8 @@ nav .navigation .navelement {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding: 0 22px;
+  height: 22px;
+  padding: 14px 22px;
   text-decoration: none;
   color: #64A35C;
   font-weight: 600;
@@ -131,6 +166,45 @@ nav .navigation .navelement.publicanav {
   border-radius: 12px 0 12px 0;
   padding: 1rem 1.5rem;
   margin-left: 1rem;
+}
+
+@media (max-width: 600px) {
+  nav .navigation .navelement.publicanav {
+    background-color: white;
+    color: #64A35C;
+    padding: 14px 22px;
+    margin-left: 0;
+  }
+}
+
+nav .navigation .navelement.hamburguermenu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 12px 22px;
+}
+
+@media (min-width: 600px) {
+  nav .navigation .navelement.hamburguermenu {
+    display: none;
+  }
+}
+
+nav .navigation .navelement .hamburguerbar {
+  width: 18px;
+  height: 2px;
+  background-color: #52694F;
+  margin: 2px 0;
 }
 
 .authenticationwindow {
