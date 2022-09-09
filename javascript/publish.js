@@ -423,15 +423,18 @@ validationButtuon.addEventListener('click', () => {
   validationErrorMessage.innerHTML = ''
   
   // PUBLISH SECTION
-  // Publish data in firebase firestore
-  firebasePublishNewAnimal(publishData);
+
 
   // Publish images in firebase storage
   for (let i = 0; i < maxImages; i++) {
     if ((base64imagesString[i] === undefined) || (imageEncoding[i] === undefined)) {
       // Nothing
     } else {
-      firebasePublishPicture(base64imagesString[i], imageEncoding[i]);
+      firebasePublishPicture(base64imagesString[i], imageEncoding[i])
+      .then( () => firebasePublishNewAnimal(publishData) )
+      .catch( (error) => {
+        alert(`Algo ha salido mal. Error recibido: ${error}`)
+      });
     }
   }
   document.querySelector('.validationscreen').style.opacity = '1';

@@ -267,11 +267,17 @@ window.firebasePublishNewAnimal = firebasePublishNewAnimal
 const storage = getStorage(firebase)
 
 function firebasePublishPicture(file, name) {
-	const reference = ref(storage, name)
+    return new Promise(function (resolve, reject) {
+        const reference = ref(storage, name)
 
-	uploadString(reference, file, 'base64').then((snapshot) => {
-		console.log('Uploaded a blob or file!')
-	})
+        uploadString(reference, file, 'base64').then((snapshot) => {
+            console.log('Uploaded a blob or file!')
+            resolve()
+        })
+        .catch( (error) => {
+            reject(error)
+        })
+    })
 }
 
 // Making fuction global
