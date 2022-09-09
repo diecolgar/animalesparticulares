@@ -2427,7 +2427,9 @@ nav .navigation .navelement .hamburguerbar {
       -ms-flex-align: center;
           align-items: center;
   min-width: 48px;
+  width: 48px;
   min-height: 48px;
+  height: 48px;
   margin-right: 8px;
   background-color: #64a35c65;
   border-radius: 50%;
