@@ -153,5 +153,6 @@ borrarSeguroSi.addEventListener('click', () => {
     firebaseErasePublication(ID).then( output => {
         alert('Publicación eliminada con éxito!')
         borrarSeguro.style.display = 'none'
+        window.location.href = `https://animalesparticulares.com/searcher.html`
     })
 })
