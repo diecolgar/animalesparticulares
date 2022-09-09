@@ -77,6 +77,9 @@ const dataDescripcionInput = document.querySelector(".descripcion .datainput .de
 // Ver button
 const verButton = document.querySelector('.ver')
 
+// Loading display
+const loadingScreen = document.querySelector('.loadingscreen')
+
 
 // ---------------------------------------------------------------------------  ESPECIE
 dataEspecieInput.forEach(especie => {
@@ -420,6 +423,8 @@ validationButtuon.addEventListener('click', () => {
     }
   }
   if (publish === true) {
+    loadingScreen.style.opacity = '1'
+    loadingScreen.style.visibility = 'visible'
   validationErrorMessage.innerHTML = ''
   
   // PUBLISH SECTION
@@ -433,6 +438,8 @@ validationButtuon.addEventListener('click', () => {
       .then( () => {
             if ((i+1) === numberOfUploadedImages) {
                 firebasePublishNewAnimal(publishData).then( () => {
+                    loadingScreen.style.opacity = '0'
+                    loadingScreen.style.visibility = 'hidden'
                     document.querySelector('.validationscreen').style.opacity = '1';
                     document.querySelector('.validationscreen').style.visibility = 'visible';
                 })
