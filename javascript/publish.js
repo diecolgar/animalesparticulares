@@ -424,19 +424,17 @@ validationButtuon.addEventListener('click', () => {
   
   // PUBLISH SECTION
 
-    let onlypublishOnce = true;
   // Publish images in firebase storage
-  for (let i = 0; i < maxImages; i++) {
+  for (let i = 0; i < numberOfUploadedImages; i++) {
     if ((base64imagesString[i] === undefined) || (imageEncoding[i] === undefined)) {
-      // Nothing
+        alert(`Algo ha salido mal al subir las imágenes. Inténtalo de nuevo o ponte en contacto con nosotros.`)
     } else {
       firebasePublishPicture(base64imagesString[i], imageEncoding[i])
       .then( () => {
-            if (onlypublishOnce) {
+            if ((i+1) === numberOfUploadedImages) {
                 firebasePublishNewAnimal(publishData).then( () => {
                     document.querySelector('.validationscreen').style.opacity = '1';
                     document.querySelector('.validationscreen').style.visibility = 'visible';
-                    onlypublishOnce = false
                 })
             }
         }
