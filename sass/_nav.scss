@@ -52,17 +52,18 @@ nav {
             background-color: white;
             box-shadow: 2px 2px 8px rgb(202, 202, 202);
             border-radius: 20px 0;
-        }
-        &.closed {
-            width: 40px;
-            height: 40px;
-            .navelement {
-                display: none !important;
+            &.closed {
+                width: 40px;
+                height: 40px;
+                .navelement {
+                    display: none !important;
+                }
+                .hamburguermenu {
+                    display: flex !important;
+                }  
             }
-            .hamburguermenu {
-                display: flex !important;
-            }  
         }
+
         .navelement {
             display: none;
             align-items: center;

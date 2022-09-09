@@ -91,21 +91,18 @@ nav .navigation {
             box-shadow: 2px 2px 8px #cacaca;
     border-radius: 20px 0;
   }
-}
-
-nav .navigation.closed {
-  width: 40px;
-  height: 40px;
-}
-
-nav .navigation.closed .navelement {
-  display: none !important;
-}
-
-nav .navigation.closed .hamburguermenu {
-  display: -webkit-box !important;
-  display: -ms-flexbox !important;
-  display: flex !important;
+  nav .navigation.closed {
+    width: 40px;
+    height: 40px;
+  }
+  nav .navigation.closed .navelement {
+    display: none !important;
+  }
+  nav .navigation.closed .hamburguermenu {
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+  }
 }
 
 nav .navigation .navelement {
