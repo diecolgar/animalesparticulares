@@ -236,26 +236,30 @@ window.firebaseFetchAnimalComplex = firebaseFetchAnimalComplex
 
 // --------------------------------------------------------------- PUBLISH NEW ANIMAL
 function firebasePublishNewAnimal(publishData) {
-	try {
-		const docRef = addDoc(collection(db, 'animales'), {
-            Name: publishData.publishName,
-            Email: publishData.publishEmail,
-            Phone: publishData.publishPhone,
-			Id: publishData.publishId,
-			Especie: publishData.publishEspecie,
-			Raza: publishData.publishRaza,
-			Number: publishData.publishNumber,
-			Age: publishData.publishAge,
-			AgeUom: publishData.publishAgeUom,
-			Provincia: publishData.publishProvincia,
-			Description: publishData.publishDescription,
-			Fecha: publishData.publishDate,
-			NumeroImagenes: publishData.publishImageNumber,
-		})
-		console.log('Document written with ID: ', docRef.id)
-	} catch (e) {
-		console.error('Error adding document: ', e)
-	}
+    return new Promise(function (resolve, reject) {
+
+        try {
+            const docRef = addDoc(collection(db, 'animales'), {
+                Name: publishData.publishName,
+                Email: publishData.publishEmail,
+                Phone: publishData.publishPhone,
+                Id: publishData.publishId,
+                Especie: publishData.publishEspecie,
+                Raza: publishData.publishRaza,
+                Number: publishData.publishNumber,
+                Age: publishData.publishAge,
+                AgeUom: publishData.publishAgeUom,
+                Provincia: publishData.publishProvincia,
+                Description: publishData.publishDescription,
+                Fecha: publishData.publishDate,
+                NumeroImagenes: publishData.publishImageNumber,
+            })
+            console.log('Document written with ID: ', docRef.id)
+            resolve()
+        } catch (e) {
+            console.error('Error adding document: ', e)
+        }
+    })
 }
 
 // Making fuction global
