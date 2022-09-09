@@ -431,14 +431,17 @@ validationButtuon.addEventListener('click', () => {
       // Nothing
     } else {
       firebasePublishPicture(base64imagesString[i], imageEncoding[i])
-      .then( () => firebasePublishNewAnimal(publishData) )
+      .then( () => firebasePublishNewAnimal(publishData).then( () => {
+        document.querySelector('.validationscreen').style.opacity = '1';
+        document.querySelector('.validationscreen').style.visibility = 'visible';
+        
+      }) )
       .catch( (error) => {
         alert(`Algo ha salido mal. Error recibido: ${error}`)
       });
     }
   }
-  document.querySelector('.validationscreen').style.opacity = '1';
-  document.querySelector('.validationscreen').style.visibility = 'visible';
+
 
   } else {
   validationErrorMessage.innerHTML = 'Aún faltan campos por rellenar!';
