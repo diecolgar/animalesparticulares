@@ -94,7 +94,7 @@ dataEspecieInput.forEach(especie => {
 dataGeneroInput.forEach(genero => {
     genero.addEventListener('click', () => {
         dataGeneroInput.forEach(genero2 => {
-            if (!(genero === genero)) {
+            if (!(genero === genero2)) {
                 genero2.classList.remove('active')
             }
         })

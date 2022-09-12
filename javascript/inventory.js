@@ -41,7 +41,7 @@ displayExploreItem = function(Id) {
         if (result.genero === 'macho') {
             document.querySelector(".title .subtitle .gender").style.backgroundImage = `url('/images/maleicon.svg')`
         } else if (result.genero === 'hembra') {
-            document.querySelector(".title .subtitle .gender").style.backgroundImage = `url('/images/maleicon.svg')`
+            document.querySelector(".title .subtitle .gender").style.backgroundImage = `url('/images/femaleicon.svg')`
         }
 
         // Set age
