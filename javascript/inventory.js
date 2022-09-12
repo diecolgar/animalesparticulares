@@ -35,13 +35,14 @@ displayExploreItem = function(Id) {
             especieIcon.style.backgroundImage = `url('/images/vacas.svg')`;
         }
 
-        // Set number
-        if (!(result.number === '1')) {
-            document.querySelector(".title .maintitle .text .number").innerHTML = `(${result.number})`;
-        } else {
-            document.querySelector(".title .maintitle .text .number").innerHTML = '';
+        // Set sex
+        document.querySelector(".title .subtitle .gender").innerHTML = '';
+        document.querySelector(".title .subtitle .gender").classList.remove('loading');
+        if (result.genero === 'macho') {
+            document.querySelector(".title .subtitle .gender").style.backgroundImage = `url('/images/maleicon.svg')`
+        } else if (result.genero === 'hembra') {
+            document.querySelector(".title .subtitle .gender").style.backgroundImage = `url('/images/maleicon.svg')`
         }
-        document.querySelector(".title .maintitle .text .number").classList.remove('loading');
 
         // Set age
         document.querySelector(".title .subtitle .age").innerHTML = `${result.age} ${result.ageUom}`;

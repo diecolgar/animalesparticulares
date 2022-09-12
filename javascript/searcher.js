@@ -288,7 +288,7 @@ function goSearch() {
         const searchedElement = document.querySelectorAll('.searchedelement')
         const searchedImage = document.querySelectorAll('.searchedimage .actualimage')
         const searchedEspecie = document.querySelectorAll('.searchedespecie')
-        const searchedNumber = document.querySelectorAll('.searchednumber')
+        const searchedGenero = document.querySelectorAll('.searchedgender')
         const searchedAge = document.querySelectorAll('.searchedage')
         const searchedLocation = document.querySelectorAll('.searchedlocation')
 
@@ -299,13 +299,11 @@ function goSearch() {
             });
 
             searchedEspecie[i].innerHTML = output[i].raza
-            
-            if (output[i].number === '1') {
-                searchedNumber[i].innerHTML = ''
-             } else {
-                searchedNumber[i].innerHTML = `(${output[i].number})`;
+            if (output[i].genero === 'macho') {
+                searchedGenero[i].style.backgroundImage = 'url(/images/horse.svg)' 
+            } else if (output[i].sex === 'hembra') {
+                searchedGenero[i].innerHTML = `(${output[i].genero})`;
             }
-
             searchedAge[i].innerHTML = `${output[i].age} ${output[i].ageUom}`
             searchedLocation[i].innerHTML = output[i].provincia
 

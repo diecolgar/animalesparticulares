@@ -43,15 +43,8 @@ const dataRazaText = document.querySelector(".raza .datainput .raza .innertext")
 const dataRazaDisplayable = document.querySelector(".raza .datainput .raza .selectable")
 const dataRazaDisplayableOptions = document.querySelectorAll(".raza .datainput .raza .selectable .option")
 
-//Multiples
-const dataMultiplesInput = document.querySelector(".numero .datainput .multiples")
-
-// Cuantos?
-const dataCuantosTitle = document.querySelector(".numero .datainput .cuantos")
-const dataCuantosInput = document.querySelector(".numero .datainput .numero")
-const dataCuantosText = document.querySelector(".numero .datainput .numero .innertext")
-const dataCuantosDisplayable = document.querySelector(".numero .datainput .numero .selectable")
-const dataCuantosDisplayableOptions = document.querySelectorAll(".numero .datainput .numero .selectable .option")
+// Genero
+const dataGeneroInput = document.querySelectorAll(".genero .datainput .genero")
 
 // Edad Numero
 const dataEdadInput = document.querySelector(".edad .datainput .edadnum")
@@ -94,6 +87,18 @@ dataEspecieInput.forEach(especie => {
         dataRazaText.innerHTML = 'Seleccionar...';
         dataRazaText.classList.remove('selected')
         fetchAnimalsPublish(especie.className.split(" ")[2])
+    })
+})
+
+// ---------------------------------------------------------------------------  GENERO
+dataGeneroInput.forEach(genero => {
+    genero.addEventListener('click', () => {
+        dataGeneroInput.forEach(genero2 => {
+            if (!(genero === genero)) {
+                genero2.classList.remove('active')
+            }
+        })
+        genero.classList.toggle('active')
     })
 })
 
@@ -159,18 +164,6 @@ window.addEventListener('click', function(e){
     }
   })
 
-
-// ---------------------------------------------------------------------------  MULTIPLES
-dataMultiplesInput.addEventListener('click', function(e){   
-    dataCuantosInput.classList.toggle('writteable')
-    dataCuantosTitle.classList.toggle('writteable')
-    dataCuantosText.innerHTML = '2'
-    dataCuantosText.classList.add('selected');
-    if (!dataCuantosTitle.classList.contains('writteable')) {
-        dataCuantosText.innerHTML = ''
-        dataCuantosText.classList.remove('selected');
-    }
-  })
 
 
 // ---------------------------------------------------------------------------  NUMERO - CUANTOS
@@ -346,7 +339,7 @@ validationButtuon.addEventListener('click', () => {
     publishPhone: '',
     publishEspecie: '',
     publishRaza: '',
-    publishNumber: '1',
+    publishGenero: 'indefinido',
     publishAge: '',
     publishAgeUom: '',
     publishProvincia: '',
@@ -383,10 +376,12 @@ validationButtuon.addEventListener('click', () => {
       publishData.publishRaza = dataRazaText.innerHTML;
   }
 
-  // Get numero
-  if (!(dataCuantosText.innerHTML === '')) {
-     publishData.publishNumber = dataCuantosText.innerHTML;
-  }
+  // Get genero
+  dataGeneroInput.forEach(genero => {
+    if(genero.classList.contains('active')) {
+      publishData.publishGenero = genero.className.split(' ')[2];
+    }
+  })
 
   // Get edad
   if (!(dataEdadText.innerHTML  === '?')) {

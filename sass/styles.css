@@ -1187,12 +1187,6 @@ nav .navigation .navelement .hamburguerbar {
   }
 }
 
-.publica .maincontainers .datacontainer .datarow.numero .datainput {
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
 .publica .maincontainers .datacontainer .datarow.especie {
   margin-bottom: 48px;
 }
@@ -1233,6 +1227,14 @@ nav .navigation .navelement .hamburguerbar {
       flex-wrap: wrap;
 }
 
+.publica .maincontainers .datacontainer .datarow .datainput.genero {
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1256,7 +1258,7 @@ nav .navigation .navelement .hamburguerbar {
   background-size: 25px 25px;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 4px 8px;
+  margin: 0 8px 8px 8px;
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie.perros {
@@ -1292,8 +1294,6 @@ nav .navigation .navelement .hamburguerbar {
 }
 
 .publica .maincontainers .datacontainer .datarow .datainput .inputbox.especie.active {
-  -webkit-box-shadow: 0 0 2px 1px #5dd666;
-          box-shadow: 0 0 2px 1px #5dd666;
   background-color: #c0ecc4;
 }
 
@@ -1310,26 +1310,9 @@ nav .navigation .navelement .hamburguerbar {
   color: #bebebe;
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.multiples {
-  width: 20px;
-  height: 20px;
-  margin-right: 15%;
-  border-radius: 5px;
-  -webkit-appearance: none;
-}
-
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.multiples:hover {
-  cursor: pointer;
-}
-
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.multiples:checked {
-  background-color: #c0ecc4;
-  -webkit-box-shadow: 0 0 1px 2px #5dd666;
-          box-shadow: 0 0 1px 2px #5dd666;
-}
-
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.numero {
-  width: 25%;
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.genero {
+  width: 40px;
+  margin: 0 8px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1339,11 +1322,16 @@ nav .navigation .navelement .hamburguerbar {
   color: #dfdfdf;
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.numero.writteable {
-  color: #4ca852;
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.genero svg {
+  width: 70%;
+  height: 70%;
 }
 
-.publica .maincontainers .datacontainer .datarow .datainput .inputbox.numero.writteable:hover {
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.genero.active {
+  background-color: #c0ecc4;
+}
+
+.publica .maincontainers .datacontainer .datarow .datainput .inputbox.genero:hover {
   cursor: pointer;
 }
 
@@ -1899,9 +1887,9 @@ nav .navigation .navelement .hamburguerbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: top;
+      -ms-flex-align: top;
+          align-items: top;
   font-size: calc(min(8vw, 4.8rem));
 }
 
@@ -1912,6 +1900,7 @@ nav .navigation .navelement .hamburguerbar {
   height: 4.2rem;
   background-position: center;
   background-size: cover;
+  margin-top: 0.8rem;
 }
 
 .inventory .inventorydata .title .maintitle .text {
@@ -1923,19 +1912,6 @@ nav .navigation .navelement .hamburguerbar {
 
 .inventory .inventorydata .title .maintitle .text .especie {
   font-weight: 500;
-}
-
-.inventory .inventorydata .title .maintitle .text .number {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  text-align: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  font-size: 2.4rem;
-  font-weight: 500;
-  margin-left: 2rem;
 }
 
 .inventory .inventorydata .title .subtitle {
@@ -1963,6 +1939,21 @@ nav .navigation .navelement .hamburguerbar {
 
 .inventory .inventorydata .title .subtitle .location {
   margin-left: 1rem;
+}
+
+.inventory .inventorydata .title .subtitle .gender {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 3rem;
+  height: 3rem;
+  margin-left: 1rem;
+  background-position: center;
+  background-size: cover;
 }
 
 .inventory .inventorydata .information {
@@ -2658,7 +2649,7 @@ nav .navigation .navelement .hamburguerbar {
   margin-bottom: 4px;
 }
 
-.busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .searchednumber, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .separator, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .searchedlocation, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .searchednumber, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .separator, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .searchedlocation {
+.busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .searchedgenero, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .separator, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .searchedlocation, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .searchedgenero, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .separator, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .searchedlocation {
   margin-left: 12px;
 }
 

@@ -143,13 +143,13 @@ displayExploreItem = function(Id, desiredItem) {
         document.querySelectorAll(".exploratitulo")[desiredItem].innerHTML = result.raza;
         document.querySelectorAll(".exploratitulo")[desiredItem].classList.remove('loadingStyle')
 
-        // Set number
-        if (!(result.number === '1')) {
-            document.querySelectorAll(".exploranumber")[desiredItem].innerHTML = `(${result.number})`;
+        // Set genero
+        if ((result.genero === '1')) {
+            document.querySelectorAll(".exploragender")[desiredItem].innerHTML = `(${result.genero})`;
         } else {
-            document.querySelectorAll(".exploranumber")[desiredItem].innerHTML = '';
+            document.querySelectorAll(".exploragender")[desiredItem].innerHTML = '';
         }
-        document.querySelectorAll(".exploranumber")[desiredItem].classList.remove('loadingStyle')
+        document.querySelectorAll(".exploragender")[desiredItem].classList.remove('loadingStyle')
         
         // Set separator
         document.querySelectorAll(".separator")[desiredItem].classList.remove('loadingStyle')
