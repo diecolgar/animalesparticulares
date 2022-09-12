@@ -165,26 +165,6 @@ window.addEventListener('click', function(e){
   })
 
 
-
-// ---------------------------------------------------------------------------  NUMERO - CUANTOS
-window.addEventListener('click', function(e){   
-    if (dataCuantosInput.contains(e.target) && dataCuantosInput.classList.contains('writteable')){
-      // Clicked in box
-      dataCuantosDisplayable.classList.toggle('displayed');
-    } else{
-      // Clicked outside the box
-      dataCuantosDisplayable.classList.remove('displayed');
-    }
-  })
-
-dataCuantosDisplayableOptions.forEach(option => {
-option.addEventListener('click', () => {
-    dataCuantosText.innerHTML = option.innerHTML
-    dataCuantosText.classList.add('selected');
-})
-})
-
-
 // ---------------------------------------------------------------------------  EDAD NUMERO
 window.addEventListener('click', function(e){   
 if (dataEdadInput.contains(e.target)){
