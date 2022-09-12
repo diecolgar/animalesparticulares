@@ -263,7 +263,7 @@ $newgreencolorfulsofter: #e2eee1;
                 .searchedtitle, .searchedsubtitle {
                     display: flex;
                     margin-bottom: 4px;
-                    .searchedgenero, .separator, .searchedlocation {
+                    .searchedgender, .separator, .searchedlocation {
                         margin-left: 12px;
                     }
                 }
@@ -276,6 +276,12 @@ $newgreencolorfulsofter: #e2eee1;
                         height: 4px;
                         background-color: $newgreencolorful;
                         border-radius: 50%;
+                    }
+                    .searchedgender {
+                        width: 2rem;
+                        height: 2rem;
+                        background-position: center;
+                        background-size: cover;
                     }
                 }
             }

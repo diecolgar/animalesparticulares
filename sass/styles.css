@@ -2649,7 +2649,7 @@ nav .navigation .navelement .hamburguerbar {
   margin-bottom: 4px;
 }
 
-.busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .searchedgenero, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .separator, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .searchedlocation, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .searchedgenero, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .separator, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .searchedlocation {
+.busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .searchedgender, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .separator, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedtitle .searchedlocation, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .searchedgender, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .separator, .busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .searchedlocation {
   margin-left: 12px;
 }
 
@@ -2668,6 +2668,13 @@ nav .navigation .navelement .hamburguerbar {
   height: 4px;
   background-color: #64A35C;
   border-radius: 50%;
+}
+
+.busquedasearcher .searchedresults .searchedelement .searchedinfo .searchedsubtitle .searchedgender {
+  width: 2rem;
+  height: 2rem;
+  background-position: center;
+  background-size: cover;
 }
 
 .busquedasearcher .searchedresults .searchedelement:hover {

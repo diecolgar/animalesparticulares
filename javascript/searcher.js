@@ -291,6 +291,7 @@ function goSearch() {
         const searchedGenero = document.querySelectorAll('.searchedgender')
         const searchedAge = document.querySelectorAll('.searchedage')
         const searchedLocation = document.querySelectorAll('.searchedlocation')
+        const searchedSeparator = document.querySelectorAll('.separatortwo')
 
         for (let i = 0; i < output.length; i++) {
             // And here for each element I get its corresponding picture and information
@@ -300,9 +301,11 @@ function goSearch() {
 
             searchedEspecie[i].innerHTML = output[i].raza
             if (output[i].genero === 'macho') {
-                searchedGenero[i].style.backgroundImage = 'url(/images/horse.svg)' 
+                searchedGenero[i].style.backgroundImage = 'url(/images/maleicon.svg)' 
             } else if (output[i].sex === 'hembra') {
-                searchedGenero[i].innerHTML = `(${output[i].genero})`;
+                searchedGenero[i].style.backgroundImage = 'url(/images/femaleicon.svg)' 
+            } else {
+                searchedSeparator[i].style.display = 'none'
             }
             searchedAge[i].innerHTML = `${output[i].age} ${output[i].ageUom}`
             searchedLocation[i].innerHTML = output[i].provincia
