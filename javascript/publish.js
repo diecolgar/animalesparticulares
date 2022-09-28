@@ -434,6 +434,6 @@ validationButtuon.addEventListener('click', () => {
 })
 
 verButton.addEventListener('click', () => {
-    const url = `http://animalesparticulares.com/inventory.html?${randomId}`
+    const url = `http://animalesparticulares.com/inventory?${randomId}`
     verButton.href = url;
 });
